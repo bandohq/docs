@@ -4,6 +4,8 @@
 
 ## Getting Started
 
+* [Page](getting-started/page/README.md)
+  * [Page 1](getting-started/page/page-1.md)
 * [Quickstart](getting-started/quickstart.md)
 * [Publish your docs](getting-started/publish-your-docs.md)
 
