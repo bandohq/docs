@@ -1,7 +1,11 @@
+---
+description: 'The web3 spending protocol explained.'
+---
+
 # Protocol Architecture
 
 
-## C4 context
+## Bando System Context 
 
 ```mermaid
     C4Context
