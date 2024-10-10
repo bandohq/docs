@@ -1,9 +1,7 @@
 ---
-cover: https://gitbookio.github.io/onboarding-template-images/header.png
-coverY: 0
 layout:
   cover:
-    visible: true
+    visible: false
     size: full
   title:
     visible: true
@@ -17,16 +15,15 @@ layout:
     visible: true
 ---
 
-# Welcome
+# The Bando Fulfillment Protocol
 
-Welcome to the GitBook Starter Template! Here you'll get an overview of all the amazing features GitBook offers to help you build beautiful, interactive documentation.
+The Bando Fulfillment Protocol is a Layer 3 protocol that enables spending for the web3 ecosystem via giftcards, airtime topups, bill payments, in-game articles, digital items and any other sort of “fulfillable” product or service. It does it with the following moving parts:
 
-You'll see some of the best parts of GitBook in action — and find help on how you can turn this template into your own.
+- On chain Protocol:
+Starting with the EVM, we will write a set of smart contracts that register and route user’s spend requests to the corresponding fulfiller to make the request whole.
+- Off-chain Fulfillers:
+Whitelisted entities that can fulfill user’s requests across one or many products and services.
 
-{% content-ref url="https://app.gitbook.com/o/pb7V0Z8149r2xbtXy2W7/snippet/21106" %}
-[?](https://app.gitbook.com/o/pb7V0Z8149r2xbtXy2W7/snippet/21106)
-{% endcontent-ref %}
+### Start Integrating
 
-### Jump right in
-
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Getting Started</strong></td><td>Create your first site</td><td><a href=".gitbook/assets/1.png">1.png</a></td><td></td><td><a href="getting-started/quickstart.md">quickstart.md</a></td></tr><tr><td><strong>Basics</strong></td><td>Learn the basics of GitBook</td><td><a href=".gitbook/assets/2.png">2.png</a></td><td></td><td><a href="broken-reference">Broken link</a></td></tr><tr><td><strong>Publish your docs</strong></td><td>Share your docs online</td><td><a href=".gitbook/assets/3.png">3.png</a></td><td></td><td><a href="getting-started/publish-your-docs.md">publish-your-docs.md</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Quickstart</strong></td><td>Gey familiar with our protocol</td><td><a href=".gitbook/assets/1.png">1.png</a></td><td></td><td><a href="overview/architecture.md">architecture.md</a></td></tr><tr><td><strong>Bando Fulfiller API</strong></td><td>The power of thousands of products for your product</td><td><a href=".gitbook/assets/2.png">2.png</a></td><td></td><td><a href="bando-api/README.md">Fulfiller api</a></td></tr><tr><td><strong>Bando Spend Widget</strong></td><td>Enable spending in minutes</td><td><a href=".gitbook/assets/3.png">3.png</a></td><td></td><td><a href="widget/README.md">publish-your-docs.md</a></td></tr></tbody></table>
