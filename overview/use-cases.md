@@ -1,7 +1,10 @@
+---
+description: 'Learn what you can build with the Bando Fulfillment Protocol.'
+---
 
 # Use Cases for the Bando Fulfillment Protocol
 
-Hey there! Let's dive into the juicy stuff – the use cases for the Bando Fulfillment Protocol. This protocol is all about making it easy for users to spend their crypto on real-world goods and services. Here are some scenarios where this tech shines:
+Let's dive into the juicy stuff – the use cases for the Bando Fulfillment Protocol. This protocol is all about making it easy for users to spend their crypto on real-world goods and services. Here are some scenarios where this tech shines:
 
 ### 1. **Enable the spending use case in your application**
 The Bando Fulfillment Protocol enables spending for the web3 ecosystem via gift cards, airtime top-ups, bill payments, in-game items, digital goods, and any other fulfillable product or service. It does this with a set of smart contracts that register and route user spend requests to the corresponding fulfiller to make the request whole.

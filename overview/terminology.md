@@ -1,5 +1,5 @@
 ---
-description: 'The Bando Fulfillment Protocol uses the following terminology:'
+description: 'The Bando Fulfillment Protocol uses the following terminology.'
 ---
 
 # Used Language
