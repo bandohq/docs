@@ -12,6 +12,7 @@ Right after the funds have been transferred to the Bando Escrow contract, the re
 3. Once the FuP has responded, the fulfiller MUST submit a Fulfillment Result to the on-chain protocol. This is done submitting a result via the Bando Manager contract.
 4. Once the result submission is stored in the contract. The user can now see the submission metadata.
 
+```mermaid
 sequenceDiagram
 		box cyan smart contracts
 		    participant Router as BandoRouter
@@ -30,3 +31,4 @@ sequenceDiagram
     Fulfiller->>Manager: Submit Fulfillment Result
     Manager->>Manager: Store result
     Note over Manager: User can now see submission metadata
+```

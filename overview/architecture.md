@@ -72,6 +72,7 @@ description: 'The web3 spending protocol explained.'
 
 ## Bando Fulfillment Process
 
+```mermaid
 sequenceDiagram
     autonumber
     actor User
@@ -131,6 +132,7 @@ sequenceDiagram
     Bando Fulfiller->>BandoManagerContract: Register fulfillment result
     end
     end
+```
 
 <table data-view="cards">
   <thead>
@@ -140,16 +142,16 @@ sequenceDiagram
   </thead>
   <tbody>
     <tr>
-      <td><strong>Payment Refs</strong></td><td>How the BFP validate payments</td><td></td><td></td><td><a href="overview/payment-reference-validation.md">payment-reference-validation.md</a></td>
+      <td><strong>Payment Refs</strong></td><td>How the BFP validate payments</td><td></td><td></td><td><a href="payment-reference-validation.md">payment-reference-validation.md</a></td>
     </tr>
     <tr>
-      <td><strong>Request a payment</strong></td><td>How the BFP routes payments</td><td></td><td></td><td><a href="overview/order-request.md">order-request</a></td>
+      <td><strong>Request a payment</strong></td><td>How the BFP routes payments</td><td></td><td></td><td><a href="order-request.md">order-request</a></td>
     </tr>
     <tr>
-      <td><strong>Completing orders</strong></td><td>How the BFP make the requests whole</td><td></td><td></td><td><a href="overview/order-fulfillment.md">order-fulfillment</a></td>
+      <td><strong>Completing orders</strong></td><td>How the BFP make the requests whole</td><td></td><td></td><td><a href="order-fulfillment.md">order-fulfillment</a></td>
     </tr>
     <tr>
-      <td><strong>Emitting refunds</strong></td><td>How the BFP authorizes and sends refunds</td><td></td><td></td><td><a href="overview/refunds.md">refunds</a></td>
+      <td><strong>Emitting refunds</strong></td><td>How the BFP authorizes and sends refunds</td><td></td><td></td><td><a href="refunds.md">refunds</a></td>
     </tr>
   </tbody>
 </table>

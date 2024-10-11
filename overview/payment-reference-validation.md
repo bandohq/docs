@@ -18,6 +18,7 @@ The payment references are sensitive in nature because they can potentially iden
 4. Once verified, the reference is stored securely off-chain, and a random identifier is generated
 5. The random identifier is then submitted to the `**Reference Registry**` smart contract on-chain, which holds every validated reference known to the protocol.
 
+```mermaid
 sequenceDiagram
     actor User
     participant Frontend
@@ -32,6 +33,7 @@ sequenceDiagram
     Backend->>RefRegistry: Submit random identifier
     RefRegistry->>RefRegistry: Store validated reference identifier
     Backend-->>Frontend: Respond with validation result
+```
 
 ### Accepting/Rejecting a payment reference
 
