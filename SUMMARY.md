@@ -4,14 +4,14 @@
 
 ## Overview
 
-* [Enabling spending in web3](overview/README.md)
-* [Used Language](overview/terminology.md)
+* [Enabling Spending in Web3](overview/README.md)
+* [Useful Terms](overview/terminology.md)
 * [Protocol Architecture](overview/architecture.md)
+  * [Payment Reference Validation](overview/payment-reference-validation.md)
+  * [Order Request](overview/order-request.md)
+  * [Order Fulfillment](overview/order-fulfillment.md)
+  * [Refunds](overview/refunds.md)
 * [Use Cases](overview/use-cases.md)
-* [Payment Reference Validation](overview/payment-reference-validation.md)
-* [Order Request](overview/payment-reference-validation.md)
-* [Order Fulfillment](overview/payment-reference-validation.md)
-* [Protocol Management](overview/payment-reference-validation.md)
 
 ## Fulfiller API
 
