@@ -16,6 +16,7 @@ The Bando Router Contract is a smart contract responsible for routing the user's
 4. The router contract then emits a ServiceRequested event with the necessary data
 5. Once the funds for the request are in the corresponding Escrow contract, the fulfiller is notified and becomes responsible for processing the product or service request and fulfilling the user's request off-chain
 
+```mermaid
 sequenceDiagram
     actor User
     box cyan smart contracts
@@ -34,3 +35,4 @@ sequenceDiagram
     BandoRouter->>BandoRouter: Emit ServiceRequested event
     Fulfiller->>BandoEscrow: Monitor for funds
     Fulfiller->>Fulfiller: Process request off-chain
+```
