@@ -1,28 +1,27 @@
 ---
+description: Enabling a new use-case for the web3 ecosystem.
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
-# 🖖 Welcome
+# The Web3 Spending Protocol
 
-The Bando Fulfillment Protocol is a Layer 3 protocol that enables spending for the web3 ecosystem via giftcards, airtime topups, bill payments, in-game articles, digital items and any other sort of “fulfillable” product or service. It does it with the following moving parts:
+It's been hard to spend your tokens.&#x20;
 
-* On chain Protocol: Starting with the EVM, we will write a set of smart contracts that register and route user’s spend requests to the corresponding fulfiller to make the request whole.
-* Off-chain Fulfillers: Whitelisted entities that can fulfill user’s requests across one or many products and services.
+Our protocol is about enabling an easy and seamless way for  web3 users to spend via gift cards, airtime top-ups, bill payments, in-game items, digital goods, and any other fulfillable product or service. We do this with a set of smart contracts that register and route user spend requests to the corresponding fulfiller to make the request whole.
 
-### Start Integrating
+## Deep Dive Into Our Solution
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Quickstart</strong></td><td>Get familiar with our protocol</td><td></td><td></td><td><a href="overview/architecture.md">architecture.md</a></td></tr><tr><td><strong>Bando Fulfiller API</strong></td><td>The power of thousands of products for your product</td><td></td><td></td><td><a href="bando-api/">bando-api</a></td></tr><tr><td><strong>Bando Spend Widget</strong></td><td>Enable spending in minutes</td><td></td><td></td><td><a href="widget/">widget</a></td></tr></tbody></table>
+* [Protocol Architecture](overview/overview/architecture.md): Know how the protocol works
+* [Use Cases](overview/overview/use-cases.md): The power of thousands of products for your product
+* [Terminology](overview/overview/terminology.md): Get familiar with our protocol
+
+## Start Integrating
+
+* [Get started with the API](overview/bando-api/): The power of thousands of products for your product
+* [Authentication](overview/bando-api/authentication.md): Enable spending in minutes
+* [Guides](overview/basics/editor.md): Enable spending in minutes
+  * [Get Available Products](overview/bando-api/tutorials/catalog.md): Enable spending in minutes
+  * [Get a Payment Reference](overview/bando-api/tutorials/refs.md): Enable spending in minutes
+  * [Validate a payment reference](overview/bando-api/tutorials/validate.md): Enable spending in minutes
+  * [Get a Quote](overview/bando-api/tutorials/quote.md): Enable spending in minutess
+
