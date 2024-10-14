@@ -1,2 +1,0 @@
-# Validate a payment reference
-

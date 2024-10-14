@@ -1,2 +1,0 @@
-# Get a Payment Reference
-
