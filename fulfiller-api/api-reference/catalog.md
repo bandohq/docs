@@ -43,6 +43,6 @@ sequenceDiagram
 
 ### Endpoint
 
-{% swagger src="./bfp_v1.json" path="/products" method="get" expanded="true" %} 
-[openapi.json](./openapi.json) 
+{% swagger src="/bfp_v1.json" path="/products" method="get" expanded="true" %} 
+[bfp_v1.json](/bfp_v1.json) 
 {% endswagger %}
