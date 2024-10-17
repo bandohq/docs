@@ -2,9 +2,6 @@
 
 ## 1. Overview
 
-This document outlines the design and implementation of the Fiat-to-Digital Asset Conversion API.  
-The API facilitates converting fiat currencies to digital assets and returns a quoted amount based on   
-current exchange rates. It supports configurable spreads and multiple external providers for FX and crypto pricing.
 
 ## 2. Objectives
 
@@ -46,35 +43,6 @@ sequenceDiagram
 
 ### Endpoint
 
-- **URL**: `/api/v1/quotes/`
-- **Method**: `POST`
-
-### Request Body
-
-```json
-{
-  "fiat_currency": "string",
-  "digital_asset": "string",
-  "sku": "string"
-}
-```
-
-* **fiat_currency**: ISO 4217 code for the fiat currency (e.g., "USD").
-* **digital_asset**: Digital asset for conversion (e.g., "USDC").
-* **sku**: Product identifier.
-
-Response Body
-```json
-{
-  "fiat_currency": "string",
-  "fiat_amount": "string",
-  "digital_asset": "string",
-  "digital_asset_amount": "string",
-  "sku": "string"
-}
-```
-* **fiat_currency**: The fiat currency used.
-* **fiat_amount**: The amount in fiat currency.
-* **digital_asset**: The digital asset converted to.
-* **digital_asset_amount**: The quoted amount in the digital asset.
-* **sku**: Product identifier.
+{% swagger src="./bfp_v1.json" path="/products" method="get" expanded="true" %} 
+[openapi.json](./openapi.json) 
+{% endswagger %}
