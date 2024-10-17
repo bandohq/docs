@@ -4,40 +4,13 @@
 
 ### Endpoints
 
-#### 1. Create or Validate a Reference
+### Endpoint
 
-- **URL**: `/api/v1/references/`
-- **Method**: `POST`
+{% swagger src="/bfp_v1.json" path="/references" expanded="true" %} 
+[bfp_v1.json](/bfp_v1.json) 
+{% endswagger %}
 
-##### Request Body
 
-```json
-{
-  "sku": "string",
-  "reference": "string"
-}
-```
-
-sku: Product identifier used to find the associated product.
-reference: The payment reference that needs validation.
-
-**Response Body**
-```json
-
-{
-  "error": "",
-  "message": "Reference validated successfully.",
-  "data": {
-    "reference": "string",
-    "reference_type": "string",
-    "status": "string",
-    "reference_required_fields": {
-      "field_name_1": "value_1",
-      "field_name_2": "value_2"
-    }
-  }
-}
-```
 * **error**: Error message if any, otherwise an empty string.
 * **message**: Status message indicating the result of the operation.
 * **data**: Contains the validated reference information:
