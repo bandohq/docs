@@ -1,0 +1,588 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Bando Fulfillment Protocol REST API",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Bando Support",
+      "email": "devs@bando.cool",
+      "url": "https://developers.bando.cool"
+    },
+    "description": ""
+  },
+  "servers": [
+    {
+      "url": "https://api.bando.cool/v1"
+    }
+  ],
+  "tags": [
+  ],
+  "paths": {
+    "/products": {
+      "get": {
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get list of existing products",
+        "parameters": [
+          {
+            "name": "page_number",
+            "in": "query",
+            "description": "Page number (starts from 1)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "description": "Page size (number of items per page)",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "brand",
+            "in": "query",
+            "description": "Brand to filter"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "country",
+            "in": "query",
+            "description": "2 letter ISO code for the destination country to filter"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "type",
+            "in": "query",
+            "description": "Product type to filter"
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "subType",
+            "in": "query",
+            "description": "Offer subtype to filter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ProductsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - API Token Missing or Unrecognized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - IP Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/references": {
+      "post": {
+        "tags": [
+          "References"
+        ],
+        "summary": "Create a new validated reference",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/dto.CreateValidatedReference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Reference created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ValidatedReference"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "References"
+        ],
+        "summary": "Retrieve validated references",
+        "parameters": [
+          {
+            "name": "validation_id",
+            "in": "query",
+            "description": "Validation ID to filter references",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get validated reference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/dto.ValidatedReference"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/quotes": {
+      "post": {
+        "tags": [
+          "Quotes"
+        ],
+        "summary": "Get a conversion quote for fiat to digital assets",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/dto.CreateQuote"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Quote retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.Quote"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "dto.ProductsResponse": {
+        "type": "object",
+        "description": "Catalog response for product searches",
+        "properties": {
+          "totalItems": {
+            "type": "integer",
+            "description": "Total number of products"
+          },
+          "totalPages": {
+            "type": "integer",
+            "description": "Total number of pages"
+          },
+          "currentPage": {
+            "type": "integer",
+            "description": "Current page"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/dto.Esim"
+                },
+                {
+                  "$ref": "#/components/schemas/dto.Topup"
+                },
+                {
+                  "$ref": "#/components/schemas/dto.GiftCard"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "dto.Product": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "productType"
+        },
+        "properties": {
+          "brand": {
+            "description": "Brand of product",
+            "type": "string"
+          },
+          "country": {
+            "description": "Destination country for products",
+            "type": "string"
+          },
+          "notes": {
+            "description": "Notes included about the product",
+            "type": "string"
+          },
+          "sku": {
+            "description": "Catalog SKU of the product",
+            "type": "string"
+          },
+          "price": {
+            "description": "Price to customer",
+            "$ref": "#/components/schemas/dto.Price"
+          },
+          "productType": {
+            "description": "Product type",
+            "type": "string"
+          },
+          "shortNotes": {
+            "description": "Short notes for product",
+            "type": "string"
+          },
+          "subTypes": {
+            "description": "Product subtypes",
+            "type": "array",
+            "items": {
+              "description": "Subtype entry",
+              "type": "string"
+            }
+          }
+        }
+      },
+      "dto.MobileData": {
+        "type": "object",
+        "description": "Mobile Data type Product",
+        "properties": {
+          "dataGB": {
+            "description": "Amount of data included (0 when data is unlimited)",
+            "type": "integer"
+          },
+          "dataSpeeds": {
+            "description": "Available data speeds for destination",
+            "type": "array",
+            "items": {
+              "description": "Data speed entries",
+              "type": "string"
+            }
+          },
+          "dataUnlimited": {
+            "description": "Flag for unlimited data",
+            "type": "boolean"
+          },
+          "durationDays": {
+            "description": "Duration of the offer in days",
+            "type": "integer"
+          },
+          "smsNumber": {
+            "description": "Included SMS messages (0 when unlimited or not included, check smsUnlimited flag)",
+            "type": "integer"
+          },
+          "smsUnlimited": {
+            "description": "Flag whether SMS messaging is unlimited for offer",
+            "type": "boolean"
+          },
+          "voiceMinutes": {
+            "description": "Voice minutes included (0 when unlimited or not included, check voiceUnlimited Flag)",
+            "type": "integer"
+          },
+          "voiceUnlimited": {
+            "description": "Flag whether voice minutes are unlimited for the offer",
+            "type": "boolean"
+          }
+        }
+      },
+      "dto.SendPriceData": {
+        "type": "object",
+        "description": "",
+        "properties": {
+          "send_currency": {
+            "description": "Currency for the value",
+            "type": "string"
+          },
+          "send_price": {
+            "description": "Price in string to prevent lose precision",
+            "type": "string"
+          }
+        }
+      },
+      "dto.Esim": {
+        "type": "object",
+        "description": "esim Product",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/dto.Product"
+          },
+          {
+            "$ref": "#/components/schemas/dto.MobileData"
+          },
+          {
+            "properties": {
+              "roamingCountryIso2": {
+                "description": "2 letter ISO country code",
+                "type": "string"
+              },
+              "roamingDataSpeeds": {
+                "description": "Available data speeds for destination",
+                "type": "array",
+                "items": {
+                  "description": "Data speed entries",
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "dto.Topup": {
+        "type": "object",
+        "description": "esim Product",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/dto.Product"
+          },
+          {
+            "$ref": "#/components/schemas/dto.MobileData"
+          },
+          {
+            "$ref": "#/components/schemas/dto.SendPriceData"
+          }
+        ]
+      },
+      "dto.GiftCard": {
+        "type": "object",
+        "description": "Gift Card Product",
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/dto.Product"
+          },
+          {
+            "$ref": "#/components/schemas/dto.SendPriceData"
+          }
+        ]
+      },
+      "dto.Price": {
+        "type": "object",
+        "description": "Pricing for product",
+        "properties": {
+          "fiat_currency": {
+            "description": "Price in FIAT currency",
+            "type": "string"
+          },
+          "fiat_value": {
+            "description": "Price for the product in FIAT, in a string value to prevent lost precision",
+            "type": "string"
+          },
+          "stable_coin_currency": {
+            "description": "Price in a cripto stable coin like USDC or USDT",
+            "type": "string"
+          },
+          "stable_coin_value": {
+            "description": "Price for the product in stable coin, in a string value to prevent lost precision",
+            "type": "string"
+          }
+        }
+      },
+      "dto.ResponseError": {
+        "description": "API error responses",
+        "type": "object",
+        "properties": {
+          "errorCode": {
+            "description": "Error code for the error",
+            "type": "string"
+          },
+          "fields": {
+            "description": "Supplemental information about fields in error (when available)",
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "message": {
+            "description": "Detail message for the error",
+            "type": "string"
+          }
+        }
+      },
+      "regions": {
+        "description": "List of available regions",
+        "type": "string",
+        "enum": [
+          "Global",
+          "Africa",
+          "Asia",
+          "Caribbean",
+          "Central America",
+          "Eastern Europe",
+          "Western Europe",
+          "North America",
+          "Oceania",
+          "South America",
+          "South Asia",
+          "Southeast Asia",
+          "Middle East and North Africa"
+        ]
+      },
+      "dto.CreateValidatedReference": {
+        "type": "object",
+        "required": ["sku"],
+        "properties": {
+          "reference": {
+            "type": "string",
+            "description": "User-provided reference (e.g., phone number, email)"
+          },
+          "reference_required_fields": {
+            "type": "object",
+            "description": "Required fields for validating the reference"
+          },
+          "sku": {
+            "type": "string",
+            "description": "SKU related to the reference"
+          }
+        }
+      },
+      "dto.ValidatedReference": {
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": "string",
+            "description": "User-provided reference"
+          },
+          "reference_required_fields": {
+            "type": "object",
+            "description": "Fields required to validate the reference"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the reference"
+          },
+          "reference_type": {
+            "type": "string",
+            "description": "Type of reference (e.g., phone number, email)"
+          }
+        }
+      },
+      "dto.CreateQuote": {
+        "type": "object",
+        "required": ["fiat_currency", "digital_asset", "sku"],
+        "properties": {
+          "fiat_currency": {
+            "type": "string",
+            "description": "Fiat currency for request."
+          },
+          "digital_asset": {
+            "type": "string",
+            "description": "Requested stablecoin used for pricing (e.g., USDC)"
+          },
+          "sku": {
+            "type": "string",
+            "description": "Product identifier"
+          }
+        }
+      },
+      "dto.Quote": {
+
+        "type": "object",
+        "properties": {
+        "fiat_currency": {
+          "type": "string",
+          "description": "Local fiat currency for product pricing."
+        },
+        "fiat_amount": {
+          "type": "string",
+          "description": "Price in fiat currency"
+        },
+        "digital_asset": {
+          "type": "string",
+          "description": "Requested stablecoin used for pricing (e.g., USDC)"
+        },
+        "digital_asset_amount": {
+          "type": "string",
+          "description": "Product price in digital asset"
+        },
+          "sku": {
+            "type": "string",
+            "description": "Product sku"
+          }
+      }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "TOKEN",
+        "description": "Authentication: Bearer YOUR_API_KEY"
+      }
+    }
+  }
