@@ -4,7 +4,12 @@
 
 ### Endpoints
 
+
 {% swagger src="/bfp_v1.json" path="/references" method="post" expanded="true" %} 
+[bfp_v1.json](/bfp_v1.json) 
+{% endswagger %}
+
+{% swagger src="/bfp_v1.json" path="/references" method="get" expanded="true" %} 
 [bfp_v1.json](/bfp_v1.json) 
 {% endswagger %}
 
