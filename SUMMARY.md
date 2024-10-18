@@ -2,7 +2,7 @@
 
 ## Overview
 
-* [The Web3 Spending Protocol](README.md)
+* [The On-chain Spending Protocol](README.md)
 * [Quickstart](overview/overview-1.md)
 * [Useful Words](overview/terminology.md)
 * [Use Cases](overview/use-cases.md)
