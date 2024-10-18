@@ -68,7 +68,7 @@ require(_manager == msg.sender, "Caller is not the manager");
 
 {% hint style="warning" %}
 The best way to check the invariants across the whole contract suite is to run\
-`npx run coverage` on the repo to run all integration test cases.
+`yarn hardhat coverage` on the repo to run all integration test cases.
 {% endhint %}
 
 Below we enlist the main higher level invariants:

@@ -26,22 +26,12 @@ Mitigations
 * We have a robust role-based access control system.
 * We aim to regularly audit and test access control mechanisms.
 
-### Front-Running
-
-Transactions like registering fulfillments or withdrawing refunds could be front-run by attackers monitoring the mempool.
-
-Mitigations
-
-* Implement commit-reveal schemes for sensitive operations.
-* Use a priority queue or batching mechanism for processing requests.
-* Consider implementing gas price caps or time-locks for certain operations.
-
 ### Denial of Service (DoS) Attacks
 
 An attacker could potentially DoS the contract by manipulating gas costs or causing functions to revert consistently.
 
 Mitigation\
-We use pull payment patterns instead of push for fund transfers.
+We use pull payment patterns instead of push for the refunds withdrawal.
 
 ### Upgrade Vulnerabilities
 
@@ -83,6 +73,6 @@ Interactions between multiple contracts could lead to unexpected states or vulne
 
 Mitigation
 
-* Implement proper access control between contracts. Specially in the escriow contract that must function as standalone and be interacted just through other contracts.
+* We implement proper access control between contracts. Specially in the escrow contract that must function as standalone and be interacted just through other contracts.
 * We always conduct integration testing and audits of the entire system.
 
