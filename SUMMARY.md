@@ -4,14 +4,13 @@
 
 * [The Web3 Spending Protocol](README.md)
 * [Quickstart](overview/overview-1.md)
-* [Useful Terms](overview/terminology.md)
+* [Useful Words](overview/terminology.md)
+* [Use Cases](overview/use-cases.md)
 * [Protocol Architecture](overview/architecture/README.md)
   * [Payment Reference Validation](overview/architecture/payment-reference-validation.md)
   * [Order Request](overview/architecture/order-request.md)
   * [Order Fulfillment](overview/architecture/order-fulfillment.md)
   * [Refunds](overview/architecture/refunds.md)
-* [Security and Privacy](overview/security-and-privacy.md)
-* [Use Cases](overview/use-cases.md)
 
 ## Fulfiller API
 
@@ -24,7 +23,7 @@
   * [Get a Quote](fulfiller-api/guides/get-a-quote.md)
   * [Get Available Tokens for a Chain](fulfiller-api/guides/get-available-tokens-for-a-chain.md)
 * [API Reference](fulfiller-api/api-reference/README.md)
-  * [Catalog API](fulfiller-api/api-reference/catalog.md)
+  * [Product Catalog API](fulfiller-api/api-reference/catalog.md)
   * [Payment Reference API](fulfiller-api/api-reference/ref.md)
   * [Quote API](fulfiller-api/api-reference/quote.md)
   * [Assets API](fulfiller-api/api-reference/assets-api.md)
@@ -33,5 +32,8 @@
 
 * [Overview](evm-smart-contracts/overview.md)
 * [Security](evm-smart-contracts/security/README.md)
+  * [Access Control](evm-smart-contracts/security/access-control.md)
   * [Security Considerations](evm-smart-contracts/security/security-considerations.md)
   * [Rekt Test](evm-smart-contracts/security/rekt-test.md)
+  * [Audits](evm-smart-contracts/security/audits.md)
+* [Contracts](https://github.com/bandohq/evm-fulfillment-protocol)

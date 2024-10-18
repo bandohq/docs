@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#F0FAF5"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="200" y1="100" x2="1720" y2="980" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B8F0D4"/>
+      <stop offset="0.3" stop-color="#7ED4B9"/>
+      <stop offset="0.7" stop-color="#6EDEB0"/>
+      <stop offset="1" stop-color="#43C38D"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="300" y1="200" x2="1620" y2="880" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6EDEB0"/>
+      <stop offset="0.5" stop-color="#5BC8A1"/>
+      <stop offset="1" stop-color="#43C38D"/>
+    </linearGradient>
+    <linearGradient id="paint2_linear" x1="400" y1="300" x2="1520" y2="780" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#43C38D"/>
+      <stop offset="0.5" stop-color="#3AAD7E"/>
+      <stop offset="1" stop-color="#2CAB71"/>
+    </linearGradient>
+    <radialGradient id="paint3_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 540) rotate(90) scale(600 800)">
+      <stop stop-color="#7B68EE" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#7B68EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g filter="url(#filter0_f_splat)">
+    <path d="M860 100C1260 50 1520 240 1720 340C1920 440 1960 740 1860 940C1760 1140 1460 1240 1260 1240C1060 1240 760 1340 560 1240C360 1140 60 940 160 740C260 540 460 340 660 240C860 140 660 130 860 100Z" fill="url(#paint0_linear)" fill-opacity="0.6"/>
+  </g>
+  <g filter="url(#filter1_f_splat)">
+    <path d="M960 200C1310 150 1445 320 1610 400C1775 480 1810 680 1710 840C1610 1000 1345 1100 1180 1100C1015 1100 715 1200 550 1100C385 1000 225 800 325 640C425 480 590 400 755 320C920 240 810 230 960 200Z" fill="url(#paint1_linear)" fill-opacity="0.4"/>
+  </g>
+  <g filter="url(#filter2_f_splat)">
+    <path d="M1060 300C1360 250 1470 400 1600 460C1730 520 1760 680 1660 800C1560 920 1330 980 1200 980C1070 980 820 1060 690 980C560 900 390 740 490 620C590 500 720 460 850 400C980 340 910 330 1060 300Z" fill="url(#paint2_linear)" fill-opacity="0.3"/>
+  </g>
+  <g filter="url(#filter3_f_splat)">
+    <path d="M1160 400C1410 350 1495 480 1590 520C1685 560 1710 680 1610 760C1510 840 1315 880 1220 880C1125 880 925 940 830 880C735 820 605 700 705 620C805 540 905 520 1000 480C1095 440 1060 430 1160 400Z" fill="#2CAB71" fill-opacity="0.2"/>
+  </g>
+  <circle cx="960" cy="540" r="800" fill="url(#paint3_radial)" style="mix-blend-mode:color"/>
+  <defs>
+    <filter id="filter0_f_splat" x="-40" y="-100" width="2100" height="1540" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_splat"/>
+    </filter>
+    <filter id="filter1_f_splat" x="125" y="0" width="1785" height="1300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_splat"/>
+    </filter>
+    <filter id="filter2_f_splat" x="290" y="100" width="1570" height="1080" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_splat"/>
+    </filter>
+    <filter id="filter3_f_splat" x="505" y="200" width="1305" height="880" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_splat"/>
+    </filter>
+  </defs>
+</svg>

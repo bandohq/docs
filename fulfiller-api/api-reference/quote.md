@@ -1,19 +1,25 @@
-# Fiat to Digital Asset Conversion API
+---
+description: >-
+  How get a quote to buy one product of our catalog with one of our supported
+  assets.
+---
 
-## 1. Overview
+# Product Price to Digital Asset Price Quote API
+
+## Overview
 
 This document outlines the design and implementation of the Fiat-to-Digital Asset Conversion API.  
 The API facilitates converting fiat currencies to digital assets and returns a quoted amount based on   
 current exchange rates. It supports configurable spreads and multiple external providers for FX and crypto pricing.
 
-## 2. Objectives
+## Objectives
 
 - Allow users to convert fiat currencies into supported digital assets.
 - Provide real-time quotes based on exchange rates from selected providers.
 - Enable configurable spreads and flexible rate sources.
 - Integrate with external providers for fiat and cryptocurrency rates.
 
-## 3. Architecture
+## Architecture
 
 The API involves interaction with various components for currency conversion and quote calculation.
 
@@ -41,10 +47,7 @@ sequenceDiagram
     QuoteService-->>Client: Quote (fiat_currency, fiat_amount, digital_asset, digital_asset_amount, sku)
 ```
 
-
 ## API Specification
-
-### Endpoint
 
 {% swagger src="/bfp_v1.json" path="/quotes" method="post" expanded="true" %} 
 [bfp_v1.json](/bfp_v1.json) 

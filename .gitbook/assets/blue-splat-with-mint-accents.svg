@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#F0F5FA"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="300" y1="150" x2="1620" y2="930" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7B68EE"/>
+      <stop offset="0.3" stop-color="#6A5ACD"/>
+      <stop offset="0.7" stop-color="#5E4FBF"/>
+      <stop offset="1" stop-color="#483D8B"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="400" y1="250" x2="1520" y2="830" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6A5ACD"/>
+      <stop offset="0.5" stop-color="#5E4FBF"/>
+      <stop offset="1" stop-color="#483D8B"/>
+    </linearGradient>
+    <linearGradient id="paint2_linear" x1="500" y1="350" x2="1420" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5E4FBF"/>
+      <stop offset="0.5" stop-color="#534AB0"/>
+      <stop offset="1" stop-color="#483D8B"/>
+    </linearGradient>
+    <radialGradient id="paint3_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(960 540) rotate(90) scale(600 800)">
+      <stop stop-color="#43C38D" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#43C38D" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g filter="url(#filter0_f_splat)">
+    <path d="M760 120C1160 70 1620 260 1820 360C2020 460 1860 760 1760 960C1660 1160 1360 1260 1160 1260C960 1260 660 1360 460 1260C260 1160 160 960 260 760C360 560 560 360 760 260C960 160 560 150 760 120Z" fill="url(#paint0_linear)" fill-opacity="0.6"/>
+  </g>
+  <g filter="url(#filter1_f_splat)">
+    <path d="M860 220C1210 170 1545 340 1710 420C1875 500 1710 700 1610 860C1510 1020 1245 1120 1080 1120C915 1120 615 1220 450 1120C285 1020 325 820 425 660C525 500 690 420 855 340C1020 260 710 250 860 220Z" fill="url(#paint1_linear)" fill-opacity="0.4"/>
+  </g>
+  <g filter="url(#filter2_f_splat)">
+    <path d="M960 320C1260 270 1570 420 1700 480C1830 540 1660 700 1560 820C1460 940 1230 1000 1100 1000C970 1000 720 1080 590 1000C460 920 490 760 590 640C690 520 820 480 950 420C1080 360 810 350 960 320Z" fill="url(#paint2_linear)" fill-opacity="0.3"/>
+  </g>
+  <g filter="url(#filter3_f_splat)">
+    <path d="M1060 420C1310 370 1595 500 1690 540C1785 580 1610 700 1510 780C1410 860 1215 900 1120 900C1025 900 825 960 730 900C635 840 705 720 805 640C905 560 1005 540 1100 500C1195 460 960 450 1060 420Z" fill="#483D8B" fill-opacity="0.2"/>
+  </g>
+  <circle cx="960" cy="540" r="800" fill="url(#paint3_radial)" style="mix-blend-mode:color"/>
+  <defs>
+    <filter id="filter0_f_splat" x="-40" y="-80" width="2100" height="1540" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_splat"/>
+    </filter>
+    <filter id="filter1_f_splat" x="225" y="20" width="1785" height="1300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_splat"/>
+    </filter>
+    <filter id="filter2_f_splat" x="390" y="120" width="1570" height="1080" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_splat"/>
+    </filter>
+    <filter id="filter3_f_splat" x="530" y="220" width="1360" height="880" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_splat"/>
+    </filter>
+  </defs>
+</svg>
