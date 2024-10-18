@@ -4,8 +4,6 @@ description: Bando Fulfillment Protocol smart contracts for the Ethereum Virtual
 
 # Overview
 
-## Contracts
-
 This smart contracts suite includes various contracts that manage services, fulfillments, and interactions with ERC20 tokens. The primary contract in this suite is the `Bando[ERC20]FulfillableV1`, which serves as the main escrow for the fulfillment process.
 
 ### Upgradeability
