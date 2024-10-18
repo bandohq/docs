@@ -1,6 +1,9 @@
+---
+description: How to fetch, and validate a payment reference for one of our products.
+---
 # Reference API Documentation
 
-## 1. Overview
+## Overview
 
 ### Business Logic for Reference Validation
 
@@ -15,18 +18,9 @@ Reference Processing Steps
 * **Product Not Found**: Raised if the sku does not correspond to any existing product.
 * **Invalid Reference**: Raised if the reference does not pass the regex validation. 
 
-
-
-## 2. Objectives
-
-
-## 3. Architecture
-
+## Objectives
 
 ## API Specification
-
-### Endpoints
-
 
 {% swagger src="/bfp_v1.json" path="/references" method="post" expanded="true" %} 
 [bfp_v1.json](/bfp_v1.json) 
@@ -35,5 +29,3 @@ Reference Processing Steps
 {% swagger src="/bfp_v1.json" path="/references" method="get" expanded="true" %} 
 [bfp_v1.json](/bfp_v1.json) 
 {% endswagger %}
-
-

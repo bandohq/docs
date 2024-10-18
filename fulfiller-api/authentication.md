@@ -9,7 +9,7 @@ description: Bando's fulfillment API authorization and limits.
 Our API is publicly accesible. But as an integration partner, you require authentication tokens so you can make more requests per hour when you are authenticated.
 
 {% hint style="info" %}
-To authenticate your request, you will need to provide an authentication token. For the moment you can get a token by contacting us at [api@bando.cool](mailto:api@bando.cool).
+To authenticate your request, you will need to provide an authentication token. To request a a token shoot us an email with your request to [api@bando.cool](mailto:api@bando.cool).
 {% endhint %}
 
 You can authenticate your request by sending the token in the `Authorization` header of your request.&#x20;

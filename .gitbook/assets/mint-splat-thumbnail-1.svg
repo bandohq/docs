@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <rect width="500" height="500" fill="#F0FAF5"/>
+  <defs>
+    <linearGradient id="paint0_linear_mint1" x1="50" y1="50" x2="450" y2="450" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B8F0D4"/>
+      <stop offset="0.5" stop-color="#6EDEB0"/>
+      <stop offset="1" stop-color="#43C38D"/>
+    </linearGradient>
+  </defs>
+  <g filter="url(#filter0_f_mint1)">
+    <path d="M250 50C350 20 400 100 450 150C500 200 480 300 430 350C380 400 300 480 200 450C100 420 20 300 50 200C80 100 150 80 250 50Z" fill="url(#paint0_linear_mint1)"/>
+  </g>
+  <defs>
+    <filter id="filter0_f_mint1" x="-50" y="-50" width="600" height="600" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="20" result="effect1_foregroundBlur_mint1"/>
+    </filter>
+  </defs>
+</svg>

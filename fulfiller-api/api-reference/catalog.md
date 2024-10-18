@@ -1,20 +1,19 @@
-# Product Catalog endpoint API
+---
+description: Get the list of the Bando Fulfiller Catalog.
+---
 
-## 1. Overview
+# Product Catalog API
 
+## Overview
 
-## 2. Objectives
+This API fetches a paginated list of products available for payment with the bando fulfillment protocol.
 
+## Objectives
 
-## 3. Architecture
-
-
-
+The most common use for this API would be to populate a UI that enlists the available services to spend for your wallet / Dapp / game / metaverse, etc.
 
 ## API Specification
 
-### Endpoint
-
-{% swagger src="/bfp_v1.json" path="/products" method="get" expanded="true" %} 
-[bfp_v1.json](/bfp_v1.json) 
+{% swagger src="../../bfp_v1.json" path="/products" method="get" expanded="true" %}
+[bfp_v1.json](../../bfp_v1.json)
 {% endswagger %}

@@ -1,5 +1,7 @@
 ---
 description: Learn what you can build with the Bando Fulfillment Protocol.
+cover: ../.gitbook/assets/blue-splat-with-mint-accents.svg
+coverY: 0
 ---
 
 # Use Cases
