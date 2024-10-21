@@ -4,7 +4,7 @@
 
 * [The On-chain Spending Protocol](README.md)
 * [Quickstart](overview/overview-1.md)
-* [Useful Words](overview/terminology.md)
+* [Glossary](overview/terminology.md)
 * [Use Cases](overview/use-cases.md)
 * [Protocol Architecture](overview/architecture/README.md)
   * [Payment Reference Validation](overview/architecture/payment-reference-validation.md)
