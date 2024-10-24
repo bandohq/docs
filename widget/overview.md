@@ -17,7 +17,7 @@ description: Overview of the BFP widget.
 ## Getting Started
 
 - [Install the Bando Widget](widget/install.md)
-- [Configure the Widget](widget/configure.md)
+- [Configure the Widget](widget/configuration.md)
 - [Localization](widget/localization.md)
 - [Customize Styles](widget/customize-styles.md)
 - [Wallet Management](widget/wallet-management.md)
