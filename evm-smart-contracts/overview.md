@@ -31,7 +31,19 @@ Only the Bando Router contract is pausable to shut down the deposits to the escr
 * Features:
   * Validate payment ref: Use the service registry to validate the request payment ref.
   * Handles deposits of native currency to the escrow.
-  * Handles support for ERC20 deposits to the escrow.&#x20;
+  * Handles support for ERC20 deposits to the escrow.
+
+The router emits the following events:
+
+```
+    emit ServiceRequested(serviceID, request);
+```
+
+```
+    emit ERC20ServiceRequested(serviceID, request);
+```
+
+Both events are emitted after the transfer has been issued to the escrow contracts.
 
 ### Bando Fulfillable Registry
 
