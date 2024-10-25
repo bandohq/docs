@@ -297,7 +297,7 @@ To configure WalletConnect and Coinbase Wallet with Bando's widget, you can spec
 Here's an example of how to configure the widget:
 
 ```typescript
-import { LiFiWidget, WidgetConfig } from "@lifi/widget";
+import { BandoWidget, WidgetConfig } from "@bando/widget";
 
 const widgetConfig: WidgetConfig = {
   walletConfig: {
@@ -312,7 +312,7 @@ const widgetConfig: WidgetConfig = {
 
 export const WidgetPage = () => {
   return (
-    <LiFiWidget integrator="Your dApp/company name" config={widgetConfig} />
+    <BandoWidget integrator="Your dApp/company name" config={widgetConfig} />
   );
 };
 ```
