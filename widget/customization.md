@@ -34,7 +34,7 @@ To achieve this, we have the `theme` configuration
 The container option focuses on customizing the main widget container. In the following example, the border and border-radius properties of the container are modified.
 
 ```javascript
-import { BandoWidget, WidgetConfig } from "@bando/widget";
+import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 import { useMemo } from "react";
 
 export const WidgetPage = () => {
@@ -67,7 +67,7 @@ Typography gives you control over font-related options, such as selecting custom
 In this example, we'll tweak the theme by changing the primary and secondary colors, setting a new font family, and adjusting the border-radius for the inner elements:
 
 ```javascript
-import { BandoWidget, WidgetConfig } from "@bando/widget";
+import { BandoWidget, WidgetConfig } from "@@bandohq/widget";
 import { useMemo } from "react";
 
 export const WidgetPage = () => {
@@ -121,7 +121,7 @@ With the components option, you can customize each element's appearance using MU
 In this example, the `MuiButton` component has been modified to adjust the background color, text color, rounded border, and hover behavior of the button.
 
 ```javascript
-import { BandoWidget, WidgetConfig } from "@bando/widget";
+import { BandoWidget, WidgetConfig } from "@@bandohq/widget";
 import { useMemo } from "react";
 
 export const WidgetPage = () => {
@@ -197,14 +197,14 @@ The `DisabledUI` enum defines the UI elements that can be turned off to stop use
 
 ```javascript
 export enum DisabledUI {
-  // Disables the input field for the token amount
-  FromAmount = 'fromAmount',
   // Disables the button for the source token selection
   FromToken = 'fromToken',
-  // Disables the button for specifying the destination address
-  ToAddress = 'toAddress',
   // Disables the button for the destination token selection
   ToToken = 'toToken',
+  // Disables the input for select country
+  Country = 'country',
+  // Disables the input for service number
+  ServiceNumber = 'serviceNumber',
 }
 ```
 
@@ -218,18 +218,10 @@ The `HiddenUI` enum lists the UI elements that can be hidden from view.
 export enum HiddenUI {
   // Removes the appearance settings UI (light/dark mode toggle)
   Appearance = 'appearance',
-  // Hides the close button in the drawer variant
-  DrawerCloseButton = 'drawerCloseButton',
-  // Hides the transaction history section
-  History = 'history',
   // Removes the language selection option
   Language = 'language',
-  // Hides the "Powered by LI.FI" branding (not recommended)
+  // Hides the "Powered by Bando" branding (not recommended)
   PoweredBy = 'poweredBy',
-  // Hides the button for setting the destination address
-  ToAddress = 'toAddress',
-  // Hides the button for selecting the destination token
-  ToToken = 'toToken',
   // Hides the wallet menu UI
   WalletMenu = 'walletMenu',
 }

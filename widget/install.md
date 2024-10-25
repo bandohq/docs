@@ -11,7 +11,7 @@ To install the Bando Widget, you can follow these steps:
 {% tab title="npm" %}
 
 ```bash
-npm install @bando/widget
+npm install @bandohq/widget
 ```
 
 {% endtab %}
@@ -19,7 +19,7 @@ npm install @bando/widget
 {% tab title="yarn" %}
 
 ```bash
-yarn add @bando/widget
+yarn add @bandohq/widget
 ```
 
 {% endtab %}
@@ -27,7 +27,7 @@ yarn add @bando/widget
 {% tab title="pnpm" %}
 
 ```bash
-pnpm add @bando/widget
+pnpm add @bandohq/widget
 ```
 
 {% endtab %}
@@ -35,7 +35,7 @@ pnpm add @bando/widget
 {% tab title="bun" %}
 
 ```bash
-bun add @bando/widget
+bun add @bandohq/widget
 ```
 
 {% endtab %}
@@ -46,7 +46,7 @@ bun add @bando/widget
 Here is an example of how to use the Bando Widget:
 
 ```javascript
-import { BandoWidget, WidgetConfig } from "@lifi/widget";
+import { BandoWidget, WidgetConfig } from "@@bandohq/widget";
 
 const widgetConfig: WidgetConfig = {
   theme: {

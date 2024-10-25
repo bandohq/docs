@@ -13,16 +13,16 @@ The default language is set to English (`en`), but you have the option to set a 
 There are `allow`, `deny`, and `default` options for language configuration.
 
 ```javascript
-import { BandoWidget, WidgetConfig } from "@bando/widget";
+import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 
 const widgetConfig: WidgetConfig = {
   // hide the language selection part of the UI
   // hiddenUI: ['language'],
   languages: {
-    // default to German
-    default: "de",
-    // allow German and Spanish languages only
-    allow: ["de", "es"],
+    // default to English
+    default: "en",
+    // allow English and Spanish languages only
+    allow: ["en", "es"],
     // disable Chinese from being shown in the languages list
     // deny: ['zh'],
   },
@@ -43,7 +43,7 @@ You can configure the widget to accommodate any language required by your dApp b
 {% tab title="WidgetPage.tsx" %}
 
 ```javascript
-import { BandoWidget, WidgetConfig } from "@bando/widget";
+import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 import es from "./i18n/es.json";
 
 const widgetConfig: WidgetConfig = {
@@ -77,7 +77,7 @@ export const WidgetPage = () => {
 Additionally, you can modify the existing language resources if you need to change specific text. You can find the full set of key-value pairs in the reference `en.json` file available in [our repository](https://github.com/bandohq/widget).
 
 ```javascript
-import { BandoWidget, WidgetConfig } from "@bando/widget";
+import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 
 const widgetConfig: WidgetConfig = {
   languageResources: {
