@@ -15,7 +15,7 @@ If your dApp already uses Wagmi or a Wagmi-based library, the widget automatical
 The following example demonstrates how to set up basic wallet management using Wagmi in Bando.
 
 ```jsx
-import { BandoWidget } from "@bando/widget";
+import { BandoWidget } from "@bandohq/widget";
 import { createClient } from "viem";
 import { WagmiProvider, createConfig, http } from "wagmi";
 import { mainnet, arbitrum, optimism, scroll } from "wagmi/chains";
@@ -58,7 +58,7 @@ Here's an example of how to dynamically sync chains using these provided hooks.
 
 ```jsx
 import { useSyncWagmiConfig } from '@lifi/wallet-management';
-import { useAvailableChains } from '@bando/widget';
+import { useAvailableChains } from '@bandohq/widget';
 import { injected } from '@wagmi/connectors';
 import { useRef, type FC, type PropsWithChildren } from 'react';
 import { createClient, http } from 'viem';
@@ -97,7 +97,7 @@ export const WalletProvider: FC<PropsWithChildren> = ({ children }) => {
 {% tab title="WidgetPage.tsx" %}
 
 ```jsx
-import { BandoWidget } from "@bando/widget";
+import { BandoWidget } from "@bandohq/widget";
 import { WalletProvider } from "../providers/WalletProvider";
 
 export const WidgetPage = () => {
@@ -166,7 +166,7 @@ export const SolanaWalletProvider: FC<PropsWithChildren> = ({ children }) => {
 {% tab title="WidgetPage.tsx" %}
 
 ```jsx
-import { BandoWidget } from "@bando/widget";
+import { BandoWidget } from "@bandohq/widget";
 import { SolanaWalletProvider } from "../providers/SolanaWalletProvider";
 
 export const WidgetPage = () => {
@@ -216,7 +216,7 @@ Here’s a similar configuration adapted to Bando’s widget that uses the `useC
 {% tab title="WidgetPage.tsx" %}
 
 ```tsx
-import { BandoWidget } from "@bando/widget";
+import { BandoWidget } from "@bandohq/widget";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { WalletProvider } from "../providers/WalletProvider";
 
@@ -245,7 +245,7 @@ export const WidgetPage = () => {
 {% tab title="WalletProvider.tsx" %}
 
 ```tsx
-import { formatChain, useAvailableChains } from "@bando/widget";
+import { formatChain, useAvailableChains } from "@bandohq/widget";
 import { RainbowKitProvider, getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { useMemo, type FC, type PropsWithChildren } from "react";
 import type { Chain } from "viem";
@@ -297,7 +297,7 @@ To configure WalletConnect and Coinbase Wallet with Bando's widget, you can spec
 Here's an example of how to configure the widget:
 
 ```typescript
-import { BandoWidget, WidgetConfig } from "@bando/widget";
+import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 
 const widgetConfig: WidgetConfig = {
   walletConfig: {
