@@ -22,8 +22,6 @@ description: Overview of the BFP widget.
 - [Customize Styles](widget/customize-styles.md)
 - [Wallet Management](widget/wallet-management.md)
 - Guides
-  - [React](widget/guides/react.md)
   - [Next](widget/guides/next.md)
-  - [Gatsby](widget/guides/gatsby.md)
   - [Vue](widget/guides/vue.md)
   - [svelte](widget/guides/svelte.md)
