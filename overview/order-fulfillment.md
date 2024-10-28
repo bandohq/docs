@@ -61,11 +61,13 @@ sequenceDiagram
     Fulfiller->>Router: Listen to ServiceRequested event
     Fulfiller->>Fulfiller: Detect pending request
     Fulfiller->>Fulfiller: Read metadata
-    Fulfiller-)FuP: Process payment off-chain
-    FuP--)Fulfiller: Response for the async service
-    Fulfiller->>Manager: Submit Fulfillment Result
+    Fulfiller->>FuP: Process async payment off-chain
+    FuP->>Fulfiller: Response for the async service
+    Fulfiller->>Fulfiller: Wait for notification
     FuP->>Fulfiller: Notifies the status change for the async transaction
     Fulfiller->>FuP: Process transaction details
+    FuP->>Fulfiller: Provides transaction details
+    Fulfiller->>Manager: Submit Fulfillment Result
     Manager->>Manager: Store result
     Note over Manager: User can now see submission metadata
 ```
