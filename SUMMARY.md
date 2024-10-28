@@ -1,6 +1,6 @@
 # Table of contents
 
-## Overview
+## Bando for Developers
 
 * [The On-chain Spending Protocol](README.md)
 * [Quickstart](overview/overview-1.md)
@@ -11,6 +11,18 @@
   * [Order Request](overview/architecture/order-request.md)
   * [Order Fulfillment](overview/architecture/order-fulfillment.md)
   * [Refunds](overview/architecture/refunds.md)
+
+## Spending Widget
+* [Overview](widget/overview.md)
+* [Installation](widget/install.md)
+* [Configuration](widget/configure.md)
+* [Customization](widget/customization.md)
+* [Localization](widget/localization.md)
+* [Wallet Management](widget/wallet-management.md)
+* [Framework Integration](widget/Integration/README.md)
+  * [Next.js](widget/Integration/Nextjs.md)
+  * [Vue.js](widget/Integration/vuejs.md)
+  * [Svelte](widget/Integration/svelte.md)
 
 ## Fulfiller API
 
