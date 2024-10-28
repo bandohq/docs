@@ -6,6 +6,8 @@ description: Wallet Management for the Bando Widget.
 
 Configure your widget to enable wallet management for Bando, allowing users to buy products and pay for services using tokens. You can connect the widget to different blockchain environments like EVM (Ethereum Virtual Machine), Solana, UTXO-based chains, and more. Below are examples of how to integrate wallet management within your project.
 
+We use the amazing [https://www.npmjs.com/package/@lifi/wallet-management](Lifi Wallet Management)library to handle wallet connections and support external wallet management or our internal one if the widget wants to be stand-alone.
+
 ## EVM Wallet Connection
 
 To handle wallet connections for EVM (Ethereum Virtual Machine) chains in Bando, the widget leverages the [Wagmi](https://wagmi.sh/) library for managing wallets and chain switching, and it also fully supports integration with Wagmi-based tools such as [RainbowKit](https://www.rainbowkit.com/). This ensures seamless wallet interactions across various EVM networks.
