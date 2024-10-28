@@ -43,7 +43,7 @@ sequenceDiagram
 2. Once detected, the fulfiller reads the metadata, and processes the async payment off chain to the relevant FuP
 3. Store the transaction details from the FuP. We need to wait for a notification from the FuP.
 4. In T+1 the FuP sends a notification to the Fulfiller with the transaction details.
-5. The Fulfiller needs to verify the transaction details with the FuP to ensure about the transaction details.
+5. The Fulfiller needs to verify the transaction details with the FuP to ensure about transaction state.
 6. Once the FuP has responded, the fulfiller MUST submit a Fulfillment Result to the on-chain protocol. This is done submitting a result via the Bando Manager contract. 
 7. Once the result submission is stored in the contract. The user can now see the submission metadata.
 
@@ -65,7 +65,7 @@ sequenceDiagram
     FuP->>Fulfiller: Response for the async service
     Fulfiller->>Fulfiller: Wait for notification
     FuP->>Fulfiller: Notifies the status change for the async transaction
-    Fulfiller->>FuP: Process transaction details
+    Fulfiller->>FuP: Request transaction details
     FuP->>Fulfiller: Provides transaction details
     Fulfiller->>Manager: Submit Fulfillment Result
     Manager->>Manager: Store result
