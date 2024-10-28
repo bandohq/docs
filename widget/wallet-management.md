@@ -4,9 +4,9 @@ description: Wallet Management for the Bando Widget.
 
 # Wallet Management
 
-Configure your widget to enable wallet management for Bando, allowing users to buy products and pay for services using tokens. You can connect the widget to different blockchain environments like EVM (Ethereum Virtual Machine), Solana, UTXO-based chains, and more. Below are examples of how to integrate wallet management within your project.
+Configure your widget to enable wallet management for Bando, allowing users to buy products and pay for services using tokens. You can connect the widget to different blockchain environments like EVM (Ethereum Virtual Machine), Solana, and more. Below are examples of how to integrate wallet management within your project.
 
-We use the amazing [https://www.npmjs.com/package/@lifi/wallet-management](Lifi Wallet Management)library to handle wallet connections and support external wallet management or our internal one if the widget wants to be stand-alone.
+We use the amazing \[https://www.npmjs.com/package/@lifi/wallet-management]\(Lifi Wallet Management)library to handle wallet connections and support external wallet management or our internal one if the widget wants to be stand-alone.
 
 ## EVM Wallet Connection
 
@@ -55,9 +55,7 @@ The way tho achieve this is by using the following hook:
 Here's an example of how to dynamically sync chains using these provided hooks.
 
 {% tabs %}
-
 {% tab title="WalletProvider.tsx" %}
-
 ```jsx
 import { useSyncWagmiConfig } from '@lifi/wallet-management';
 import { useAvailableChains } from '@bandohq/widget';
@@ -93,11 +91,9 @@ export const WalletProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 ```
-
 {% endtab %}
 
 {% tab title="WidgetPage.tsx" %}
-
 ```jsx
 import { BandoWidget } from "@bandohq/widget";
 import { WalletProvider } from "../providers/WalletProvider";
@@ -110,9 +106,7 @@ export const WidgetPage = () => {
   );
 };
 ```
-
 {% endtab %}
-
 {% endtabs %}
 
 ## SVM Wallet Connection
@@ -124,9 +118,7 @@ If you are already using the Solana Wallet Standard library in your dApp, and th
 The example below demonstrates how to set up basic wallet management for SVM using these providers.
 
 {% tabs %}
-
 {% tab title="SolanaWalletProvider.tsx" %}
-
 ```jsx
 import type { Adapter } from "@solana/wallet-adapter-base";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
@@ -162,11 +154,9 @@ export const SolanaWalletProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 ```
-
 {% endtab %}
 
 {% tab title="WidgetPage.tsx" %}
-
 ```jsx
 import { BandoWidget } from "@bandohq/widget";
 import { SolanaWalletProvider } from "../providers/SolanaWalletProvider";
@@ -179,9 +169,7 @@ export const WidgetPage = () => {
   );
 };
 ```
-
 {% endtab %}
-
 {% endtabs %}
 
 ## Configuration
@@ -209,14 +197,10 @@ For internal wallet management, when users click the **Connect wallet** button, 
 
 This approach gives developers flexibility in handling both internal and external wallet connections in a seamless manner within the Bando widget.
 
-<!-- TODO: print example -->
-
 Here’s a similar configuration adapted to Bando’s widget that uses the `useConnectModal` hook provided by RainbowKit to open the wallet modal when the **Connect wallet** button is clicked:
 
 {% tabs %}
-
 {% tab title="WidgetPage.tsx" %}
-
 ```tsx
 import { BandoWidget } from "@bandohq/widget";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
@@ -241,11 +225,9 @@ export const WidgetPage = () => {
   );
 };
 ```
-
 {% endtab %}
 
 {% tab title="WalletProvider.tsx" %}
-
 ```tsx
 import { formatChain, useAvailableChains } from "@bandohq/widget";
 import { RainbowKitProvider, getDefaultConfig } from "@rainbow-me/rainbowkit";
@@ -285,9 +267,7 @@ export const WalletProvider: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 ```
-
 {% endtab %}
-
 {% endtabs %}
 
 In this example, the `useConnectModal` hook opens the RainbowKit wallet connection modal when the **Connect wallet** button is clicked, allowing for seamless integration within the widget.

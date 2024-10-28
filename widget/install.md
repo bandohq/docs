@@ -1,43 +1,34 @@
 ---
-description: "Install the widget page"
+description: Install the Bando Spend Widget.
 ---
 
-# Install the Bando Widget
+# Installation
 
 To install the Bando Widget, you can follow these steps:
 
 {% tabs %}
-
 {% tab title="npm" %}
-
 ```bash
 npm install @bandohq/widget
 ```
-
 {% endtab %}
 
 {% tab title="yarn" %}
-
 ```bash
 yarn add @bandohq/widget
 ```
-
 {% endtab %}
 
 {% tab title="pnpm" %}
-
 ```bash
 pnpm add @bandohq/widget
 ```
-
 {% endtab %}
 
 {% tab title="bun" %}
-
 ```bash
 bun add @bandohq/widget
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -45,8 +36,8 @@ bun add @bandohq/widget
 
 Here is an example of how to use the Bando Widget:
 
-```javascript
-import { BandoWidget, WidgetConfig } from "@@bandohq/widget";
+```tsx
+import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 
 const widgetConfig: WidgetConfig = {
   theme: {
@@ -59,7 +50,7 @@ const widgetConfig: WidgetConfig = {
 
 export const WidgetPage = () => {
   return (
-    <BandoWidget integrator="Your dApp/company name" config={widgetConfig} />
+    <BandoWidget integrator="<your_app_name>" config={widgetConfig} />
   );
 };
 ```

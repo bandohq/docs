@@ -1,28 +1,29 @@
 # Table of contents
 
-## Bando for Developers
+## Bando for Developers <a href="#welcome" id="welcome"></a>
 
 * [The On-chain Spending Protocol](README.md)
-* [Quickstart](overview/overview-1.md)
-* [Glossary](overview/terminology.md)
-* [Use Cases](overview/use-cases.md)
-* [Protocol Architecture](overview/architecture/README.md)
-  * [Payment Reference Validation](overview/architecture/payment-reference-validation.md)
-  * [Order Request](overview/architecture/order-request.md)
-  * [Order Fulfillment](overview/architecture/order-fulfillment.md)
-  * [Refunds](overview/architecture/refunds.md)
+* [Quickstart](welcome/overview-1.md)
+* [Glossary](welcome/terminology.md)
+* [Use Cases](welcome/use-cases.md)
+* [Protocol Architecture](welcome/architecture/README.md)
+  * [Payment Reference Validation](welcome/architecture/payment-reference-validation.md)
+  * [Order Request](welcome/architecture/order-request.md)
+  * [Order Fulfillment](welcome/architecture/order-fulfillment.md)
+  * [Refunds](welcome/architecture/refunds.md)
 
-## Spending Widget
+## Spending Widget <a href="#widget" id="widget"></a>
+
 * [Overview](widget/overview.md)
 * [Installation](widget/install.md)
 * [Configuration](widget/configure.md)
 * [Customization](widget/customization.md)
 * [Localization](widget/localization.md)
 * [Wallet Management](widget/wallet-management.md)
-* [Framework Integration](widget/Integration/README.md)
-  * [Next.js](widget/Integration/Nextjs.md)
-  * [Vue.js](widget/Integration/vuejs.md)
-  * [Svelte](widget/Integration/svelte.md)
+* [Framework Integration](widget/framework-integration/README.md)
+  * [Next.js](widget/framework-integration/nextjs.md)
+  * [Vue.js](widget/framework-integration/vuejs.md)
+  * [Svelte](widget/framework-integration/svelte.md)
 
 ## Fulfiller API
 

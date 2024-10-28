@@ -2,7 +2,7 @@
 description: Bando's widget style customization.
 ---
 
-# Widget Customization
+# Customization
 
 Bando's Widget allows for extensive style adjustments, enabling you to align its look with your web app's design. While the overall layout remains fixed, you have control over aspects like colors, fonts, border radius, container styling, and the ability to disable or hide specific UI elements.
 
@@ -67,7 +67,7 @@ Typography gives you control over font-related options, such as selecting custom
 In this example, we'll tweak the theme by changing the primary and secondary colors, setting a new font family, and adjusting the border-radius for the inner elements:
 
 ```javascript
-import { BandoWidget, WidgetConfig } from "@@bandohq/widget";
+import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 import { useMemo } from "react";
 
 export const WidgetPage = () => {
@@ -106,22 +106,22 @@ The components option lets you customize the appearance of individual elements w
 
 Here are the current components you can adjust, with more to be added in the future:
 
-- **MuiAppBar** serves as the header or navigation bar at the top.
-- **MuiAvatar** displays token or chain icons.
-- **MuiButton** is used for various buttons throughout the widget.
-- **MuiCard** is used for cards within the widget, offering three customizable variants:
-  - **outlined**: has thin borders as the default style.
-  - **elevation**: adds a shadow effect.
-  - **filled**: features a solid background color (based on the palette.background.paper property).
-- **MuiIconButton** handles icon-based buttons.
-- **MuiInputCard** is used for input forms.
+* **MuiAppBar** serves as the header or navigation bar at the top.
+* **MuiAvatar** displays token or chain icons.
+* **MuiButton** is used for various buttons throughout the widget.
+* **MuiCard** is used for cards within the widget, offering three customizable variants:
+  * **outlined**: has thin borders as the default style.
+  * **elevation**: adds a shadow effect.
+  * **filled**: features a solid background color (based on the palette.background.paper property).
+* **MuiIconButton** handles icon-based buttons.
+* **MuiInputCard** is used for input forms.
 
 With the components option, you can customize each element's appearance using MUI’s `styleOverrides` feature, allowing precise styling adjustments.
 
 In this example, the `MuiButton` component has been modified to adjust the background color, text color, rounded border, and hover behavior of the button.
 
 ```javascript
-import { BandoWidget, WidgetConfig } from "@@bandohq/widget";
+import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 import { useMemo } from "react";
 
 export const WidgetPage = () => {
@@ -184,47 +184,3 @@ export const WidgetPage = () => {
   );
 };
 ```
-
-<!-- TODO: Show result -->
-
-<!-- TODO: Appearance in case is required -->
-
-### Disable Elements
-
-The `disabledUI` property lets you choose which parts of the widget’s interface should be disabled. This can help you restrict user interaction with specific sections of the widget that may not be needed or suitable for your implementation.
-
-The `DisabledUI` enum defines the UI elements that can be turned off to stop user interaction.
-
-```javascript
-export enum DisabledUI {
-  // Disables the button for the source token selection
-  FromToken = 'fromToken',
-  // Disables the button for the destination token selection
-  ToToken = 'toToken',
-  // Disables the input for select country
-  Country = 'country',
-  // Disables the input for service number
-  ServiceNumber = 'serviceNumber',
-}
-```
-
-### Hide Elements
-
-The `hiddenUI` property lets you control which UI elements are hidden within the widget. This feature is useful for customizing the interface by removing components that aren't relevant to your specific use case.
-
-The `HiddenUI` enum lists the UI elements that can be hidden from view.
-
-```javascript
-export enum HiddenUI {
-  // Removes the appearance settings UI (light/dark mode toggle)
-  Appearance = 'appearance',
-  // Removes the language selection option
-  Language = 'language',
-  // Hides the "Powered by Bando" branding (not recommended)
-  PoweredBy = 'poweredBy',
-  // Hides the wallet menu UI
-  WalletMenu = 'walletMenu',
-}
-```
-
-<!-- TODO: Show an example -->

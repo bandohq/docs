@@ -1,8 +1,8 @@
 ---
-description: Bando's widget internationalizaion page.
+description: Bando's widget internationalizaion.
 ---
 
-# Internationalization
+# Localization
 
 Bando's Widget provides internationalization (i18n) support for your app, allowing you to customize the widget's appearance and behavior according to your language preferences.
 
@@ -41,7 +41,6 @@ You can configure the widget to accommodate any language required by your dApp b
 
 {% tabs %}
 {% tab title="WidgetPage.tsx" %}
-
 ```javascript
 import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 import es from "./i18n/es.json";
@@ -58,10 +57,9 @@ export const WidgetPage = () => {
   );
 };
 ```
-
 {% endtab %}
-{% tab title="es.json" %}
 
+{% tab title="es.json" %}
 ```json
 {
   "language": {
@@ -70,7 +68,6 @@ export const WidgetPage = () => {
   }
 }
 ```
-
 {% endtab %}
 {% endtabs %}
 
@@ -82,7 +79,7 @@ import { BandoWidget, WidgetConfig } from "@bandohq/widget";
 const widgetConfig: WidgetConfig = {
   languageResources: {
     en: {
-      button: { swap: "Test swap" },
+      button: { product: "A thing that I want" },
     },
   },
 };
