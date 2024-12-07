@@ -31,56 +31,22 @@
         "summary": "Get list of existing products",
         "parameters": [
           {
-            "name": "page_number",
-            "in": "query",
-            "description": "Page number (starts from 1)",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 1
-            }
+            "$ref": "#/components/parameters/PageNumber"
           },
           {
-            "name": "page_size",
-            "in": "query",
-            "description": "Page size (number of items per page)",
-            "required": false,
-            "schema": {
-              "type": "integer",
-              "default": 10
-            }
+            "$ref": "#/components/parameters/PageSize"
           },
           {
-            "schema": {
-              "type": "string"
-            },
-            "name": "brand",
-            "in": "query",
-            "description": "Brand to filter"
+            "$ref": "#/components/parameters/Brand"
           },
           {
-            "schema": {
-              "type": "string"
-            },
-            "name": "country",
-            "in": "query",
-            "description": "2 letter ISO code for the destination country to filter"
+            "$ref": "#/components/parameters/Country"
           },
           {
-            "schema": {
-              "type": "string"
-            },
-            "name": "type",
-            "in": "query",
-            "description": "Product type to filter"
+            "$ref": "#/components/parameters/ProductType"
           },
           {
-            "schema": {
-              "type": "string"
-            },
-            "name": "subType",
-            "in": "query",
-            "description": "Offer subtype to filter"
+            "$ref": "#/components/parameters/ProductSubType"
           }
         ],
         "responses": {
@@ -90,6 +56,91 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/dto.ProductsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - API Token Missing or Unrecognized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - IP Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/grouped": {
+      "get": {
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "tags": [
+          "Products"
+        ],
+        "summary": "Get list of existing products grouped by product type",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/PageNumber"
+          },
+          {
+            "$ref": "#/components/parameters/PageSize"
+          },
+          {
+            "$ref": "#/components/parameters/Brand"
+          },
+          {
+            "$ref": "#/components/parameters/Country"
+          },
+          {
+            "$ref": "#/components/parameters/ProductType"
+          },
+          {
+            "$ref": "#/components/parameters/ProductSubType"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.GroupedProductsResponse"
                 }
               }
             }
@@ -237,10 +288,375 @@
           }
         }
       }
+    },
+    "/countries/": {
+      "get": {
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "tags": [
+          "Countries"
+        ],
+        "summary": "Get list of countries",
+        "parameters": [
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Filter countries by region",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subregion",
+            "in": "query",
+            "description": "Filter countries by subregion",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fiat_currency",
+            "in": "query",
+            "description": "Filter countries by fiat currency",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "description": "Search in country name and capital",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.CountriesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - API Token Missing or Unrecognized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - IP Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/geoip/country": {
+      "get": {
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "tags": [
+          "GeoIp",
+          "Countries"
+        ],
+        "summary": "Get country information by IP address",
+        "parameters": [
+          {
+            "name": "ip",
+            "in": "query",
+            "description": "IP addreess to get geodata.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.Country"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - API Token Missing or Unrecognized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - IP Not Allowed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transactions/{transaction_id}": {
+      "get": {
+        "security": [
+          {
+            "ApiKey": []
+          }
+        ],
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Get transaction status and details",
+        "parameters": [
+          {
+            "name": "transaction_id",
+            "in": "path",
+            "description": "Transaction ID to retrieve",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Transaction retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TransactionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Transaction not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/dto.ResponseError"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
+    "parameters": {
+      "PageNumber": {
+        "name": "pageNumber",
+        "in": "query",
+        "description": "Page number (starts from 1)",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "default": 1
+        }
+      },
+      "PageSize": {
+        "name": "pageSize",
+        "in": "query",
+        "description": "Page size (number of items per page)",
+        "required": false,
+        "schema": {
+          "type": "integer",
+          "default": 100
+        }
+      },
+      "Brand": {
+        "schema": {
+          "type": "string"
+        },
+        "name": "brand",
+        "in": "query",
+        "description": "Brand to filter"
+      },
+      "Country": {
+        "schema": {
+          "type": "string"
+        },
+        "name": "country",
+        "in": "query",
+        "description": "2 letter ISO code for the destination country to filter"
+      },
+      "ProductType": {
+        "schema": {
+          "type": "string"
+        },
+        "name": "type",
+        "in": "query",
+        "description": "Product type to filter"
+      },
+      "ProductSubType": {
+        "schema": {
+          "type": "string"
+        },
+        "name": "subType",
+        "in": "query",
+        "description": "Offer subtype to filter"
+      }
+    },
     "schemas": {
+      "dto.GroupedProductsResponse": {
+        "type": "object",
+        "description": "Catalog response for product searches",
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductByType"
+            }
+          }
+        }
+      },
+      "ProductByType": {
+        "type": "object",
+        "properties": {
+          "productType": {
+            "type": "string",
+            "description": "The type of product (e.g., GiftCard, TopUp, eSIM)."
+          },
+          "brands": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Brand"
+            }
+          }
+        }
+      },
+      "Brand": {
+        "type": "object",
+        "properties": {
+          "brandName": {
+            "type": "string",
+            "description": "Name of the brand (e.g., Amazon, Verizon, TravelSim)."
+          },
+          "brandSlug": {
+            "type": "string",
+            "description": "slug of the brand (e.g., amazon, verizon, travelsim)."
+          },
+          "imageUrl": {
+            "description": "Brand Logo Image",
+            "type": "string"
+          },
+          "order": {
+            "description": "Index to order the brands",
+            "type": "integer"
+          },
+          "variants": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/dto.Esim"
+                },
+                {
+                  "$ref": "#/components/schemas/dto.Topup"
+                },
+                {
+                  "$ref": "#/components/schemas/dto.GiftCard"
+                }
+              ]
+            }
+          }
+        }
+      },
       "dto.ProductsResponse": {
         "type": "object",
         "description": "Catalog response for product searches",
@@ -281,6 +697,14 @@
           "propertyName": "productType"
         },
         "properties": {
+          "id": {
+            "description": "Internal identifier",
+            "type": "string"
+          },
+          "fupId": {
+            "description": "Internal identifier",
+            "type": "string"
+          },
           "brand": {
             "description": "Brand of product",
             "type": "string"
@@ -305,6 +729,14 @@
             "description": "Product type",
             "type": "string"
           },
+          "referenceType": {
+            "description": "Reference types",
+            "type": "array",
+            "items": {
+              "description": "Reference type",
+              "$ref": "#/components/schemas/dto.ReferenceType"
+            }
+          },
           "shortNotes": {
             "description": "Short notes for product",
             "type": "string"
@@ -316,6 +748,10 @@
               "description": "Subtype entry",
               "type": "string"
             }
+          },
+          "imageUrl": {
+            "description": "Product Image",
+            "type": "string"
           }
         }
       },
@@ -365,11 +801,11 @@
         "type": "object",
         "description": "",
         "properties": {
-          "send_currency": {
+          "sendCurrency": {
             "description": "Currency for the value",
             "type": "string"
           },
-          "send_price": {
+          "sendPrice": {
             "description": "Price in string to prevent lose precision",
             "type": "string"
           }
@@ -430,23 +866,41 @@
           }
         ]
       },
+      "dto.ReferenceType": {
+        "type": "object",
+        "description": "Reference Type descriptor",
+        "properties": {
+          "name": {
+            "description": "Name of the reference type",
+            "type": "string"
+          },
+          "valueType": {
+            "description": "Reference type value (string, number, etc)",
+            "type": "string"
+          },
+          "regex": {
+            "description": "Regular expression to validate value",
+            "type": "string"
+          }
+        }
+      },
       "dto.Price": {
         "type": "object",
         "description": "Pricing for product",
         "properties": {
-          "fiat_currency": {
+          "fiatCurrency": {
             "description": "Price in FIAT currency",
             "type": "string"
           },
-          "fiat_value": {
+          "fiatValue": {
             "description": "Price for the product in FIAT, in a string value to prevent lost precision",
             "type": "string"
           },
-          "stable_coin_currency": {
+          "stableCoinCurrency": {
             "description": "Price in a cripto stable coin like USDC or USDT",
             "type": "string"
           },
-          "stable_coin_value": {
+          "stableCoinValue": {
             "description": "Price for the product in stable coin, in a string value to prevent lost precision",
             "type": "string"
           }
@@ -492,48 +946,161 @@
           "Middle East and North Africa"
         ]
       },
-      "dto.CreateValidatedReference": {
-        "type": "object",
-        "required": ["sku"],
-        "properties": {
-          "reference": {
-            "type": "string",
-            "description": "User-provided reference (e.g., phone number, email)"
-          },
-          "reference_required_fields": {
-            "type": "object",
-            "description": "Required fields for validating the reference"
-          },
-          "sku": {
-            "type": "string",
-            "description": "SKU related to the reference"
-          }
-        }
-      },
       "dto.ValidatedReference": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID identifier for the reference"
+          },
+          "validation_id": {
+            "type": "string",
+            "description": "Unique identifier for the reference validation"
+          },
+          "reference_type": {
+            "type": "string",
+            "description": "Type of reference (e.g., phone number, email, service number)"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the reference",
+            "enum": ["PENDING", "VALIDATED", "FAILED", "EXPIRED", "COMPLETED"]
+          },
           "reference": {
             "type": "string",
             "description": "User-provided reference"
           },
           "reference_required_fields": {
             "type": "object",
-            "description": "Fields required to validate the reference"
+            "description": "Required fields for validating the reference in JSON format"
           },
-          "status": {
+          "created_at": {
             "type": "string",
-            "description": "Current status of the reference"
+            "format": "date-time",
+            "description": "Creation timestamp"
           },
-          "reference_type": {
+          "updated_at": {
             "type": "string",
-            "description": "Type of reference (e.g., phone number, email)"
+            "format": "date-time",
+            "description": "Last update timestamp"
+          },
+          "transaction_intents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/dto.TransactionIntent"
+            }
           }
         }
       },
+      "dto.TransactionIntent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID identifier for the transaction intent"
+          },
+          "validated_reference_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Reference to the validated reference"
+          },
+          "sku": {
+            "type": "string",
+            "description": "Product SKU associated with the transaction"
+          },
+          "quantity": {
+            "type": "integer",
+            "default": 1,
+            "description": "Number of items in the transaction"
+          },
+          "amount": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Transaction amount"
+          },
+          "chain": {
+            "type": "string",
+            "description": "Blockchain network identifier"
+          },
+          "token": {
+            "type": "string",
+            "description": "Token used for the transaction"
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the transaction intent",
+            "enum": ["PENDING", "PROCESSING", "COMPLETED", "FAILED"]
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation timestamp"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Last update timestamp"
+          }
+        }
+      },
+      "dto.CreateValidatedReference": {
+        "type": "object",
+        "required": [
+          "reference",
+          "reference_type"
+        ],
+        "properties": {
+          "reference": {
+            "type": "string",
+            "description": "User-provided reference"
+          },
+          "reference_type": {
+            "type": "string",
+            "description": "Type of reference (e.g., phone number, email, service number)"
+          },
+          "reference_required_fields": {
+            "type": "object",
+            "description": "Required fields for validating the reference in JSON format"
+          },
+          "transaction_intent": {
+            "type": "object",
+            "properties": {
+              "sku": {
+                "type": "string",
+                "description": "Product SKU associated with the transaction"
+              },
+              "quantity": {
+                "type": "integer",
+                "default": 1,
+                "description": "Number of items in the transaction"
+              },
+              "amount": {
+                "type": "number",
+                "format": "decimal",
+                "description": "Transaction amount"
+              },
+              "chain": {
+                "type": "string",
+                "description": "Blockchain network identifier"
+              },
+              "token": {
+                "type": "string",
+                "description": "Token used for the transaction"
+              }
+            }
+          }
+        }
+      },
+
       "dto.CreateQuote": {
         "type": "object",
-        "required": ["fiat_currency", "digital_asset", "sku"],
+        "required": [
+          "fiat_currency",
+          "digital_asset",
+          "sku"
+        ],
         "properties": {
           "fiat_currency": {
             "type": "string",
@@ -546,43 +1113,300 @@
           "sku": {
             "type": "string",
             "description": "Product identifier"
+          },
+          "integrator": {
+            "type": "string",
+            "description": "Integrator name"
           }
         }
       },
       "dto.Quote": {
-
         "type": "object",
         "properties": {
-        "fiat_currency": {
-          "type": "string",
-          "description": "Local fiat currency for product pricing."
-        },
-        "fiat_amount": {
-          "type": "string",
-          "description": "Price in fiat currency"
-        },
-        "digital_asset": {
-          "type": "string",
-          "description": "Requested stablecoin used for pricing (e.g., USDC)"
-        },
-        "digital_asset_amount": {
-          "type": "string",
-          "description": "Product price in digital asset"
-        },
+          "fiat_currency": {
+            "type": "string",
+            "description": "Local fiat currency for product pricing."
+          },
+          "fiat_amount": {
+            "type": "string",
+            "description": "Price in fiat currency"
+          },
+          "digital_asset": {
+            "type": "string",
+            "description": "Requested stablecoin used for pricing (e.g., USDC)"
+          },
+          "digital_asset_amount": {
+            "type": "string",
+            "description": "Product price in digital asset"
+          },
           "sku": {
             "type": "string",
             "description": "Product sku"
           }
-      }
+        }
+      },
+      "dto.CountriesResponse": {
+        "type": "object",
+        "description": "Response wrapper for countries list",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Response message",
+            "example": "Countries retrieved successfully"
+          },
+          "data": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Total number of countries in results",
+                "example": 250
+              },
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/dto.Country"
+                }
+              }
+            }
+          }
+        }
+      },
+      "dto.Country": {
+        "type": "object",
+        "description": "Country information",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the country",
+            "example": "123e4567-e89b-12d3-a456-426614174000"
+          },
+          "name": {
+            "type": "string",
+            "description": "The full name of the country",
+            "example": "United States"
+          },
+          "iso_alpha2": {
+            "type": "string",
+            "description": "The ISO 3166-1 alpha-2 code",
+            "example": "US",
+            "minLength": 2,
+            "maxLength": 2
+          },
+          "iso_alpha3": {
+            "type": "string",
+            "description": "The ISO 3166-1 alpha-3 code",
+            "example": "USA",
+            "minLength": 3,
+            "maxLength": 3
+          },
+          "capital": {
+            "type": "string",
+            "description": "The capital city",
+            "example": "Washington, D.C.",
+            "nullable": true
+          },
+          "fiat_currency": {
+            "type": "string",
+            "description": "The fiat currency of the country",
+            "example": "USD"
+          },
+          "region": {
+            "type": "string",
+            "description": "The geographical region",
+            "example": "North America"
+          },
+          "subregion": {
+            "type": "string",
+            "description": "The geographical subregion",
+            "example": "Northern America"
+          },
+          "languages": {
+            "type": "object",
+            "description": "Languages spoken in the country",
+            "nullable": true,
+            "example": {
+              "eng": "English"
+            }
+          },
+          "flag_url": {
+            "type": "string",
+            "description": "URL of the country flag",
+            "example": "https://example.com/flags/us.png"
+          },
+          "timezone": {
+            "type": "string",
+            "description": "The country timezone",
+            "example": "UTC-05:00"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Latitude coordinates",
+            "example": 38.8951,
+            "nullable": true
+          },
+          "longitude": {
+            "type": "number",
+            "format": "float",
+            "description": "Longitude coordinates",
+            "example": -77.0364,
+            "nullable": true
+          },
+          "calling_code": {
+            "type": "string",
+            "description": "International calling code",
+            "example": "+1"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status of the country record",
+            "enum": [
+              "active",
+              "inactive"
+            ],
+            "example": "active"
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Record creation timestamp",
+            "example": "2024-01-01T00:00:00Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Record last update timestamp",
+            "example": "2024-01-01T00:00:00Z"
+          }
+        }
+      },
+      "TransactionResponse": {
+        "type": "object",
+        "properties": {
+          "bfp_transaction_identifier": {
+            "type": "string",
+            "maxLength": 255,
+            "description": "BFP transaction identifier."
+          },
+          "fup_transaction_id": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "FUP transaction identifier",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PENDING",
+              "PROCESSING",
+              "COMPLETED",
+              "VALIDATING",
+              "FAILED"
+            ],
+            "default": "PENDING",
+            "description": "Current status of the transaction"
+          },
+          "country_iso_alpha2": {
+            "type": "string",
+            "maxLength": 2,
+            "description": "The ISO 3166-1 alpha-2 code for the country."
+          },
+          "fup_slug": {
+            "type": "string",
+            "maxLength": 100,
+            "default": "unknown",
+            "description": "FUP identifier slug"
+          },
+          "product_type": {
+            "type": "string",
+            "maxLength": 100,
+            "default": "not_set",
+            "description": "Type of the product"
+          },
+          "product_sub_type": {
+            "type": "string",
+            "maxLength": 100,
+            "default": "not_set",
+            "description": "Sub-type of the product"
+          },
+          "sku": {
+            "type": "string",
+            "maxLength": 100,
+            "default": "not_set",
+            "description": "Product SKU identifier"
+          },
+          "fiat_unit_price": {
+            "type": "number",
+            "format": "decimal",
+            "description": "Unit price in fiat currency",
+            "default": 0
+          },
+          "fiat_currency": {
+            "type": "string",
+            "maxLength": 3,
+            "description": "The ISO 4217 currency code for the currency used"
+          },
+          "quantity": {
+            "type": "integer",
+            "default": 1,
+            "description": "Number of items in the transaction"
+          },
+          "fup_product_metadata": {
+            "type": "object",
+            "nullable": true,
+            "description": "FUP product metadata"
+          },
+          "user_wallet_address": {
+            "type": "string",
+            "maxLength": 100,
+            "nullable": true,
+            "description": "User's blockchain wallet address"
+          },
+          "blockchain_used": {
+            "type": "string",
+            "maxLength": 100,
+            "nullable": true,
+            "description": "Blockchain network used for the transaction"
+          },
+          "token_used": {
+            "type": "string",
+            "maxLength": 100,
+            "nullable": true,
+            "description": "Token used for payment"
+          },
+          "token_amount_payed": {
+            "type": "number",
+            "format": "decimal",
+            "nullable": true,
+            "description": "Amount of tokens paid"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Transaction creation timestamp"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Transaction last update timestamp"
+          },
+          "is_deleted": {
+            "type": "boolean",
+            "description": "Soft delete status",
+            "default": false
+          }
         }
       }
-    },
-    "securitySchemes": {
-      "ApiKey": {
-        "type": "http",
-        "scheme": "bearer",
-        "bearerFormat": "TOKEN",
-        "description": "Authentication: Bearer YOUR_API_KEY"
-      }
+    }
+  },
+  "securitySchemes": {
+    "ApiKey": {
+      "type": "http",
+      "scheme": "bearer",
+      "bearerFormat": "TOKEN",
+      "description": "Authentication: Bearer YOUR_API_KEY"
     }
   }
+}
