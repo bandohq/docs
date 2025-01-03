@@ -14,6 +14,10 @@ The most common use for this API would be to populate a UI that enlists the avai
 
 ## API Specification
 
+{% swagger src="../../bfp_v1.json" path="/products/grouped" method="get" expanded="true" %}
+[bfp_v1.json](../../bfp_v1.json)
+{% endswagger %}
+
 {% swagger src="../../bfp_v1.json" path="/products" method="get" expanded="true" %}
 [bfp_v1.json](../../bfp_v1.json)
 {% endswagger %}

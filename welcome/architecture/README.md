@@ -1,5 +1,5 @@
 ---
-description: 'The web3 spending protocol explained.'
+description: 'The Web3 spending protocol explained.'
 ---
 
 # Protocol Architecture
