@@ -535,7 +535,77 @@
           }
         }
       }
+    },
+    "/networks/": {
+    "get": {
+      "security": [
+        {
+          "ApiKey": []
+        }
+      ],
+      "tags": [
+        "Networks"
+      ],
+      "summary": "Get supported blockchain networks",
+      "parameters": [
+
+      ],
+      "responses": {
+        "200": {
+          "description": "List of supported networks",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/dto.NetworkListResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "$ref": "#/components/schemas/dto.ResponseError"
+        }
+      }
     }
+  },
+  "/tokens/{network_key}/": {
+    "get": {
+      "security": [
+        {
+          "ApiKey": []
+        }
+      ],
+      "tags": [
+        "Tokens"
+      ],
+      "summary": "Get supported tokens for a network",
+      "parameters": [
+        {
+          "name": "network_key",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          },
+          "description": "Network key identifier (e.g., arb, sol)"
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "List of supported tokens",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/dto.TokenListResponse"
+              }
+            }
+          }
+        },
+        "400": {
+          "$ref":"#/components/schemas/dto.ResponseError"
+        }
+      }
+    }
+  }
   },
   "components": {
     "parameters": {
@@ -752,6 +822,14 @@
           "imageUrl": {
             "description": "Product Image",
             "type": "string"
+          },
+          "evmServiceId": {
+            "description": "Service ID for EVM networks",
+            "type": "integer"
+          },
+          "svmServiceId": {
+            "description": "Service ID for SVM networks",
+            "type": "integer"
           }
         }
       },
@@ -1048,21 +1126,19 @@
       "dto.CreateValidatedReference": {
         "type": "object",
         "required": [
-          "reference",
-          "reference_type"
+          "reference"
         ],
         "properties": {
           "reference": {
             "type": "string",
             "description": "User-provided reference"
           },
-          "reference_type": {
-            "type": "string",
-            "description": "Type of reference (e.g., phone number, email, service number)"
-          },
           "reference_required_fields": {
-            "type": "object",
-            "description": "Required fields for validating the reference in JSON format"
+            "description": "Required fields for validating the reference in JSON format",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/dto.PurchaseRequiredField"
+            }
           },
           "transaction_intent": {
             "type": "object",
@@ -1085,6 +1161,10 @@
                 "type": "string",
                 "description": "Blockchain network identifier"
               },
+              "wallet": {
+            "type": "string",
+            "description": "Wallet address"
+          },
               "token": {
                 "type": "string",
                 "description": "Token used for the transaction"
@@ -1093,13 +1173,27 @@
           }
         }
       },
-
+      "dto.PurchaseRequiredField": {
+        "type": "object",
+        "description": "Purchase required fields",
+        "properties": {
+          "key": {
+            "description": "Name of required field",
+            "type": "string"
+          },
+          "value": {
+            "description": "Value for the required field",
+            "type": "string"
+          }
+        }
+      },
       "dto.CreateQuote": {
         "type": "object",
         "required": [
           "fiat_currency",
           "digital_asset",
-          "sku"
+          "sku",
+          "chain_id"
         ],
         "properties": {
           "fiat_currency": {
@@ -1113,6 +1207,10 @@
           "sku": {
             "type": "string",
             "description": "Product identifier"
+          },
+          "chain_id": {
+            "type": "integer",
+            "description": "Network identifier"
           },
           "integrator": {
             "type": "string",
@@ -1398,8 +1496,122 @@
             "default": false
           }
         }
+
+    },
+      "dto.NetworkListResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/dto.Network"
+          }
+        }
       }
-    }
+    },
+
+    "dto.Network": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Arbitrum"
+        },
+        "key": {
+          "type": "string",
+          "example": "arb"
+        },
+        "logo_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "chain_id": {
+          "type": "integer",
+          "example": 42161
+        },
+        "rpc_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "explorer_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "is_testnet": {
+          "type": "boolean"
+        },
+        "network_type": {
+          "type": "string",
+          "enum": ["EVM", "SVM"]
+        },
+        "is_active": {
+          "type": "boolean"
+        },
+        "rank": {
+          "type": "integer"
+        },
+        "protocol_contracts": {
+          "type": "object"
+        }
+      }
+    },
+    "dto.TokenListResponse": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/dto.RampToken"
+          }
+        }
+      }
+    },
+
+    "dto.RampToken": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "symbol": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^0x[a-fA-F0-9]{40}$"
+        },
+        "decimals": {
+          "type": "integer"
+        },
+        "image_url": {
+          "type": "string",
+          "format": "uri",
+          "nullable": true
+        },
+        "min_allowance": {
+          "type": "string",
+          "description": "String to prevent precision loss"
+        },
+        "max_allowance": {
+          "type": "string",
+          "description": "String to prevent precision loss"
+        }
+      }
+
+  }
+}
   },
   "securitySchemes": {
     "ApiKey": {
