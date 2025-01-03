@@ -1,5 +1,5 @@
 ---
-description: Enabling a new use-case for the web3 ecosystem.
+description: Enabling a new use-case for the Web3 ecosystem.
 cover: .gitbook/assets/default-page-cover.raw-ULGNP2PZ.svg
 coverY: 0
 ---
