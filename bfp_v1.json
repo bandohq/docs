@@ -800,10 +800,15 @@
             "type": "string"
           },
           "referenceType": {
-            "description": "Reference types",
+            "description": "Reference type",
+
+            "$ref": "#/components/schemas/dto.ReferenceType"
+          },
+          "requiredFields": {
+            "description": "Required fields",
             "type": "array",
             "items": {
-              "description": "Reference type",
+              "description": "Required field",
               "$ref": "#/components/schemas/dto.ReferenceType"
             }
           },
@@ -1049,7 +1054,7 @@
             "type": "string",
             "description": "User-provided reference"
           },
-          "reference_required_fields": {
+          "required_fields": {
             "type": "object",
             "description": "Required fields for validating the reference in JSON format"
           },
@@ -1063,8 +1068,8 @@
             "format": "date-time",
             "description": "Last update timestamp"
           },
-          "transaction_intents": {
-            "type": "array",
+          "transaction_intent": {
+            "type": "object",
             "items": {
               "$ref": "#/components/schemas/dto.TransactionIntent"
             }
@@ -1133,7 +1138,7 @@
             "type": "string",
             "description": "User-provided reference"
           },
-          "reference_required_fields": {
+          "required_fields": {
             "description": "Required fields for validating the reference in JSON format",
             "type": "array",
             "items": {
