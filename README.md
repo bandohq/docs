@@ -13,9 +13,9 @@ Our protocol enables a seamless way for Web3 users to access real-world value th
 
 ## Deep Dive Into Our Solution
 
-* [Protocol Architecture](overview/overview/architecture.md): Understand the technical implementation
-* [Use Cases](overview/overview/use-cases.md): The power of thousands of products for your product, explore integration possibilities
-* [Terminology](overview/overview/terminology.md): Get familiar with protocol concepts
+* [Protocol Architecture](overview/architecture.md): Understand the technical implementation
+* [Use Cases](welcome/use-cases.md): The power of thousands of products for your product, explore integration possibilities
+* [Terminology](welcome/terminology.md): Get familiar with protocol concepts
 
 ## Start Integrating
 
