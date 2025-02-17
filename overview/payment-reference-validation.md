@@ -1,46 +1,192 @@
----
-description: Payment Reference Validation process
----
+# Payment Reference Validation Guide
 
-# Payment Reference Validation
+Learn how to validate payment references for your transactions. This guide explains how to create, validate, and manage payment references securely.
 
-Thus process refers to ingesting, verifying and storing a payment reference added by a user as part of a fulfillment request.
+## What is a Payment Reference?
 
-## What is a payment reference?
-A ref refers to any string of characters the SHOULD be used to redeem or identify a potential fulfillment request for a specific service or product. eg. a cellphone, email, username, service number, ID card, etc.
+A payment reference is any identifier needed to complete a transaction, such as:
+- Phone numbers 
+- Email addresses 
 
-## How will the protocol protect the user’s data?
-The payment references are sensitive in nature because they can potentially identify an individual. So we MUST deem them as PII. To protect users’ data, the protocol uses a combination of off-chain with on-chain mechanisms to route the payment correctly.
 
-1. The user inputs the ref
-2. The Ref Validation API ingests the payment reference into the backend
-3. The system will perform format validations as well as KYC and/or FP validations
-4. Once verified, the reference is stored securely off-chain, and a random identifier is generated
-5. The random identifier is then submitted to the `**Reference Registry**` smart contract on-chain, which holds every validated reference known to the protocol.
+## Creating a Reference
 
-```mermaid
-sequenceDiagram
-    actor User
-    participant Frontend
-    participant Backend
-    participant RefRegistry
-
-    User->>Frontend: Input reference
-    Frontend->>Backend: Send reference for validation
-    Backend->>Backend: Perform format validations, KYC, FP checks
-    Backend->>Backend: Store reference securely off-chain
-    Backend->>Backend: Generate random identifier
-    Backend->>RefRegistry: Submit random identifier
-    RefRegistry->>RefRegistry: Store validated reference identifier
-    Backend-->>Frontend: Respond with validation result
+### Endpoint
+```http
+POST /references
 ```
 
-### Accepting/Rejecting a payment reference
+### Request Format
+```json
+{
+  "reference": "string",
+  "required_fields": [
+    {
+      "name": "string",
+      "value": "string"
+    }
+  ],
+  "transaction_intent": {
+    "sku": "product-sku",
+    "quantity": 1,
+    "amount": 10.00,
+    "chain": "ethereum",
+    "wallet": "0x...",
+    "token": "USDC"
+  }
+}
+```
 
-The process of reference validation involves both off-chain and on-chain components.
+### Example Requests
 
-When a reference is submitted for verification, the BFP protocol performs necessary checks, validates the format, and carries out FP (fraud prevention) actions. After these steps, the on-chain protocol needs to be informed about the reference.
+1. **Mobile Top-up Reference**
+```json
+{
+  "reference": "+1234567890",
+  "transaction_intent": {
+    "sku": "telcel-mx-100",
+    "quantity": 1,
+    "amount": 100.00,
+    "chain": "polygon",
+    "wallet": "0x123...",
+    "token": "USDC"
+  }
+}
+```
 
-At this stage, the BFP interacts with the ManagerContract to accept the reference and store it on-chain. When the `registerRef` method is called, the ManagerContract uses the reference ID and stores it in the reference registry contract.
+2. **Gaming Credit Reference**
+```json
+{
+  "reference": "gamer123",
+  "required_fields": [
+    {
+      "name": "server",
+      "value": "NA-East"
+    }
+  ],
+  "transaction_intent": {
+    "sku": "game-credits-1000",
+    "amount": 50.00,
+    "chain": "bsc",
+    "token": "BUSD"
+  }
+}
+```
 
-It's crucial to note that the reference IDs are not the actual payment references, but rather random strings that point to the actual references stored off-chain.
+### Response Format
+```json
+{
+  "id": "uuid",
+  "validation_id": "string",
+  "reference_type": "phone",
+  "status": "PENDING",
+  "reference": "string",
+  "created_at": "2024-02-17T12:00:00Z",
+  "updated_at": "2024-02-17T12:00:00Z",
+  "transaction_intent": {
+    "id": "uuid",
+    "sku": "string",
+    "amount": 10.00,
+    "status": "PENDING"
+  }
+}
+```
+
+## Checking Reference Status
+
+### Endpoint
+```http
+GET /references?validation_id=your-validation-id
+```
+
+### Response Example
+```json
+[
+  {
+    "id": "123e4567-e89b-12d3-a456-426614174000",
+    "validation_id": "VAL123456",
+    "status": "VALIDATED",
+    "reference": "+1234567890",
+    "created_at": "2024-02-17T12:00:00Z",
+    "transaction_intent": {
+      "status": "PENDING",
+      "amount": 100.00
+    }
+  }
+]
+```
+
+## Understanding Reference States
+
+References can be in one of these states:
+- `PENDING`: Initial validation in progress
+- `FAILED`: Validation failed
+- `COMPLETED`: Transaction validation completed successfully
+
+## Best Practices
+
+1. **Reference Format**
+   - Validate format client-side before submission
+   - Follow the specific format required by each service
+   - Include country codes for phone numbers
+
+2. **Security**
+   - Never store references in plain text
+   - Use HTTPS for all API calls
+   - Handle errors gracefully
+
+3. **Transaction Intent**
+   - Always include complete transaction details
+   - Specify the correct blockchain and token
+   - Check amounts and SKUs
+
+## Common Use Cases
+
+### 1. Mobile Top-up Flow
+```json
+{
+  "reference": "+525512345678",
+  "transaction_intent": {
+    "sku": "telcel-mx-100",
+    "amount": 100.00,
+    "chain": "polygon",
+    "token": "USDC"
+  }
+}
+```
+
+### 2. Digital Gift Card Delivery
+```json
+{
+  "reference": "recipient@email.com",
+  "transaction_intent": {
+    "sku": "amazon-gift-50",
+    "amount": 50.00,
+    "chain": "ethereum",
+    "token": "USDT"
+  }
+}
+```
+
+
+## Tips for Success
+
+1. **Validation Speed**
+   - References are typically validated within seconds
+   - Set appropriate timeouts in your implementation
+   - Always check the status before proceeding
+
+2. **Required Fields**
+   - Some services need additional information
+   - Check product documentation for required fields
+   - Include all required fields to avoid validation failures
+
+3. **Reference Privacy**
+   - References are stored securely off-chain
+   - Only reference IDs are stored on-chain
+   - Use validation IDs for status checks
+
+4. **Transaction Intent**
+   - Include complete transaction details
+   - Verify token and chain compatibility
+   - Check amounts and quantities
