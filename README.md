@@ -19,7 +19,7 @@ Our protocol enables a seamless way for Web3 users to access real-world value th
 
 ## Start Integrating
 
-* [API Documentation](fulfiller-api/bando-api/): Access our comprehensive API suite
+* [API Documentation](fulfiller-api/api-reference/): Access our comprehensive API suite
 * [Authentication](fulfiller-api/authentication.md): Secure your integration
 * [Integration Guides](fulfiller-api/guides/):
   * [Product Catalog](fulfiller-api/guides/get-available-products.md): Browse available products
