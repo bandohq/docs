@@ -1,42 +1,104 @@
-# Product Price to Digital Asset Price Quote API
+# Price Quote API Guide
 
-## Overview
+Learn how to get price quotes for converting fiat currency to digital assets for your purchases.
 
-This document outlines the design and implementation of the Fiat-to-Digital Asset Conversion API.  
-The API facilitates converting fiat currencies to digital assets and returns a quoted amount based on   
-current exchange rates. It supports configurable spreads and multiple external providers for FX and crypto pricing.
+## Getting a Price Quote
 
-## Objectives
+The Quote API helps you get current prices for purchasing products using digital assets.
 
-- Allow users to convert fiat currencies into supported digital assets.
-- Provide real-time quotes based on exchange rates from selected providers.
-- Enable configurable spreads and flexible rate sources.
-- Integrate with external providers for fiat and cryptocurrency rates.
-
-## Architecture
-
-The API involves interaction with various components for currency conversion and quote calculation.
-
-```mermaid
-sequenceDiagram
-    participant Client
-    participant QuoteService
-    participant ProductRepository
-    participant QuoteFiatProvider
-    participant QuoteDigitalProvider
-
-    Client->>QuoteService: create_quote(fiat_currency, digital_asset, sku)
-    QuoteService->>ProductRepository: find_product_variation_by_sku(sku)
-    ProductRepository-->>QuoteService: Product
-
-    QuoteService->>QuoteDigitalProvider: get_ticker_data(digital_asset_symbol)
-    QuoteDigitalProvider-->>QuoteService: price_stable_coin_value
-
-    QuoteService->>QuoteFiatProvider: request_conversion(fiat_amount, fiat_currency, product_fiat_currency)
-    QuoteFiatProvider-->>QuoteService: converted_fiat_amount
-
-    QuoteService->>QuoteService: _calculate_digital_asset_amount(converted_fiat_amount, price_stable_coin_value, spread)
-    Note right of QuoteService: Applies the spread to adjust the price
-
-    QuoteService-->>Client: Quote (fiat_currency, fiat_amount, digital_asset, digital_asset_amount, sku)
+### Endpoint
+```http
+POST /quotes
 ```
+
+### Request Format
+
+```json
+{
+    "sku": "ATT_MX_10-I",
+    "fiat_currency": "USD",
+    "digital_asset": "USDC",
+    "chain_id": 137
+}
+```
+
+Field descriptions:
+- `sku`: Product identifier (e.g., "TMOBILE_US_001-ROW_0081" )
+- `fiat_currency`: Local currency code (e.g., "MXN", "USD")
+- `digital_asset`: Digital token symbol (e.g., "USDC", "USDT")
+- `chain_id`: Blockchain network ID (e.g., 137 for Polygon)
+
+### Response Example
+
+```json
+{
+    "error": "",
+    "message": "Quote created successfully.",
+    "data": {
+        "fiat_currency": "USD",
+        "fiat_amount": "10.00",
+        "digital_asset": "USDC",
+        "digital_asset_amount": "0.58",
+        "total_amount": "0.60",
+        "sku": "ATT_MX_10-I"
+    }
+}
+```
+
+## Common Use Cases
+
+### 1. Mobile Top-up Quote
+```json
+{
+    "sku": "TMOBILE_US_001-ROW_0081",
+    "fiat_currency": "USD",
+    "digital_asset": "USDC",
+    "chain_id": 137
+}
+```
+
+### 2. Gift Card Quote
+```json
+{
+    "sku": "AMAZON_MX_500-I",
+    "fiat_currency": "USD",
+    "digital_asset": "USDT",
+    "chain_id": 137
+}
+```
+
+### 3. eSIM Quote
+```json
+{
+    "sku": "ESIM_US_30D-I",
+    "fiat_currency": "USD",
+    "digital_asset": "USDC",
+    "chain_id": 1
+}
+```
+
+
+## Understanding the Quote
+
+The quote response includes:
+1. **Original Price**
+   - `fiat_currency`: Local currency (MXN, USD, etc.)
+   - `fiat_amount`: Price in local currency
+
+2. **Converted Amount**
+   - `digital_asset`: Token used (USDC, USDT, etc.)
+   - `digital_asset_amount`: Base price in tokens
+
+
+## Best Practices
+
+1. **Currency Conversion**
+   - Rates update in real-time
+   - Final amounts may vary slightly
+   - Always use latest quote for transactions
+
+2. **SKU Format**
+   - Use correct SKU format: BRAND_COUNTRY_AMOUNT-I
+   - Check SKU exists
+   - Verify product availability
+
