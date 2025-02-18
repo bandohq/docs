@@ -1,10 +1,10 @@
-# Get Available Products
+# Products API Guide
 
-Learn how to use our Grouped Products API to efficiently get products organized by type and brand. This guide shows you how to retrieve and understand grouped product data.
+Learn how to use our Grouped Products API to get products organized by type and brand, including product details and validation requirements.
 
-## Retrieving Grouped Products
+## Getting Products
 
-Get products organized by type and brand using:
+Retrieve organized products using:
 ```http
 GET /products/grouped
 ```
@@ -12,21 +12,17 @@ GET /products/grouped
 ### Query Parameters
 
 - `country`: Filter by country code (e.g., "US", "MX")
-- `type`: Filter by product type (e.g., "esim", "topup", "giftcard")
+- `type`: Filter by product type (e.g., "esim", "topup", "gift_card")
 - `brand`: Filter by specific brand
 - `subType`: Filter by product subtype
 - `pageSize`: Number of items per page
 - `pageNumber`: Page number to retrieve
 
-Example request:
-```http
-GET /products/grouped?country=US&type=esim
-```
+## Product Types and Examples
 
-## Understanding the Response
+### 1. eSIM Products
 
-The response groups products first by type, then by brand. Here's what you'll get:
-
+Example response:
 ```json
 {
   "products": [
@@ -40,13 +36,18 @@ The response groups products first by type, then by brand. Here's what you'll ge
           "order": 10000,
           "variants": [
             {
-              "sku": "15fe0419-a328-4a52-afae-7651ad8c2362",
+              "sku": "fa8d9c2f-d10b-4e2b-8f7a-4f89c5f2aa56",
+              "shortNotes": "eSIM 30 Days, 50 GB",
+              "notes": "eSIM United States of America (the) No Roaming",
               "price": {
                 "fiatCurrency": "USD",
-                "fiatValue": "16.00"
+                "fiatValue": "62.00"
               },
-              "shortNotes": "eSIM 30 Days, 10 GB",
-              "notes": "eSIM United States of America (the) No Roaming"
+              "referenceType": {
+                "name": "phone",
+                "valueType": "string",
+                "regex": "^(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{3}\\)?[-.\\s]?)?\\d{3}[-.\\s]?\\d{4}$"
+              }
             }
           ]
         }
@@ -56,85 +57,199 @@ The response groups products first by type, then by brand. Here's what you'll ge
 }
 ```
 
-### Examples by Product Type
+Key eSIM details:
+- Duration and data info in `shortNotes`
+- Coverage details in `notes`
+- Phone validation required for delivery
+- Various data packages available
 
-#### 1. eSIM Products
+### 2. Gift Card Products
+
+Example response:
 ```json
 {
-  "sku": "fa8d9c2f-d10b-4e2b-8f7a-4f89c5f2aa56",
-  "shortNotes": "eSIM 30 Days, 50 GB",
-  "price": {
-    "fiatCurrency": "USD",
-    "fiatValue": "62.00"
-  },
-  "notes": "eSIM United States of America (the) No Roaming"
+  "products": [
+    {
+      "productType": "gift_card",
+      "brands": [
+        {
+          "brandName": "LLBean",
+          "brandSlug": "llbean",
+          "imageUrl": "brand-logo-url",
+          "order": 10000,
+          "variants": [
+            {
+              "sku": "09574598-545b-4fc2-a65a-e00ebe543551",
+              "shortNotes": "LLBean Gift Card $50",
+              "price": {
+                "fiatCurrency": "USD",
+                "fiatValue": "50.00"
+              },
+              "referenceType": {
+                "name": "email",
+                "valueType": "string",
+                "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+              },
+              "requiredFields": [
+                {
+                  "name": "recipient.firstName",
+                  "valueType": "string"
+                },
+                {
+                  "name": "recipient.lastName",
+                  "valueType": "string"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
 
-#### 2. Top-up Products
+Key gift card details:
+- Brand and denomination in `shortNotes`
+- Email delivery validation
+- Recipient information required
+- Various denominations available
+
+### 3. Top-up Products
+
+Example response:
 ```json
 {
-  "sku": "835e984d-1f1d-4492-a714-595d36d0f6c6",
-  "shortNotes": "AT&T $35 PIN",
-  "price": {
-    "fiatCurrency": "USD",
-    "fiatValue": "35.00"
-  },
-  "brand": "at-t-pin-usa",
-  "notes": "AT&T $35 PIN"
+  "products": [
+    {
+      "productType": "topup",
+      "brands": [
+        {
+          "brandName": "AT&T PIN USA",
+          "brandSlug": "at-t-pin-usa",
+          "imageUrl": "brand-logo-url",
+          "order": 10000,
+          "variants": [
+            {
+              "sku": "835e984d-1f1d-4492-a714-595d36d0f6c6",
+              "shortNotes": "AT&T $35 PIN",
+              "notes": "AT&T $35 PIN",
+              "price": {
+                "fiatCurrency": "USD",
+                "fiatValue": "35.00"
+              },
+              "referenceType": {
+                "name": "phone",
+                "valueType": "string",
+                "regex": "^(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{3}\\)?[-.\\s]?)?\\d{3}[-.\\s]?\\d{4}$"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
+
+## Required Fields by Product Type
+
+### 1. Reference Types
+Each product requires specific validation:
+
+- **Email Format (Gift Cards)**
+  ```json
+  {
+    "referenceType": {
+      "name": "email",
+      "regex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+    }
+  }
+  ```
+
+- **Phone Format (eSIMs & Top-ups)**
+  ```json
+  {
+    "referenceType": {
+      "name": "phone",
+      "regex": "^(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{3}\\)?[-.\\s]?)?\\d{3}[-.\\s]?\\d{4}$"
+    }
+  }
+  ```
+
+### 2. Additional Fields
+Some products require extra information:
+
+```json
+{
+  "requiredFields": [
+    {
+      "name": "recipient.firstName",
+      "valueType": "string"
+    },
+    {
+      "name": "recipient.lastName",
+      "valueType": "string"
+    }
+  ]
+}
+```
+
+## Product Details to Check
+
+1. **Basic Information**
+   - `brandName`: Provider name
+   - `brandSlug`: Unique brand identifier
+   - `imageUrl`: Brand logo URL
+   - `order`: Display order priority
+
+2. **Variant Details**
+   - `shortNotes`: Quick product description
+   - `notes`: Detailed information
+   - `price`: Pricing information
+   - `sku`: Unique product identifier
+
+3. **Validation Requirements**
+   - `referenceType`: Main validation format
+   - `requiredFields`: Additional required information
+   - `regex`: Validation patterns
 
 ## Common Use Cases
 
-### 1. Get All eSIMs for a Country
+### 1. Get eSIMs with Data Details
 ```http
-GET /products/grouped?country=US&type=esim
+GET /products/grouped?type=esim&country=US
 ```
-This shows all available eSIM options, organized by brand.
+Shows eSIMs with data packages and duration.
 
-### 2. View All Top-up Options
+### 2. View Gift Card Options
 ```http
-GET /products/grouped?type=topup
+GET /products/grouped?type=gift_card&brand=llbean
 ```
-See all mobile top-up products grouped by carrier.
+Displays available gift card denominations.
 
-### 3. Find Products by Brand
+### 3. Find Top-up Products
 ```http
-GET /products/grouped?brand=at-t-pin-usa
+GET /products/grouped?type=topup&country=US
 ```
-Shows all AT&T products organized by type.
+Lists available mobile top-up options.
 
-## Product Details to Look For
+## Best Practices
 
-1. For eSIMs:
-   - Duration (e.g., "30 Days")
-   - Data amount (e.g., "50 GB")
-   - Speed limits (if any)
-   - Coverage information
+1. **Product Selection**
+   - Check `shortNotes` for quick info
+   - Read `notes` for full details
+   - Verify price and currency
+   - Look at brand information
 
-2. For Top-ups:
-   - Carrier information
-   - Denomination amount
-   - Any special conditions
+2. **Validation Handling**
+   - Pre-validate reference formats
+   - Include all required fields
+   - Follow regex patterns
+   - Handle validation errors
 
-## Tips for Using Grouped Products
-
-1. **Filter Efficiently**
-   - Use the country parameter to see relevant products
-   - Combine type and brand for specific searches
-
-2. **Check Product Details**
-   - Always look at both `shortNotes` and `notes`
-   - Verify prices in both fiat and stable coins if needed
-
-3. **Understanding Variants**
-   - Each brand can have multiple product variants
-   - Variants might have different durations or data amounts
-   - Look for the best value by comparing similar variants
-
-4. **Price Information**
-   - Prices are available in both fiat and stable coins
-   - Check `fiatValue` for local currency pricing
-   - Use `stableCoinValue` for crypto payments
-
+3. **Display Information**
+   - Use brand images when available
+   - Show ordered by priority
+   - Display clear pricing
+   - Include important notes
