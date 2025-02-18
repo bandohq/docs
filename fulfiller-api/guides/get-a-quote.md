@@ -4,7 +4,7 @@ Learn how to get price quotes for converting fiat currency to digital assets for
 
 ## Getting a Price Quote
 
-The Quote API helps you get current prices and fees for purchasing products using digital assets.
+The Quote API helps you get current prices for purchasing products using digital assets.
 
 ### Endpoint
 ```http
@@ -16,14 +16,14 @@ POST /quotes
 ```json
 {
     "sku": "ATT_MX_10-I",
-    "fiat_currency": "MXN",
+    "fiat_currency": "USD",
     "digital_asset": "USDC",
     "chain_id": 137
 }
 ```
 
 Field descriptions:
-- `sku`: Product identifier (e.g., "ATT_MX_10-I" )
+- `sku`: Product identifier (e.g., "TMOBILE_US_001-ROW_0081" )
 - `fiat_currency`: Local currency code (e.g., "MXN", "USD")
 - `digital_asset`: Digital token symbol (e.g., "USDC", "USDT")
 - `chain_id`: Blockchain network ID (e.g., 137 for Polygon)
@@ -35,7 +35,7 @@ Field descriptions:
     "error": "",
     "message": "Quote created successfully.",
     "data": {
-        "fiat_currency": "MXN",
+        "fiat_currency": "USD",
         "fiat_amount": "10.00",
         "digital_asset": "USDC",
         "digital_asset_amount": "0.58",
@@ -50,8 +50,8 @@ Field descriptions:
 ### 1. Mobile Top-up Quote
 ```json
 {
-    "sku": "TELCEL_MX_100-I",
-    "fiat_currency": "MXN",
+    "sku": "TMOBILE_US_001-ROW_0081",
+    "fiat_currency": "USD",
     "digital_asset": "USDC",
     "chain_id": 137
 }
@@ -61,13 +61,13 @@ Field descriptions:
 ```json
 {
     "sku": "AMAZON_MX_500-I",
-    "fiat_currency": "MXN",
+    "fiat_currency": "USD",
     "digital_asset": "USDT",
     "chain_id": 137
 }
 ```
 
-### 3. International eSIM Quote
+### 3. eSIM Quote
 ```json
 {
     "sku": "ESIM_US_30D-I",
