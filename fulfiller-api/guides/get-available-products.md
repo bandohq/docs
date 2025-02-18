@@ -1,6 +1,6 @@
 # Products API Guide
 
-Learn how to use our Grouped Products API to get products organized by type and brand, including product details and validation requirements.
+Learn how to use our Catalog API to get products organized by type and brand, including product details and validation requirements.
 
 ## Getting Products
 
