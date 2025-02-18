@@ -6,7 +6,8 @@ Learn how to handle payment references for transactions.  This guide explains ho
 
 ## What is a Payment Reference?
 
-A payment reference is any identifier needed to complete a transaction, such as:- Phone numbers for mobile top-ups and eSIMs
+A payment reference is any identifier needed to complete a transaction, such as:
+- Phone numbers for mobile top-ups and eSIMs
 - Email addresses for gift cards
 
 Each product type has specific reference requirements and validation rules.
