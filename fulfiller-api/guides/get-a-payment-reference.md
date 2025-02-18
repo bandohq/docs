@@ -1,13 +1,16 @@
-# Payment Reference Validation Guide
+# Payment Reference Guide
 
-Learn how to validate payment references for your transactions. This guide explains how to create, validate, and manage payment references securely.
+Learn how to handle payment references for transactions. 
+
+# Creating Payment References
 
 ## What is a Payment Reference?
 
-A payment reference is any identifier needed to complete a transaction, such as:
-- Phone numbers 
-- Email addresses 
+A payment reference is the delivery information for a product:
+- Phone numbers for mobile top-ups and eSIMs
+- Email addresses for gift cards
 
+Each product type has specific reference requirements and validation rules.
 
 ## Creating a Reference
 
@@ -16,177 +19,72 @@ A payment reference is any identifier needed to complete a transaction, such as:
 POST /references
 ```
 
-### Request Format
+### Request Format by Product Type
+
+#### 1. Mobile Top-ups and eSIMs
 ```json
 {
-  "reference": "string",
-  "required_fields": [
-    {
-      "name": "string",
-      "value": "string"
-    }
-  ],
+  "reference": "+14155552671",
   "transaction_intent": {
-    "sku": "product-sku",
+    "sku": "ATT_MX_10-I",
     "quantity": 1,
     "amount": 10.00,
-    "chain": "ethereum",
-    "wallet": "0x...",
-    "token": "USDC"
+    "chain": "pol",
+    "token": "USDC", 
+     "wallet": "0x123.."
   }
 }
 ```
 
-### Example Requests
+Reference requirements:
+- Must match phone regex: `^(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{3}\\)?[-.\\s]?)?\\d{3}[-.\\s]?\\d{4}$`
+- Include country code
+- No special characters 
+- Some products require extra fields, check the required_fields of the product endpoint
 
-1. **Mobile Top-up Reference**
+#### 2. Gift Cards
 ```json
 {
-  "reference": "+1234567890",
-  "transaction_intent": {
-    "sku": "telcel-mx-100",
-    "quantity": 1,
-    "amount": 100.00,
-    "chain": "polygon",
-    "wallet": "0x123...",
-    "token": "USDC"
-  }
-}
-```
-
-2. **Gaming Credit Reference**
-```json
-{
-  "reference": "gamer123",
+  "reference": "recipient@email.com",
   "required_fields": [
     {
-      "name": "server",
-      "value": "NA-East"
+      "name": "recipient.firstName",
+      "value": "John"
+    },
+    {
+      "name": "recipient.lastName",
+      "value": "Doe"
     }
   ],
   "transaction_intent": {
-    "sku": "game-credits-1000",
+    "sku": "09574598-545b-4fc2-a65a-e00ebe543551",
     "amount": 50.00,
-    "chain": "bsc",
-    "token": "BUSD"
+    "chain": "137",
+    "token": "USDC"
   }
 }
 ```
+
+Reference requirements:
+- Must match email regex: `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$`
+- Required fields vary by brand
+- Some brands require sender information
 
 ### Response Format
 ```json
 {
   "id": "uuid",
   "validation_id": "string",
-  "reference_type": "phone",
+  "reference_type": "email",
   "status": "PENDING",
-  "reference": "string",
+  "reference": "recipient@email.com",
   "created_at": "2024-02-17T12:00:00Z",
   "updated_at": "2024-02-17T12:00:00Z",
   "transaction_intent": {
     "id": "uuid",
-    "sku": "string",
-    "amount": 10.00,
+    "sku": "0000000-545b-4fc2-a65a-000000000",
+    "amount": 50.00,
     "status": "PENDING"
   }
 }
 ```
-
-## Checking Reference Status
-
-### Endpoint
-```http
-GET /references?validation_id=your-validation-id
-```
-
-### Response Example
-```json
-[
-  {
-    "id": "123e4567-e89b-12d3-a456-426614174000",
-    "validation_id": "VAL123456",
-    "status": "VALIDATED",
-    "reference": "+1234567890",
-    "created_at": "2024-02-17T12:00:00Z",
-    "transaction_intent": {
-      "status": "PENDING",
-      "amount": 100.00
-    }
-  }
-]
-```
-
-## Understanding Reference States
-
-References can be in one of these states:
-- `PENDING`: Initial validation in progress
-- `FAILED`: Validation failed
-- `COMPLETED`: Transaction validation completed successfully
-
-## Best Practices
-
-1. **Reference Format**
-   - Validate format client-side before submission
-   - Follow the specific format required by each service
-   - Include country codes for phone numbers
-
-2. **Security**
-   - Never store references in plain text
-   - Use HTTPS for all API calls
-   - Handle errors gracefully
-
-3. **Transaction Intent**
-   - Always include complete transaction details
-   - Specify the correct blockchain and token
-   - Check amounts and SKUs
-
-## Common Use Cases
-
-### 1. Mobile Top-up Flow
-```json
-{
-  "reference": "+525512345678",
-  "transaction_intent": {
-    "sku": "telcel-mx-100",
-    "amount": 100.00,
-    "chain": "polygon",
-    "token": "USDC"
-  }
-}
-```
-
-### 2. Digital Gift Card Delivery
-```json
-{
-  "reference": "recipient@email.com",
-  "transaction_intent": {
-    "sku": "amazon-gift-50",
-    "amount": 50.00,
-    "chain": "ethereum",
-    "token": "USDT"
-  }
-}
-```
-
-
-## Tips for Success
-
-1. **Validation Speed**
-   - References are typically validated within seconds
-   - Set appropriate timeouts in your implementation
-   - Always check the status before proceeding
-
-2. **Required Fields**
-   - Some services need additional information
-   - Check product documentation for required fields
-   - Include all required fields to avoid validation failures
-
-3. **Reference Privacy**
-   - References are stored securely off-chain
-   - Only reference IDs are stored on-chain
-   - Use validation IDs for status checks
-
-4. **Transaction Intent**
-   - Include complete transaction details
-   - Verify token and chain compatibility
-   - Check amounts and quantities
