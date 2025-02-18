@@ -1,13 +1,12 @@
 # Payment Reference Guide
 
-Learn how to handle payment references for transactions. 
+Learn how to handle payment references for transactions.  This guide explains how to create and manage payment references securely.
 
 # Creating Payment References
 
 ## What is a Payment Reference?
 
-A payment reference is the delivery information for a product:
-- Phone numbers for mobile top-ups and eSIMs
+A payment reference is any identifier needed to complete a transaction, such as:- Phone numbers for mobile top-ups and eSIMs
 - Email addresses for gift cards
 
 Each product type has specific reference requirements and validation rules.
@@ -88,3 +87,23 @@ Reference requirements:
   }
 }
 ```
+
+## Best Practices
+
+1. **Reference Format**
+   - Validate format client-side before submission
+   - Follow the specific format required by each service
+   - Include country codes for phone numbers
+
+2. **Security**
+   - Never store references in plain text
+
+3. **Transaction Intent**
+   - Always include complete transaction details
+   - Specify the correct blockchain and token
+   - Check amounts and SKUs
+
+4. **Reference Privacy**
+   - References are stored securely off-chain
+   - Only reference IDs are stored on-chain
+   - Use validation IDs for status checks
