@@ -36,3 +36,11 @@ sequenceDiagram
 ```
 
 ### Accepting/Rejecting a payment reference
+
+The process of reference validation involves both off-chain and on-chain components.
+
+When a reference is submitted for verification, the BFP protocol performs necessary checks, validates the format, and carries out FP (fraud prevention) actions. After these steps, the on-chain protocol needs to be informed about the reference.
+
+At this stage, the BFP interacts with the ManagerContract to accept the reference and store it on-chain. When the `registerRef` method is called, the ManagerContract uses the reference ID and stores it in the reference registry contract.
+
+It's crucial to note that the reference IDs are not the actual payment references, but rather random strings that point to the actual references stored off-chain.
