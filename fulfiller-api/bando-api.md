@@ -1,11 +1,11 @@
 # Fulfiller API
 
-You can sync GitBook pages with an OpenAPI or Swagger file or a URL to include auto-generated API methods in your documentation.
+## Start Integrating
 
-### Example OpenAPI block
-
-GitBook's OpenAPI block is powered by [Scalar](https://scalar.com/), so you can test your APIs directly from your docs.
-
-{% swagger src="https://petstore3.swagger.io/api/v3/openapi.json" path="/pet" method="post" %}
-[https://petstore3.swagger.io/api/v3/openapi.json](https://petstore3.swagger.io/api/v3/openapi.json)
-{% endswagger %}
+* [API Documentation](/fulfiller-api/api-reference/): Access our comprehensive API suite
+* [Authentication](/fulfiller-api/authentication.md): Secure your integration
+* [Integration Guides](/fulfiller-api/guides/):
+    * [Product Catalog](/fulfiller-api/guides/get-available-products.md): Browse available products
+    * [Payment References](/fulfiller-api/guides/get-a-payment-reference.md): Generate payment references
+    * [Reference Validation](/fulfiller-api/guides/validate-a-payment-reference.md): Validate payment references
+    * [Quote Generation](/fulfiller-api/guides/get-a-quote.md): Get real-time pricing

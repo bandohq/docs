@@ -16,7 +16,7 @@ Get accurate pricing in digital assets (like USDC) before processing payments th
 
 ## API Specification
 
-{% swagger src="../../bfp_v1.json" path="/quotes" method="post" expanded="true" %}
-[bfp_v1.json](../../bfp_v1.json)
+{% swagger src="https://api.bando.cool/api/v1/openapi.json" path="/quotes" method="post" expanded="true" %}
+[https://api.bando.cool/api/v1/openapi.json](https://api.bando.cool/api/v1/openapi.json)
 {% endswagger %}
 
