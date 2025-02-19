@@ -7,12 +7,12 @@ Create and retrieve payment references for products.
 
 ## Create Reference
 
-{% swagger src="../../bfp_v1.json" path="/references" method="post" expanded="true" %}
-[bfp_v1.json](../../bfp_v1.json)
+{% swagger src="https://api.bando.cool/api/v1/openapi.json" path="/references" method="post" expanded="true" %}
+[https://api.bando.cool/api/v1/openapi.json](https://api.bando.cool/api/v1/openapi.json)
 {% endswagger %}
 
 ## Get References
 
-{% swagger src="../../bfp_v1.json" path="/references" method="get" expanded="true" %}
-[bfp_v1.json](../../bfp_v1.json)
+{% swagger src="https://api.bando.cool/api/v1/openapi.json" path="/references" method="get" expanded="true" %}
+[https://api.bando.cool/api/v1/openapi.json](https://api.bando.cool/api/v1/openapi.json)
 {% endswagger %}
