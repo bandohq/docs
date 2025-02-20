@@ -1,3 +1,7 @@
+---
+description: "Complete guide to handling crypto payment refunds with Bando. Understand the refund flow, requirements, and implementation across supported chains."
+---
+
 # Order Refunds
 
 ## Submitting a Fulfillment Result

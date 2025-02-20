@@ -1,3 +1,7 @@
+---
+description: Technical guide for implementing Bando's quote retrieval system. Learn how to fetch real-time pricing for crypto payments across multiple chains.
+---
+
 # Price Quote API Guide
 
 Learn how to get price quotes for converting fiat currency to digital assets for your purchases.
@@ -7,6 +11,7 @@ Learn how to get price quotes for converting fiat currency to digital assets for
 The Quote API helps you get current prices for purchasing products using digital assets.
 
 ### Endpoint
+
 ```http
 POST /quotes
 ```
@@ -15,14 +20,15 @@ POST /quotes
 
 ```json
 {
-    "sku": "ATT_MX_10-I",
-    "fiat_currency": "USD",
-    "digital_asset": "USDC",
-    "chain_id": 137
+  "sku": "ATT_MX_10-I",
+  "fiat_currency": "USD",
+  "digital_asset": "USDC",
+  "chain_id": 137
 }
 ```
 
 Field descriptions:
+
 - `sku`: Product identifier (e.g., "TMOBILE_US_001-ROW_0081" )
 - `fiat_currency`: Local currency code (e.g., "MXN", "USD")
 - `digital_asset`: Digital token symbol (e.g., "USDC", "USDT")
@@ -32,56 +38,60 @@ Field descriptions:
 
 ```json
 {
-    "error": "",
-    "message": "Quote created successfully.",
-    "data": {
-        "fiat_currency": "USD",
-        "fiat_amount": "10.00",
-        "digital_asset": "USDC",
-        "digital_asset_amount": "0.58",
-        "total_amount": "0.60",
-        "sku": "ATT_MX_10-I"
-    }
+  "error": "",
+  "message": "Quote created successfully.",
+  "data": {
+    "fiat_currency": "USD",
+    "fiat_amount": "10.00",
+    "digital_asset": "USDC",
+    "digital_asset_amount": "0.58",
+    "total_amount": "0.60",
+    "sku": "ATT_MX_10-I"
+  }
 }
 ```
 
 ## Common Use Cases
 
 ### 1. Mobile Top-up Quote
+
 ```json
 {
-    "sku": "TMOBILE_US_001-ROW_0081",
-    "fiat_currency": "USD",
-    "digital_asset": "USDC",
-    "chain_id": 137
+  "sku": "TMOBILE_US_001-ROW_0081",
+  "fiat_currency": "USD",
+  "digital_asset": "USDC",
+  "chain_id": 137
 }
 ```
 
 ### 2. Gift Card Quote
+
 ```json
 {
-    "sku": "AMAZON_MX_500-I",
-    "fiat_currency": "USD",
-    "digital_asset": "USDT",
-    "chain_id": 137
+  "sku": "AMAZON_MX_500-I",
+  "fiat_currency": "USD",
+  "digital_asset": "USDT",
+  "chain_id": 137
 }
 ```
 
 ### 3. eSIM Quote
+
 ```json
 {
-    "sku": "ESIM_US_30D-I",
-    "fiat_currency": "USD",
-    "digital_asset": "USDC",
-    "chain_id": 1
+  "sku": "ESIM_US_30D-I",
+  "fiat_currency": "USD",
+  "digital_asset": "USDC",
+  "chain_id": 1
 }
 ```
-
 
 ## Understanding the Quote
 
 The quote response includes:
+
 1. **Original Price**
+
    - `fiat_currency`: Local currency (MXN, USD, etc.)
    - `fiat_amount`: Price in local currency
 
@@ -89,10 +99,10 @@ The quote response includes:
    - `digital_asset`: Token used (USDC, USDT, etc.)
    - `digital_asset_amount`: Base price in tokens
 
-
 ## Best Practices
 
 1. **Currency Conversion**
+
    - Rates update in real-time
    - Final amounts may vary slightly
    - Always use latest quote for transactions
@@ -101,4 +111,3 @@ The quote response includes:
    - Use correct SKU format: BRAND_COUNTRY_AMOUNT-I
    - Check SKU exists
    - Verify product availability
-

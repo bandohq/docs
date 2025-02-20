@@ -1,5 +1,5 @@
-Here’s the updated content with paraphrased comments in the code examples:
-
+---
+description: "Detailed guide for integrating Bando's payment widget with Next.js. Learn how to add crypto payments to your Next.js application."
 ---
 
 # Integration with Next.js

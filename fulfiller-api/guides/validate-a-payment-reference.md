@@ -1,13 +1,19 @@
+---
+description: "Technical guide for validating payment references in Bando. Ensure secure transaction processing with our validation endpoints."
+---
+
 # Validating Payment References
 
 ## Checking Reference Status
 
 ### Endpoint
+
 ```http
 GET /references?validation_id=your-validation-id
 ```
 
 ### Response Example
+
 ```json
 [
   {
@@ -18,13 +24,14 @@ GET /references?validation_id=your-validation-id
     "created_at": "2024-02-17T12:00:00Z",
     "transaction_intent": {
       "status": "PENDING",
-      "amount": 50.00
+      "amount": 50.0
     }
   }
 ]
 ```
 
 ## Reference States
+
 - `PENDING`: Initial validation in progress
 - `FAILED`: Validation failed
 - `COMPLETED`: Transaction validation completed successfully
@@ -32,6 +39,7 @@ GET /references?validation_id=your-validation-id
 ## Required Fields by Brand
 
 ### LLBean Gift Cards
+
 ```json
 {
   "requiredFields": [
@@ -48,6 +56,7 @@ GET /references?validation_id=your-validation-id
 ```
 
 ### IHOP Gift Cards
+
 ```json
 {
   "requiredFields": [
@@ -82,21 +91,25 @@ GET /references?validation_id=your-validation-id
 ## Best Practices
 
 ### 1. Reference Validation
+
 - Pre-validate using provided regex patterns
 - Include all required fields for the brand
 - Check product requirements before submission
 
 ### 2. Phone Numbers
+
 - Always include country code
 - Remove any unnecessary formatting
 - Validate against the regex pattern
 
 ### 3. Email Addresses
+
 - Validate format before submission
 - Check for required recipient fields
 - Include all brand-specific fields
 
 ### 4. Transaction Intent
+
 - Verify SKU exists for the product
 - Use correct chain ID (e.g., 137 for Polygon)
 - Specify supported tokens (e.g., USDC)
@@ -104,12 +117,13 @@ GET /references?validation_id=your-validation-id
 ## Common Use Cases
 
 ### 1. eSIM Purchase
+
 ```json
 {
   "reference": "+14155552671",
   "transaction_intent": {
     "sku": "fa8d9c2f-d10b-4e2b-8f7a-4f89c5f2aa56",
-    "amount": 62.00,
+    "amount": 62.0,
     "chain": "137",
     "token": "USDC"
   }
@@ -117,6 +131,7 @@ GET /references?validation_id=your-validation-id
 ```
 
 ### 2. Gift Card with All Fields
+
 ```json
 {
   "reference": "recipient@email.com",
@@ -140,7 +155,7 @@ GET /references?validation_id=your-validation-id
   ],
   "transaction_intent": {
     "sku": "1c5afebf-7302-467b-bcaa-d2a3b8b5869f",
-    "amount": 50.00,
+    "amount": 50.0,
     "chain": "137",
     "token": "USDC"
   }
@@ -150,12 +165,14 @@ GET /references?validation_id=your-validation-id
 ## Tips for Success
 
 1. **Validation Process**
+
    - Check product requirements first
    - Validate reference format
    - Include all required fields
    - Verify transaction details
 
 2. **Error Prevention**
+
    - Use correct regex patterns
    - Include brand-specific fields
    - Validate before submission
