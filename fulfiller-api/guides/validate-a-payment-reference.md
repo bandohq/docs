@@ -1,5 +1,5 @@
 ---
-description: "Technical guide for validating payment references in Bando. Ensure secure transaction processing with our validation endpoints."
+description: Technical guide for validating payment references in Bando. Ensure secure transaction processing with our validation endpoints.
 ---
 
 # Validating Payment References

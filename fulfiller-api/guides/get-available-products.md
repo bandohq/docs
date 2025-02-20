@@ -1,5 +1,5 @@
 ---
-description: "Learn how to fetch and display available products through Bando's Fulfiller API. Implementation guide for accessing our catalog of supported services."
+description: Learn how to fetch and display available products through Bando's Fulfiller API. Implementation guide for accessing our catalog of supported services.
 ---
 
 # Products API Guide
