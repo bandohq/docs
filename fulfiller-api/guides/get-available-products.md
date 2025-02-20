@@ -1,3 +1,7 @@
+---
+description: Learn how to fetch and display available products through Bando's Fulfiller API. Implementation guide for accessing our catalog of supported services.
+---
+
 # Products API Guide
 
 Learn how to use our Catalog API to get products organized by type and brand, including product details and validation requirements.
@@ -5,6 +9,7 @@ Learn how to use our Catalog API to get products organized by type and brand, in
 ## Getting Products
 
 Retrieve organized products using:
+
 ```http
 GET /products/grouped
 ```
@@ -23,6 +28,7 @@ GET /products/grouped
 ### 1. eSIM Products
 
 Example response:
+
 ```json
 {
   "products": [
@@ -58,6 +64,7 @@ Example response:
 ```
 
 Key eSIM details:
+
 - Duration and data info in `shortNotes`
 - Coverage details in `notes`
 - Phone validation required for delivery
@@ -66,6 +73,7 @@ Key eSIM details:
 ### 2. Gift Card Products
 
 Example response:
+
 ```json
 {
   "products": [
@@ -110,6 +118,7 @@ Example response:
 ```
 
 Key gift card details:
+
 - Brand and denomination in `shortNotes`
 - Email delivery validation
 - Recipient information required
@@ -118,6 +127,7 @@ Key gift card details:
 ### 3. Top-up Products
 
 Example response:
+
 ```json
 {
   "products": [
@@ -155,9 +165,11 @@ Example response:
 ## Required Fields by Product Type
 
 ### 1. Reference Types
+
 Each product requires specific validation:
 
 - **Email Format (Gift Cards)**
+
   ```json
   {
     "referenceType": {
@@ -178,6 +190,7 @@ Each product requires specific validation:
   ```
 
 ### 2. Additional Fields
+
 Some products require extra information:
 
 ```json
@@ -198,12 +211,14 @@ Some products require extra information:
 ## Product Details to Check
 
 1. **Basic Information**
+
    - `brandName`: Provider name
    - `brandSlug`: Unique brand identifier
    - `imageUrl`: Brand logo URL
    - `order`: Display order priority
 
 2. **Variant Details**
+
    - `shortNotes`: Quick product description
    - `notes`: Detailed information
    - `price`: Pricing information
@@ -217,32 +232,40 @@ Some products require extra information:
 ## Common Use Cases
 
 ### 1. Get eSIMs with Data Details
+
 ```http
 GET /products/grouped?type=esim&country=US
 ```
+
 Shows eSIMs with data packages and duration.
 
 ### 2. View Gift Card Options
+
 ```http
 GET /products/grouped?type=gift_card&brand=llbean
 ```
+
 Displays available gift card denominations.
 
 ### 3. Find Top-up Products
+
 ```http
 GET /products/grouped?type=topup&country=US
 ```
+
 Lists available mobile top-up options.
 
 ## Best Practices
 
 1. **Product Selection**
+
    - Check `shortNotes` for quick info
    - Read `notes` for full details
    - Verify price and currency
    - Look at brand information
 
 2. **Validation Handling**
+
    - Pre-validate reference formats
    - Include all required fields
    - Follow regex patterns

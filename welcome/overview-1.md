@@ -1,4 +1,5 @@
 ---
+description: Get started with Bando's comprehensive payment infrastructure. Learn how to integrate crypto payments for gift cards, bills, and services across 20+ chains.
 cover: ../.gitbook/assets/asymmetric-mint-blue-splat-background.svg
 coverY: 0
 layout:
