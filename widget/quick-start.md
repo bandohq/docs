@@ -2,7 +2,7 @@
 description: Overview and installation guide for the Bando Spend Widget.
 ---
 
-# Bando Widget
+# Widget Quick Start
 
 ## Overview
 

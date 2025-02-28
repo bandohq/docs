@@ -54,7 +54,7 @@ export const WidgetPage = () => {
 ```
 
 {% hint style="info" %}
-You can look for the registered products [using our API](overview/quickstart/).
+You can look for the registered products [using our API](fulfiller-api/guides/get-available-products.md).
 {% endhint %}
 
 To set form values in the Bando widget using URL search parameters, you need to ensure that buildUrl is set to true in the widget config.
