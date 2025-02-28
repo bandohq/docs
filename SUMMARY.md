@@ -13,8 +13,7 @@
   - [Refunds](welcome/architecture/refunds.md)
 
 ## Spending Widget <a href="#widget" id="widget"></a>
-
-- [Widget Overview](widget/overview.md)
+- [Widget Quick Start](widget/quick-start.md)
 - [Installation](widget/install.md)
 - [Configuration](widget/configure.md)
 - [Customization](widget/customization.md)
@@ -22,7 +21,6 @@
 - [Wallet Management](widget/wallet-management.md)
 - [Framework Integration](widget/framework-integration/README.md)
   - [Next.js](widget/framework-integration/nextjs.md)
-  - [Vue.js](widget/framework-integration/vuejs.md)
   - [Svelte](widget/framework-integration/svelte.md)
 
 ## Fulfiller API
