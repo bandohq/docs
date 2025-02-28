@@ -14,7 +14,7 @@
 
 ## Spending Widget <a href="#widget" id="widget"></a>
 
-* [Overview](widget/overview.md)
+* [Widget Overview](widget/overview.md)
 * [Installation](widget/install.md)
 * [Configuration](widget/configure.md)
 * [Customization](widget/customization.md)

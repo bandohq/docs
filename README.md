@@ -13,17 +13,17 @@ Our protocol enables a seamless way for Web3 users to access real-world value th
 
 ## Deep Dive Into Our Solution
 
-* [Protocol Architecture](overview/overview/architecture.md): Understand the technical implementation
-* [Use Cases](overview/overview/use-cases.md): The power of thousands of products for your product, explore integration possibilities
-* [Terminology](overview/overview/terminology.md): Get familiar with protocol concepts
+* [Protocol Architecture](welcome/architecture/): Understand the technical implementation
+* [Use Cases](welcome/use-cases.md): The power of thousands of products for your product, explore integration possibilities
+* [Terminology](welcome/terminology.md): Get familiar with protocol concepts
 
 ## Start Integrating
 
-* [API Documentation](overview/bando-api/): Access our comprehensive API suite
-* [Authentication](overview/bando-api/authentication.md): Secure your integration
-* [Integration Guides](overview/basics/editor.md):
-  * [Product Catalog](overview/bando-api/tutorials/catalog.md): Browse available products
-  * [Payment References](overview/bando-api/tutorials/refs.md): Generate payment references
-  * [Reference Validation](overview/bando-api/tutorials/validate.md): Validate payment references
-  * [Quote Generation](overview/bando-api/tutorials/quote.md): Get real-time pricing
+* [API Documentation](fulfiller-api/api-reference/): Access our comprehensive API suite
+* [Authentication](fulfiller-api/authentication.md): Secure your integration
+* [Integration Guides](fulfiller-api/guides/):
+  * [Product Catalog](fulfiller-api/guides/get-available-products.md): Browse available products
+  * [Payment References](fulfiller-api/guides/get-a-payment-reference.md): Generate payment references
+  * [Reference Validation](fulfiller-api/guides/validate-a-payment-reference.md): Validate payment references
+  * [Quote Generation](fulfiller-api/guides/get-a-quote.md): Get real-time pricing
 
