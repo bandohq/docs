@@ -13,7 +13,6 @@
   - [Refunds](welcome/architecture/refunds.md)
 
 ## Spending Widget <a href="#widget" id="widget"></a>
-
 - [Widget Quick Start](widget/quick-start.md)
 - [Installation](widget/install.md)
 - [Configuration](widget/configure.md)
@@ -42,7 +41,7 @@
 
 ## EVM Smart Contracts
 
-- [Overview](evm-smart-contracts/overview.md)
+- [EVM Smart Contracts | Integration Guide](evm-smart-contracts/overview.md)
 - [Security](evm-smart-contracts/security/README.md)
   - [Access Control](evm-smart-contracts/security/access-control.md)
   - [Security Considerations](evm-smart-contracts/security/security-considerations.md)
