@@ -13,13 +13,13 @@ With the Bando widget, you can configure the following options:
 
 ### Initialize Form Values
 
-The Bando Widget utilizes several form values to retrieve and execute routes. These include `fromToken`,`blockedCountries` and `country`. Typically, these values are set through the widget's UI, but they can also be programmatically initialized and updated.
+The Bando Widget utilizes several form values to retrieve and execute routes. These include `fromToken`,`blockedCountries`, `product` and `country`. Typically, these values are set through the widget's UI, but they can also be programmatically initialized and updated.
 
 By preconfiguring these options, you can enhance the user experience by ensuring that the widget is preloaded with the appropriate chains, tokens, amounts, and addresses for a transaction. This reduces the need for manual input, guiding users through a smoother flow.
 
 #### How to Initialize:
 
-- **Widget Configuration**: You can add values such as `fromToken\`,`blockedCountries\`or`country\` directly into the widget configuration.
+- **Widget Configuration**: You can add values such as `fromToken\`, `product\`,`blockedCountries\`or`country\` directly into the widget configuration.
 - **URL Search Parameters**: If the `buildUrl` option in the widget config is set to `true`, these form values can be added as URL parameters on the page where the widget is displayed.
 
 When you set these form values via configuration or URL parameters, the corresponding form fields in the widget UI will automatically update to reflect those values.
@@ -29,18 +29,21 @@ When you set these form values via configuration or URL parameters, the correspo
 The Bando Widget allows you to preconfigure default chains, products, and countries, making it easy to set up the desired parameters right from the start. Below is an example of how to configure the widget with specific default blocked countries, and country values.
 
 ```typescript
-import type { WidgetConfig } from "@bandohq/widget";
-import { ChainType } from "@bandohq/widget";
+import type { WidgetConfig } from '@bandohq/widget';
+import { ChainType } from '@bandohq/widget';
 
 const widgetConfig: WidgetConfig = {
   // set fromToken
-  fromToken: "0x0000000000000000000000000000000000000000",
+  fromToken: '0x0000000000000000000000000000000000000000',
 
   // set blocked countries
-  blockedCountries: ["CN", "RU"],
+  blockedCountries: ['CN', 'RU'],
 
   // set country (example country)
-  country: "USA",
+  country: 'USA',
+
+  // set product (product id)
+  product: '1234-4567-8901',
 };
 
 export const WidgetPage = () => {
@@ -89,11 +92,11 @@ Once the widget has loaded, you can modify the form values by updating the widge
 Here's an example configuration:
 
 ```typescript
-import type { WidgetConfig } from "@bandohq/widget";
+import type { WidgetConfig } from '@bandohq/widget';
 
 const widgetConfig: WidgetConfig = {
-  blockedCountries: ["CN", "RU"],
-  fromToken: "0x0000000000000000000000000000000000000000",
+  blockedCountries: ['CN', 'RU'],
+  fromToken: '0x0000000000000000000000000000000000000000',
   formUpdateKey: Date.now(),
 };
 ```
@@ -107,35 +110,3 @@ const widgetConfig: WidgetConfig = {
   formUpdateKey: Date.now(),
 };
 ```
-
-<!-- #### Updating by Form Ref
-
-This method allows developers to directly modify the form values using a `formRef`. Here’s an example of how to do this:
-
-```typescript
-import { useRef } from "react";
-import { BandoWidget, FormState } from "@bandohq/widget";
-
-export const WidgetPage = () => {
-  const formRef = useRef<FormState>(null);
-
-  const handleClick = () => {
-    formRef.current?.setFieldValue(
-      "fromToken",
-      "0x0000000000000000000000000000000000000000",
-      {
-        setUrlSearchParam: true,
-      }
-    );
-  };
-
-  return (
-    <>
-      <BandoWidget integrator="Your dApp/company name" formRef={formRef} />
-      <button onClick={handleClick}>Set fromToken to native token</button>
-    </>
-  );
-};
-```
-
-In this approach, the `setFieldValue` function can be used to dynamically update the widget’s form values. -->
