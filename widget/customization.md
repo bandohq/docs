@@ -56,21 +56,7 @@ export const WidgetPage = () => {
 };
 ```
 
-<div style="display: flex; justify-content: center;">
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <img src="../.gitbook/assets/customization-container.png"
-        alt="Customization Change Container" 
-        style="max-height: 550px; display: block; margin: auto; border-radius: 10px;">
-    Before
-  </div>
-
-  <div style="display: flex; flex-direction: column; align-items: center;">
-    <img src="../.gitbook/assets/customization-container-last.png"
-          alt="Customization Change Container"
-          style="max-height: 550px; display: block; margin: auto; border-radius: 10px;">
-    After
-  </div>
-</div>
+![Customization Change Container](../.gitbook/assets/customization-container.png) Before![Customization Change Container](../.gitbook/assets/customization-container-last.png) After
 
 ### Palette, shape, typography
 
@@ -116,9 +102,7 @@ export const WidgetPage = () => {
 };
 ```
 
-<img src="../.gitbook/assets/customization-palete-shape.png" 
-     alt="Customization Change Palette and Typography"
-     style="max-height: 550px; display: block; margin: auto; border-radius: 10px;">
+![Customization Change Palette and Typography](../.gitbook/assets/customization-palete-shape.png)
 
 ### Components
 
@@ -126,15 +110,15 @@ The components option lets you customize the appearance of individual elements w
 
 Here are the current components you can adjust, with more to be added in the future:
 
-- **MuiAppBar** serves as the header or navigation bar at the top.
-- **MuiAvatar** displays token or chain icons.
-- **MuiButton** is used for various buttons throughout the widget.
-- **MuiCard** is used for cards within the widget, offering three customizable variants:
-  - **outlined**: has thin borders as the default style.
-  - **elevation**: adds a shadow effect.
-  - **filled**: features a solid background color (based on the palette.background.paper property).
-- **MuiIconButton** handles icon-based buttons.
-- **MuiInputCard** is used for input forms.
+* **MuiAppBar** serves as the header or navigation bar at the top.
+* **MuiAvatar** displays token or chain icons.
+* **MuiButton** is used for various buttons throughout the widget.
+* **MuiCard** is used for cards within the widget, offering three customizable variants:
+  * **outlined**: has thin borders as the default style.
+  * **elevation**: adds a shadow effect.
+  * **filled**: features a solid background color (based on the palette.background.paper property).
+* **MuiIconButton** handles icon-based buttons.
+* **MuiInputCard** is used for input forms.
 
 With the components option, you can customize each element's appearance using MUI’s `styleOverrides` feature, allowing precise styling adjustments.
 
@@ -205,6 +189,4 @@ export const WidgetPage = () => {
 };
 ```
 
-<img src="../.gitbook/assets/customization-last.png" 
-     alt="Customization Change Palette and Typography"
-     style="max-height: 550px; display: block; margin: auto; border-radius: 10px;">
+![Customization Change Palette and Typography](../.gitbook/assets/customization-last.png)

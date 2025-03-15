@@ -1,12 +1,12 @@
 ---
-description: >-
-  How the Bando Fulfillment Protocol receives new requests.
+description: How the Bando Fulfillment Protocol receives new requests.
 ---
 
 # Order Request
 
-Right after a user has selected a product or service to buy, the wallet will send a request to the Bando Fulfillment Protocol to create a new order.
-Before submitting a request, the according ref MUST have been verified by the Bando backend system and ingested to the RefRegistry smart contract. Once that is in place, a user SHALL interact with the BandoRouter contract to submit a fulfillment request.
+## How Does Requesting an Order Works?
+
+Right after a user has selected a product or service to buy, the wallet will send a request to the Bando Fulfillment Protocol to create a new order. Before submitting a request, the according ref MUST have been verified by the Bando backend system and ingested to the RefRegistry smart contract. Once that is in place, a user SHALL interact with the BandoRouter contract to submit a fulfillment request.
 
 The Bando Router Contract is a smart contract responsible for routing the user's service request to the appropriate Bando Escrow contract using a managed Service Registry contract. The process follows these steps:
 
@@ -36,3 +36,47 @@ sequenceDiagram
     Fulfiller->>BandoEscrow: Monitor for funds
     Fulfiller->>Fulfiller: Process request off-chain
 ```
+
+## Flow of Funds for a Service Request
+
+### Initial Request and Escrow
+
+**Token Approval**
+
+The user (payer) must first approve the BandoRouter contract to spend their ERC20 tokens by calling `approve()` on the ERC20 token contract.
+
+#### Service Request
+
+The user calls `requestERC20Service()` on the `BandoRouterV1_1` contract, specifying:
+
+* Service ID
+* ERC20 token address
+* Token amount
+* Service reference
+* Other request parameters
+
+**Request Validation**
+
+The router validates the request using `FulfillmentRequestLib.validateERC20Request()` to ensure:
+
+* The service exists in the registry
+* The service reference is valid
+* The token is supported
+
+**Fee Calculation**
+
+The router calculates service fees using `FulfillmentRequestLib.calculateFees()`.
+
+**Token Transfer**
+
+The router transfers tokens from the user to the escrow contract using `safeTransferFrom().`
+
+**Escrow Deposit**
+
+The router calls `depositERC20()` on the `BandoERC20Fulfillable` contract.
+
+Record Creation:&#x20;
+
+The escrow contract creates a fulfillment record and stores deposit information.
+
+<figure><img src="../../.gitbook/assets/mermaid-diagram-2025-03-14-175748.png" alt=""><figcaption></figcaption></figure>
