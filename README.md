@@ -1,13 +1,12 @@
 ---
 description: Enabling a new use-case for the Web3 ecosystem.
-cover: .gitbook/assets/default-page-cover.raw-ULGNP2PZ.svg
+cover: .gitbook/assets/Thumbnail.png
 coverY: 0
 ---
 
-# The Web3 Spending Protocol
+# The On-chain Spending Protocol
 
-It's been hard to spend your tokens.&#x20;
-
+It's been hard to spend your tokens.
 
 Our protocol enables a seamless way for Web3 users to access real-world value through gift cards, airtime top-ups, bill payments, in-game items, digital goods, and other fulfillable products or services. We achieve this through smart contracts that securely register and route user spend requests to verified fulfillers.
 
@@ -26,4 +25,3 @@ Our protocol enables a seamless way for Web3 users to access real-world value th
   * [Payment References](fulfiller-api/guides/get-a-payment-reference.md): Generate payment references
   * [Reference Validation](fulfiller-api/guides/validate-a-payment-reference.md): Validate payment references
   * [Quote Generation](fulfiller-api/guides/get-a-quote.md): Get real-time pricing
-
