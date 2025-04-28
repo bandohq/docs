@@ -70,7 +70,7 @@ Key eSIM details:
 - Phone validation required for delivery
 - Various data packages available
 
-### 2. Gift Card Products
+### 2. Prepaid Code Products
 
 Example response:
 
@@ -117,7 +117,7 @@ Example response:
 }
 ```
 
-Key gift card details:
+Key prepaid code details:
 
 - Brand and denomination in `shortNotes`
 - Email delivery validation
@@ -239,13 +239,13 @@ GET /products/grouped?type=esim&country=US
 
 Shows eSIMs with data packages and duration.
 
-### 2. View Gift Card Options
+### 2. View Prepaid Code Options
 
 ```http
 GET /products/grouped?type=gift_card&brand=llbean
 ```
 
-Displays available gift card denominations.
+Displays available prepaid code denominations.
 
 ### 3. Find Top-up Products
 

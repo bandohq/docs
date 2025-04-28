@@ -130,7 +130,7 @@ GET /references?validation_id=your-validation-id
 }
 ```
 
-### 2. Gift Card with All Fields
+### 2. Prepaid Code with All Fields
 
 ```json
 {
