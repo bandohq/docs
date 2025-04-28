@@ -13,7 +13,7 @@ Learn how to handle payment references for transactions. This guide explains how
 A payment reference is any identifier needed to complete a transaction, such as:
 
 - Phone numbers for mobile top-ups and eSIMs
-- Email addresses for gift cards
+- Email addresses for prepaid codes
 
 Each product type has specific reference requirements and validation rules.
 
@@ -50,7 +50,7 @@ Reference requirements:
 - No special characters
 - Some products require extra fields, check the required_fields of the product endpoint
 
-#### 2. Gift Cards
+#### 2. Prepaid Codes
 
 ```json
 {

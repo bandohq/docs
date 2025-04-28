@@ -8,7 +8,7 @@ coverY: 0
 
 It's been hard to spend your tokens.
 
-Our protocol enables a seamless way for Web3 users to access real-world value through gift cards, airtime top-ups, bill payments, in-game items, digital goods, and other fulfillable products or services. We achieve this through smart contracts that securely register and route user spend requests to verified fulfillers.
+Our protocol enables a seamless way for Web3 users to access real-world value through prepaid codes, airtime top-ups, bill payments, in-game items, digital goods, and other fulfillable products or services. We achieve this through smart contracts that securely register and route user spend requests to verified fulfillers.
 
 ## Deep Dive Into Our Solution
 

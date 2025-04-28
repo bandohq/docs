@@ -1,5 +1,5 @@
 ---
-description: Comprehensive overview of Bando's API capabilities. Learn how to enable crypto payments for gift cards, bills, and services in your application.
+description: Comprehensive overview of Bando's API capabilities. Learn how to enable crypto payments for prepaid codes, bills, and services in your application.
 ---
 
 # Fulfiller API

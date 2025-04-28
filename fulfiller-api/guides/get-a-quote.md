@@ -64,7 +64,7 @@ Field descriptions:
 }
 ```
 
-### 2. Gift Card Quote
+### 2. Prepaid Code Quote
 
 ```json
 {

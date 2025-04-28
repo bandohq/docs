@@ -23,7 +23,7 @@ layout:
 
 # Quickstart
 
-The Bando Fulfillment Protocol is a Web3 protocol that enables spending via giftcards, airtime topups, bill payments, in-game articles, digital items and any other sort of “fulfillable” product or service. It does it with the following moving parts:
+The Bando Fulfillment Protocol is a Web3 protocol that enables spending via prepaid codes, airtime topups, bill payments, in-game articles, digital items and any other sort of “fulfillable” product or service. It does it with the following moving parts:
 
 ## On-chain Contracts
 
