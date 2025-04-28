@@ -1,10 +1,10 @@
 ---
 description: The Bando Fulfillment Protocol uses the following terminology.
-cover: ../.gitbook/assets/asymmetric-mint-blue-gradient-splat.svg
+cover: ../.gitbook/assets/Thumbnail.png
 coverY: 0
 ---
 
-# Useful Words
+# Glossary
 
 ## On-chain and Off-chain
 

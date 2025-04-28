@@ -56,6 +56,8 @@ export const WidgetPage = () => {
 };
 ```
 
+![Customization Change Container](../.gitbook/assets/customization-container.png) Before![Customization Change Container](../.gitbook/assets/customization-container-last.png) After
+
 ### Palette, shape, typography
 
 The palette setting allows you to adjust the widget's colors, including backgrounds, greyscale shades, primary and secondary colors, as well as text colors.
@@ -99,6 +101,8 @@ export const WidgetPage = () => {
   );
 };
 ```
+
+![Customization Change Palette and Typography](../.gitbook/assets/customization-palete-shape.png)
 
 ### Components
 
@@ -165,7 +169,7 @@ export const WidgetPage = () => {
         MuiButton: {
           styleOverrides: {
             root: {
-              backgroundColor: "#006Eff",
+              backgroundColor: "red",
               color: "#ffffff",
               borderRadius: "8px",
               "&:hover": {
@@ -184,3 +188,5 @@ export const WidgetPage = () => {
   );
 };
 ```
+
+![Customization Change Palette and Typography](../.gitbook/assets/customization-last.png)

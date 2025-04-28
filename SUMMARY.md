@@ -14,15 +14,14 @@
 
 ## Spending Widget <a href="#widget" id="widget"></a>
 
-* [Widget Overview](widget/overview.md)
-* [Installation](widget/install.md)
+* [Widget Quick Start](widget/quick-start.md)
+* [Installation](widget/installation.md)
 * [Configuration](widget/configure.md)
 * [Customization](widget/customization.md)
 * [Localization](widget/localization.md)
 * [Wallet Management](widget/wallet-management.md)
 * [Framework Integration](widget/framework-integration/README.md)
   * [Next.js](widget/framework-integration/nextjs.md)
-  * [Vue.js](widget/framework-integration/vuejs.md)
   * [Svelte](widget/framework-integration/svelte.md)
 
 ## Fulfiller API
@@ -43,7 +42,7 @@
 
 ## EVM Smart Contracts
 
-* [Overview](evm-smart-contracts/overview.md)
+* [EVM Smart Contracts | Integration Guide](evm-smart-contracts/overview.md)
 * [Security](evm-smart-contracts/security/README.md)
   * [Access Control](evm-smart-contracts/security/access-control.md)
   * [Security Considerations](evm-smart-contracts/security/security-considerations.md)
