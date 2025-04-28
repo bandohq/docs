@@ -38,7 +38,7 @@ GET /references?validation_id=your-validation-id
 
 ## Required Fields by Brand
 
-### LLBean Gift Cards
+### LLBean Prepaid Codes
 
 ```json
 {
@@ -55,7 +55,7 @@ GET /references?validation_id=your-validation-id
 }
 ```
 
-### IHOP Gift Cards
+### IHOP Prepaid Codes
 
 ```json
 {

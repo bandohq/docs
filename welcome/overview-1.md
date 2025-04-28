@@ -1,5 +1,5 @@
 ---
-description: Get started with Bando's comprehensive payment infrastructure. Learn how to integrate crypto payments for gift cards, bills, and services across 20+ chains.
+description: Get started with Bando's comprehensive payment infrastructure. Learn how to integrate crypto payments for prepaid codes, bills, and services across 20+ chains.
 cover: ../.gitbook/assets/asymmetric-mint-blue-splat-background.svg
 coverY: 0
 layout:
@@ -20,7 +20,7 @@ layout:
 
 # Quickstart
 
-The Bando Fulfillment Protocol is a Web3 protocol that enables spending via giftcards, airtime topups, bill payments, in-game articles, digital items and any other sort of “fulfillable” product or service. It does it with the following moving parts:
+The Bando Fulfillment Protocol is a Web3 protocol that enables spending via prepaid codes, airtime topups, bill payments, in-game articles, digital items and any other sort of “fulfillable” product or service. It does it with the following moving parts:
 
 ## On-chain Contracts
 

@@ -168,7 +168,7 @@ Example response:
 
 Each product requires specific validation:
 
-- **Email Format (Gift Cards)**
+- **Email Format (Prepaid Codes)**
 
   ```json
   {

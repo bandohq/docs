@@ -10,7 +10,7 @@ Let's dive into the juicy stuff – the use cases for the Bando Fulfillment Prot
 
 ### 1. **Enable the Spending Feature**
 
-The Bando Fulfillment Protocol enables spending for the Web3 ecosystem via gift cards, airtime top-ups, bill payments, in-game items, digital goods, and any other fulfillable product or service. It does this with a set of smart contracts that register and route user spend requests to the corresponding fulfiller to make the request whole.
+The Bando Fulfillment Protocol enables spending for the Web3 ecosystem via prepaid codes, airtime top-ups, bill payments, in-game items, digital goods, and any other fulfillable product or service. It does this with a set of smart contracts that register and route user spend requests to the corresponding fulfiller to make the request whole.
 
 ### 2. **Recurrent Bill Payments for Web3**
 
@@ -22,7 +22,7 @@ Gamers can use crypto to purchase in-game items, skins, or other digital goods d
 
 ### 4. **Loyalty Programs and Rewards**
 
-Use the Bando Fulfillment Protocol to create loyalty programs and rewards for your users. They can earn crypto for completing tasks, making purchases, or referring friends, then redeem it for gift cards, discounts, or other rewards.
+Use the Bando Fulfillment Protocol to create loyalty programs and rewards for your users. They can earn crypto for completing tasks, making purchases, or referring friends, then redeem it for prepaid codes, discounts, or other rewards.
 
 ### 5. **Charity Donations**
 
