@@ -42,7 +42,22 @@
 
 ## EVM Smart Contracts
 
-* [EVM Smart Contracts | Integration Guide](evm-smart-contracts/overview.md)
+* [EVM Smart Contracts | Architecture](evm-smart-contracts/contract-architecture.md)
+* [Contracts](evm-smart-contracts/contracts/core-concepts.md)
+  * [Core](evm-smart-contracts/contracts/core/BandoERC20Fulfillable.md)
+    * [BandoERC20Fulfillable](evm-smart-contracts/contracts/core/BandoERC20Fulfillable.md)
+    * [BandoFulfillmentManager](evm-smart-contracts/contracts/core/BandoFulfillmentManager.md)
+    * [BandoFulfillable](evm-smart-contracts/contracts/core/BandoFulfillable.md)
+    * [BandoRouter](evm-smart-contracts/contracts/core/BandoRouter.md)
+    * [FulfillmentTypes](evm-smart-contracts/contracts/core/FulfillmentTypes.md)
+  * [Libraries](evm-smart-contracts/libraries/README.md)
+    * [FulfillmentRequestLib](evm-smart-contracts/libraries/FulfillmentRequestLib.md)
+    * [SwapLib](evm-smart-contracts/libraries/SwapLib.md)
+  * [Periphery](evm-smart-contracts/periphery/README.md)
+    * [ERC20TokenRegistry](evm-smart-contracts/periphery/ERC20TokenRegistry.md)
+    * [FulfillableRegistry](evm-smart-contracts/periphery/FulfillableRegistry.md)
+  * [Proxy](evm-smart-contracts/proxy/ProxyOverview.md)
+    * [Upgradeability](evm-smart-contracts/proxy/upgradeability.md)
 * [Security](evm-smart-contracts/security/README.md)
   * [Access Control](evm-smart-contracts/security/access-control.md)
   * [Security Considerations](evm-smart-contracts/security/security-considerations.md)
