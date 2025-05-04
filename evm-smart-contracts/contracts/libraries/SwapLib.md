@@ -1,9 +1,5 @@
 ## SwapLib
 
-| File | Notes |
-| -------- | -------- |
-| [`SwapLib.sol`](../../contracts/libraries/SwapLib.sol) | Library for swapping tokens to stablecoins |
-
 ## Overview
 
 The `SwapLib` library provides functionality for swapping tokens to stablecoins using DEX aggregators. It handles the logic for distributing swapped amounts proportionally between releaseable pools and fee pools. The library is used by the V1_2 versions of the fulfillable contracts to enable stablecoin swapping capabilities.

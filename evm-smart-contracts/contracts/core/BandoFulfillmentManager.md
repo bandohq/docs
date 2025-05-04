@@ -1,13 +1,5 @@
 ## BandoFulfillmentManager
 
-| File | Notes |
-| -------- | -------- |
-| [`BandoFulfillmentManagerV1.sol`](../../contracts/BandoFulfillmentManagerV1.sol) | Initial version with core functionality |
-| [`BandoFulfillmentManagerV1_1.sol`](../../contracts/BandoFulfillmentManagerV1_1.sol) | Enhanced version with optimizations |
-| [`BandoFulfillmentManagerV1_2.sol`](../../contracts/BandoFulfillmentManagerV1_2.sol) | Latest version with stablecoin swapping |
-| [`IBandoFulfillable.sol`](../../contracts/IBandoFulfillable.sol) | Interface for native currency fulfillable |
-| [`IBandoERC20Fulfillable.sol`](../../contracts/IBandoERC20Fulfillable.sol) | Interface for ERC20 token fulfillable |
-
 ## Overview
 
 The `BandoFulfillmentManager` is the central component of the EVM Fulfillment Protocol that manages the registration of fulfillment results and coordinates between fulfillable contracts and the service registry. It serves as the primary entry point for fulfillers to register the results of fulfillment operations and manages the withdrawal of funds for both native currency and ERC20 tokens.

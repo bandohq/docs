@@ -1,9 +1,20 @@
 ## ERC20TokenRegistry
 
-| File | Notes |
-| -------- | -------- |
-| [`ERC20TokenRegistryV1.sol`](../../contracts/periphery/registry/ERC20TokenRegistryV1.sol) | Implementation of the ERC20 token registry |
-| [`IERC20TokenRegistry.sol`](../../contracts/periphery/registry/IERC20TokenRegistry.sol) | Interface for the ERC20 token registry |
+## Overview
+
+The `ERC20TokenRegistry` contract manages a whitelist of ERC20 tokens that can be used for fulfillment services in the Bando Protocol. It ensures that only approved tokens can be used for ERC20 fulfillment requests and manages swap fee basis points for each token.
+
+The `ERC20TokenRegistry` is responsible for:
+* Maintaining a whitelist of approved ERC20 tokens
+* Managing swap fee basis points for each whitelisted token
+* Providing validation functions to check if a token is whitelisted
+
+The contract uses the UUPS (Universal Upgradeable Proxy Standard) pattern for upgradeability and inherits from OpenZeppelin's OwnableUpgradeable for access control.
+
+The `ERC20TokenRegistry` responsibilities can be broken down into the following concepts:
+* [Token Whitelisting](#token-whitelisting)
+* [Swap Fee Management](#swap-fee-management)
+* [Token Validation](#token-validation)
 
 ## Overview
 

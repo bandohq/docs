@@ -1,13 +1,5 @@
 ## BandoFulfillable
 
-| File | Notes |
-| -------- | -------- |
-| [`BandoFulfillableV1.sol`](../../contracts/BandoFulfillableV1.sol) | Initial version with core functionality |
-| [`BandoFulfillableV1_1.sol`](../../contracts/BandoFulfillableV1_1.sol) | Enhanced version with optimizations |
-| [`BandoFulfillableV1_2.sol`](../../contracts/BandoFulfillableV1_2.sol) | Latest version with stablecoin swapping |
-| [`IBandoFulfillable.sol`](../../contracts/IBandoFulfillable.sol) | Base interface |
-| [`IBandoFulfillableV1_2.sol`](../../contracts/IBandoFulfillableV1_2.sol) | Interface for V1_2 |
-
 ## Overview
 
 The `BandoFulfillable` contract manages the escrow and distribution of native currency for fulfillment services. It holds funds in escrow until fulfillment results are registered, then manages the release of funds to beneficiaries and fee accumulation.

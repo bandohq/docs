@@ -1,9 +1,5 @@
 ## FulfillmentTypes
 
-| File | Notes |
-| -------- | -------- |
-| [`FulfillmentTypes.sol`](../../contracts/FulfillmentTypes.sol) | Core data structures for the EVM Fulfillment Protocol |
-
 ## Overview
 
 The `FulfillmentTypes.sol` file defines the core data structures used throughout the EVM Fulfillment Protocol. These types represent the fundamental entities in the fulfillment process, including requests, results, and records for both native currency and ERC20 token fulfillments.

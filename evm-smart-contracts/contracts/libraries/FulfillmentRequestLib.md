@@ -1,9 +1,5 @@
 ## FulfillmentRequestLib
 
-| File | Notes |
-| -------- | -------- |
-| [`FulfillmentRequestLib.sol`](../../contracts/libraries/FulfillmentRequestLib.sol) | Library for validating fulfillment requests and calculating fees |
-
 ## Overview
 
 The `FulfillmentRequestLib` library provides utility functions for validating fulfillment requests and calculating fees. It is used by the `BandoRouter` to ensure that requests meet the required criteria before being forwarded to the fulfillable contracts.

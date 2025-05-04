@@ -1,14 +1,5 @@
 ## BandoERC20Fulfillable
 
-| File | Notes |
-| -------- | -------- |
-| [`BandoERC20FulfillableV1.sol`](../../contracts/BandoERC20FulfillableV1.sol) | Initial version with core functionality |
-| [`BandoERC20FulfillableV1_1.sol`](../../contracts/BandoERC20FulfillableV1_1.sol) | Enhanced version with optimizations |
-| [`BandoERC20FulfillableV1_2.sol`](../../contracts/BandoERC20FulfillableV1_2.sol) | Latest version with stablecoin swapping |
-| [`IBandoERC20Fulfillable.sol`](../../contracts/IBandoERC20Fulfillable.sol) | Base interface |
-| [`IBandoERC20FulfillableV1_1.sol`](../../contracts/IBandoERC20FulfillableV1_1.sol) | Interface for V1_1 |
-| [`IBandoERC20FulfillableV1_2.sol`](../../contracts/IBandoERC20FulfillableV1_2.sol) | Interface for V1_2 |
-
 ## Overview
 
 The `BandoERC20Fulfillable` contract manages the escrow and distribution of ERC20 tokens for fulfillment services. It holds tokens in escrow until fulfillment results are registered, then manages the release of tokens to beneficiaries and fee accumulation.

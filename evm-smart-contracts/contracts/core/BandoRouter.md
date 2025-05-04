@@ -1,12 +1,5 @@
 ## BandoRouter
 
-| File | Notes |
-| -------- | -------- |
-| [`BandoRouterV1.sol`](../../contracts/BandoRouterV1.sol) | Initial version with core functionality |
-| [`BandoRouterV1_1.sol`](../../contracts/BandoRouterV1_1.sol) | Enhanced version with optimizations |
-| [`IBandoFulfillable.sol`](../../contracts/IBandoFulfillable.sol) | Interface for native currency fulfillable |
-| [`IBandoERC20Fulfillable.sol`](../../contracts/IBandoERC20Fulfillable.sol) | Interface for ERC20 token fulfillable |
-
 ## Overview
 
 The `BandoRouter` serves as the main entry point for users to submit fulfillment requests. It routes requests to the appropriate fulfillable contracts, validates service information, and ensures that tokens and amounts meet the required criteria before processing.

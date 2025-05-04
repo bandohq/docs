@@ -1,14 +1,5 @@
 ## Proxy Contracts Overview
 
-| File | Notes |
-| -------- | -------- |
-| [`BandoRouterProxy.sol`](../../contracts/proxy/BandoRouterProxy.sol) | Proxy for the BandoRouter contract |
-| [`BandoFulfillmentManagerProxy.sol`](../../contracts/proxy/BandoFulfillmentManagerProxy.sol) | Proxy for the BandoFulfillmentManager contract |
-| [`BandoFulfillableProxy.sol`](../../contracts/proxy/BandoFulfillableProxy.sol) | Proxy for the BandoFulfillable contract |
-| [`BandoERC20FulfillableProxy.sol`](../../contracts/proxy/BandoERC20FulfillableProxy.sol) | Proxy for the BandoERC20Fulfillable contract |
-| [`FulfillableRegistryProxy.sol`](../../contracts/proxy/FulfillableRegistryProxy.sol) | Proxy for the FulfillableRegistry contract |
-| [`ERC20TokenRegistryProxy.sol`](../../contracts/proxy/ERC20TokenRegistryProxy.sol) | Proxy for the ERC20TokenRegistry contract |
-
 ## Overview
 
 The EVM Fulfillment Protocol uses the Universal Upgradeable Proxy Standard (UUPS) pattern to enable contract upgradeability. This approach allows the protocol to evolve while preserving contract state and addresses.
