@@ -1,10 +1,11 @@
 ---
-description: Audit reports and more.
+description: A list of independent security audits performed on the BFP.
 ---
 
 # Audits
 
-{% hint style="warning" %}
-Security audits on all of our smart contracts are currently being performed and we will post the results here as soon as they are ready.
-{% endhint %}
+## Zokyo | November, 2024
 
+{% file src="../../.gitbook/assets/BANDO COOL S.A. DE C.V. _Zokyo_audit_report_Nov25th_2024.pdf" %}
+Zokyo audited Bando Fulfillment Protocol on Nov, 2024
+{% endfile %}

@@ -48,4 +48,4 @@
   * [Security Considerations](evm-smart-contracts/security/security-considerations.md)
   * [Rekt Test](evm-smart-contracts/security/rekt-test.md)
   * [Audits](evm-smart-contracts/security/audits.md)
-* [Contracts](https://github.com/bandohq/evm-fulfillment-protocol)
+* [Code](https://github.com/bandohq/evm-fulfillment-protocol)
