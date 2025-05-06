@@ -8,7 +8,7 @@ What is this "Rekt Test" you may ask? \
 It's a simple 12-question test to self-assess the security of digital asset protocols written by [Trail of Bits](https://blog.trailofbits.com/2023/08/14/can-you-pass-the-rekt-test/).
 
 1. _Do you have all actors, roles, and privileges documented?_\
-   _Yes. Find them in the contracts_ [overview.md](../overview.md "mention") page.
+   _Yes. Find them in the contracts_ [Broken link](broken-reference "mention") page.
 2. _Do you keep documentation of all the external services, contracts, and oracles you rely on?_\
    _Yes. Look at the_ [http://github.com/bandohq/evm-fulfillment-protocol](http://github.com/bandohq/evm-fulfillment-protocol) repo.
 3. _Do you have a written and tested incident response plan?_\

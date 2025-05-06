@@ -1,15 +1,17 @@
 ---
-description: Comprehensive overview of Bando's API capabilities. Learn how to enable crypto payments for prepaid codes, bills, and services in your application.
+description: >-
+  Comprehensive overview of Bando's API capabilities. Learn how to enable crypto
+  payments for prepaid codes, bills, and services in your application.
 ---
 
-# Fulfiller API
+# Get Started with the API
 
 ## Start Integrating
 
-- [API Documentation](/fulfiller-api/api-reference/): Access our comprehensive API suite
-- [Authentication](/fulfiller-api/authentication.md): Secure your integration
-- [Integration Guides](/fulfiller-api/guides/):
-  - [Product Catalog](/fulfiller-api/guides/get-available-products.md): Browse available products
-  - [Payment References](/fulfiller-api/guides/get-a-payment-reference.md): Generate payment references
-  - [Reference Validation](/fulfiller-api/guides/validate-a-payment-reference.md): Validate payment references
-  - [Quote Generation](/fulfiller-api/guides/get-a-quote.md): Get real-time pricing
+* [API Documentation](api-reference.md): Access our comprehensive API suite
+* [Authentication](authentication.md): Secure your integration
+* [Integration Guides](guides/):
+  * [Product Catalog](guides/get-available-products.md): Browse available products
+  * [Payment References](guides/get-a-payment-reference.md): Generate payment references
+  * [Reference Validation](guides/validate-a-payment-reference.md): Validate payment references
+  * [Quote Generation](guides/get-a-quote.md): Get real-time pricing
