@@ -6,10 +6,6 @@ description: >-
 
 # API Reference
 
-{% openapi-operation spec="bando-api" path="/products/" method="get" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
 {% openapi-operation spec="bando-api" path="/products/grouped/" method="get" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
