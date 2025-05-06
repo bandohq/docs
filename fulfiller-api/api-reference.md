@@ -1,7 +1,8 @@
 ---
 description: >-
   Complete API reference for Bando's Fulfiller endpoints. Detailed documentation
-  for integrating crypto payment processing into your application.
+  for the integrating the first fully integrated web3 spending use-case for your
+  wallet or Dapp.
 ---
 
 # API Reference
