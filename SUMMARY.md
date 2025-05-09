@@ -15,7 +15,6 @@
 ## Spending Widget <a href="#widget" id="widget"></a>
 
 * [Widget Quick Start](widget/quick-start.md)
-* [Installation](widget/installation.md)
 * [Configuration](widget/configure.md)
 * [Customization](widget/customization.md)
 * [Localization](widget/localization.md)

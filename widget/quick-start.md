@@ -4,20 +4,22 @@ description: Overview and installation guide for the Bando Spend Widget.
 
 # Widget Quick Start
 
+{% embed url="https://www.youtube.com/watch?v=QKA4T3PUIps" %}
+Tutorial completo de Bando Widget
+{% endembed %}
+
 ## Overview
 
-The **Bando Widget** is a collection of prebuilt UI components designed to simplify the purchase of products and payment for services across various institutions using tokens and other digital assets. It provides flexible styling options to seamlessly integrate with your web application, helping you enhance your platform’s functionality and attract a broader user base.
+The **Bando Widget** is a collection of prebuilt UI components designed to simplify the purchase of products and payment for services across various institutions using tokens and other digital assets. It provides flexible styling options to seamlessly integrate with your web application, helping you enhance your platform's functionality and attract a broader user base.
 
 ### Features
 
 - Supports all ecosystems, chains, and products available in Bando.
 - Flexible styling options to match your app's design.
 - Built-in wallet management UI, with the option to use your own (Wagmi, Solana).
-- Fully localized UI, adapting to your users’ preferred language.
+- Fully localized UI, adapting to your users' preferred language.
 - Compatibility with multiple frontend frameworks:
   - **React**, **Next.js**, **Vue**, **Nuxt.js**, **Svelte**, **Remix**, **Gatsby**, **Vite**, **CRA**, **RainbowKit**.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/QKA4T3PUIps?si=o_KTUcKipf8-gT32" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ---
 
@@ -96,13 +98,13 @@ export const WidgetPage = () => {
 
 ## Next Steps
 
-- **[Configure the Widget](widget/configuration.md)** – Learn how to adjust settings.
-- **[Localization](widget/localization.md)** – Customize the language support.
-- **[Customize Styles](widget/customize-styles.md)** – Modify UI elements to match your brand.
-- **[Wallet Management](widget/wallet-management.md)** – Manage wallets with built-in options or external solutions.
+- **[Configure the Widget](configure.md)** – Learn how to adjust settings.
+- **[Localization](localization.md)** – Customize the language support.
+- **[Customize Styles](customization.md)** – Modify UI elements to match your brand.
+- **[Wallet Management](wallet-management.md)** – Manage wallets with built-in options or external solutions.
 - **Guides:**
-  - [Next.js](widget/guides/next.md)
-  - [Svelte](widget/guides/svelte.md)
+  - [Next.js](framework-integration/nextjs.md)
+  - [Svelte](framework-integration/svelte.md)
 
 ---
 
