@@ -17,6 +17,8 @@ The **Bando Widget** is a collection of prebuilt UI components designed to simpl
 - Compatibility with multiple frontend frameworks:
   - **React**, **Next.js**, **Vue**, **Nuxt.js**, **Svelte**, **Remix**, **Gatsby**, **Vite**, **CRA**, **RainbowKit**.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QKA4T3PUIps?si=o_KTUcKipf8-gT32" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ---
 
 ## Installation
@@ -65,7 +67,7 @@ Once the widget is installed, you can integrate it into your application with th
 
 ### 1. Import and Configure the Widget
 
-Create a configuration object to customize the widget’s appearance and behavior:
+Create a configuration object to customize the widget's appearance and behavior:
 
 ```tsx
 import { BandoWidget, WidgetConfig } from '@bandohq/widget';
