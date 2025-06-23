@@ -7,19 +7,29 @@ description: >-
 
 # API Reference
 
+[Download Open API Specification](https://api.bando.cool/api/v1/openapi.json)
+
 {% openapi-operation spec="bando-api" path="/products/grouped/" method="get" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="bando-api" path="/references/" method="get" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
-{% openapi-operation spec="bando-api" path="/references/" method="post" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
 {% openapi-operation spec="bando-api" path="/quotes/" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="bando-api" path="/wallets/{address}/" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="bando-api" path="/wallets/{address}/transactions/" method="post" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="bando-api" path="/wallets/{address}/transactions/" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="bando-api" path="/wallets/{address}/transactions/{transactionId}/" method="get" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
@@ -31,19 +41,7 @@ description: >-
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-{% openapi-operation spec="bando-api" path="/transactions/{transactionId}/" method="get" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
 {% openapi-operation spec="bando-api" path="/networks/" method="get" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
-{% openapi-operation spec="bando-api" path="/wallets/{address}/transactions/" method="get" %}
-[Broken link](broken-reference)
-{% endopenapi-operation %}
-
-{% openapi-operation spec="bando-api" path="/wallets/{address}/" method="get" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
