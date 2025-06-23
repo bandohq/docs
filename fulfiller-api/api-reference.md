@@ -3,8 +3,6 @@ description: >-
   Complete API reference for Bando's Fulfiller endpoints. Detailed documentation
   for the integrating the first fully integrated web3 spending use-case for your
   wallet or Dapp.
-
-  [Download Open API Specification](https://api.bando.cool/api/v1/openapi.json)
 ---
 
 # API Reference
