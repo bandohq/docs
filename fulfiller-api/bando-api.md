@@ -6,6 +6,8 @@ description: >-
 
 # Get Started with the API
 
+[Download Open API Specification](https://api.bando.cool/api/v1/openapi.json)
+
 ## Start Integrating
 
 * [API Documentation](api-reference.md): Access our comprehensive API suite
