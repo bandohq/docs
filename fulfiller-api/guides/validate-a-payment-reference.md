@@ -8,8 +8,12 @@ description: Technical guide for validating payment references in Bando. Ensure 
 
 ### Endpoint
 
+{% openapi-operation spec="bando-api" path="/references/" method="get" %}
+[Broken link](broken-reference)
+{% endopenapi-operation %}
+
 ```http
-GET /references?validation_id=your-validation-id
+GET /references/
 ```
 
 ### Response Example
