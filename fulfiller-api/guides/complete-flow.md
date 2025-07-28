@@ -12,35 +12,41 @@ description: This guide walks technical users (integrators) through the process 
 
 ## General diagram
 
+![alt text](./complete-flow.svg)
+
+<!---
+
 sequenceDiagram
     participant I as Integrator
     participant BSP as BSP API
     participant Wallet as Wallet Provider
 
     I->>BSP: Query products > GET /products/grouped/
-    BSP-->>I: List of available products
+    BSP- ->>I: List of available products
 
     I->>I: Build Quote
     I->>BSP: Ask for a quotation > POST /quotes/
-    BSP-->>I: quote data (Blockchain transaction data)
+    BSP- ->>I: quote data (Blockchain transaction data)
 
     I->>Wallet: Prompt user to sign/send payment
-    Wallet-->>BSP: [on-chain] Send crypto to walletAddress
-    Wallet-->>I: Return transaction hash
+    Wallet- ->>BSP: [on-chain] Send crypto to walletAddress
+    Wallet- ->>I: Return transaction hash
 
     I->>BSP: POST /wallets/{address}/transactions/ (quoteId, on-chain receipt)
-    BSP-->>I: transactionId, status = PENDING
+    BSP- ->>I: transactionId, status = PENDING
 
     loop Polling
         I->>BSP: GET /wallets/{address}/transactions/{transactionId}/
         alt status = SUCCESS
-            BSP-->>I: status = SUCCESS
+            BSP- ->>I: status = SUCCESS
         else status = FAILED
-            BSP-->>I: status = FAILED
+            BSP- ->>I: status = FAILED
         else status = PENDING
-            BSP-->>I: status = PENDING
+            BSP- ->>I: status = PENDING
         end
     end
+-->
+
 
 
 
@@ -55,11 +61,6 @@ This endpoint returns all spendable products grouped by category.
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-### ✅ cURL Example
-
-```bash
-curl -X GET https://api.bando.cool/api/v1/products/grouped/
-```
 
 ---
 
@@ -67,7 +68,6 @@ curl -X GET https://api.bando.cool/api/v1/products/grouped/
 
 **Endpoint:**
 `POST /quotes/`
-You must specify the `productId` and desired amount.
 
 
 {% openapi-operation spec="bando-api" path="/quotes/" method="post" %}
@@ -75,16 +75,6 @@ You must specify the `productId` and desired amount.
 {% endopenapi-operation %}
 
 
-### ✅ cURL Example
-
-```bash
-curl -X POST https://api.bando.cool/api/v1/quotes/ \
-  -H "Content-Type: application/json" \
-  -d '{
-    "productId": "uber-mx",
-    "amount": 250
-  }'
-```
 
 
 ---
@@ -113,17 +103,6 @@ Use the sender’s wallet address in the path. Submit both `quoteId` and the `pa
 [Broken link](broken-reference)
 {% endopenapi-operation %}
 
-### ✅ cURL Example
-
-```bash
-curl -X POST https://api.bando.cool/api/v1/wallets/0xABCDEF123456789/transactions/ \
-  -H "Content-Type: application/json" \
-  -d '{
-    "quoteId": "q_123456",
-    "paymentTxHash": "0x98b08d729e24..."
-  }'
-```
-
 
 ---
 
@@ -137,13 +116,6 @@ Use this to check the current status (`PENDING`, `SUCCESS`, or `FAILED`) of the 
 {% openapi-operation spec="bando-api" path="/wallets/{address}/transactions/{transactionId}/" method="get" %}
 [Broken link](broken-reference)
 {% endopenapi-operation %}
-
-### ✅ cURL Example
-
-```bash
-curl -X GET https://api.bando.cool/api/v1/wallets/0xABCDEF123456789/transactions/tx_78910/
-```
-
 
 
 ---
