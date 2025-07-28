@@ -10,6 +10,40 @@ description: This guide walks technical users (integrators) through the process 
 
 ---
 
+## General diagram
+
+sequenceDiagram
+    participant I as Integrator
+    participant BSP as BSP API
+    participant Wallet as Wallet Provider
+
+    I->>BSP: Query products > GET /products/grouped/
+    BSP-->>I: List of available products
+
+    I->>I: Build Quote
+    I->>BSP: Ask for a quotation > POST /quotes/
+    BSP-->>I: quote data (Blockchain transaction data)
+
+    I->>Wallet: Prompt user to sign/send payment
+    Wallet-->>BSP: [on-chain] Send crypto to walletAddress
+    Wallet-->>I: Return transaction hash
+
+    I->>BSP: POST /wallets/{address}/transactions/ (quoteId, on-chain receipt)
+    BSP-->>I: transactionId, status = PENDING
+
+    loop Polling
+        I->>BSP: GET /wallets/{address}/transactions/{transactionId}/
+        alt status = SUCCESS
+            BSP-->>I: status = SUCCESS
+        else status = FAILED
+            BSP-->>I: status = FAILED
+        else status = PENDING
+            BSP-->>I: status = PENDING
+        end
+    end
+
+
+
 ## 1. 🔎 Discover Available Products
 
 **Endpoint:**
