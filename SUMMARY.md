@@ -28,6 +28,7 @@
 * [Get Started with the API](fulfiller-api/bando-api.md)
 * [Authentication](fulfiller-api/authentication.md)
 * [Guides](fulfiller-api/guides/README.md)
+  * [Spending flow](fulfiller-api/guides/complete-flow.md)
   * [Get Available Products](fulfiller-api/guides/get-available-products.md)
   * [Get a Payment Reference](fulfiller-api/guides/get-a-payment-reference.md)
   * [Validate a payment reference](fulfiller-api/guides/validate-a-payment-reference.md)
