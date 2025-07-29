@@ -1,15 +1,18 @@
 ---
-description: Technical guide for validating payment references in Bando. Ensure secure transaction processing with our validation endpoints.
+description: >-
+  Technical guide for validating payment references in Bando. Ensure secure
+  transaction processing with our validation endpoints.
+hidden: true
 ---
 
-# Validating Payment References
+# Validate a payment reference
 
 ## Checking Reference Status
 
 ### Endpoint
 
 {% openapi-operation spec="bando-api" path="/references/" method="get" %}
-[Broken link](broken-reference)
+[OpenAPI bando-api](https://api.bando.cool/api/v1/openapi.json)
 {% endopenapi-operation %}
 
 ```http
@@ -36,9 +39,9 @@ GET /references/
 
 ## Reference States
 
-- `PENDING`: Initial validation in progress
-- `FAILED`: Validation failed
-- `COMPLETED`: Transaction validation completed successfully
+* `PENDING`: Initial validation in progress
+* `FAILED`: Validation failed
+* `COMPLETED`: Transaction validation completed successfully
 
 ## Required Fields by Brand
 
@@ -96,27 +99,27 @@ GET /references/
 
 ### 1. Reference Validation
 
-- Pre-validate using provided regex patterns
-- Include all required fields for the brand
-- Check product requirements before submission
+* Pre-validate using provided regex patterns
+* Include all required fields for the brand
+* Check product requirements before submission
 
 ### 2. Phone Numbers
 
-- Always include country code
-- Remove any unnecessary formatting
-- Validate against the regex pattern
+* Always include country code
+* Remove any unnecessary formatting
+* Validate against the regex pattern
 
 ### 3. Email Addresses
 
-- Validate format before submission
-- Check for required recipient fields
-- Include all brand-specific fields
+* Validate format before submission
+* Check for required recipient fields
+* Include all brand-specific fields
 
 ### 4. Transaction Intent
 
-- Verify SKU exists for the product
-- Use correct chain ID (e.g., 137 for Polygon)
-- Specify supported tokens (e.g., USDC)
+* Verify SKU exists for the product
+* Use correct chain ID (e.g., 137 for Polygon)
+* Specify supported tokens (e.g., USDC)
 
 ## Common Use Cases
 
@@ -169,21 +172,17 @@ GET /references/
 ## Tips for Success
 
 1. **Validation Process**
-
-   - Check product requirements first
-   - Validate reference format
-   - Include all required fields
-   - Verify transaction details
-
+   * Check product requirements first
+   * Validate reference format
+   * Include all required fields
+   * Verify transaction details
 2. **Error Prevention**
-
-   - Use correct regex patterns
-   - Include brand-specific fields
-   - Validate before submission
-   - Check reference status
-
+   * Use correct regex patterns
+   * Include brand-specific fields
+   * Validate before submission
+   * Check reference status
 3. **Transaction Details**
-   - Use correct chain IDs
-   - Specify supported tokens
-   - Verify SKU exists
-   - Check amount matches SKU
+   * Use correct chain IDs
+   * Specify supported tokens
+   * Verify SKU exists
+   * Check amount matches SKU

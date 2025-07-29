@@ -1,33 +1,38 @@
 ---
-description: Learn how to generate and manage payment references using Bando's Fulfiller API. Step-by-step guide for implementing secure crypto payment processing.
+description: >-
+  Learn how to generate and manage payment references using Bando's Fulfiller
+  API. Step-by-step guide for implementing secure crypto payment processing.
+hidden: true
 ---
 
-# Payment Reference Guide
+# Get a Payment Reference
+
+## Payment Reference Guide
 
 Learn how to handle payment references for transactions. This guide explains how to create and manage payment references securely.
 
-# Creating Payment References
+## Creating Payment References
 
-## What is a Payment Reference?
+### What is a Payment Reference?
 
 A payment reference is any identifier needed to complete a transaction, such as:
 
-- Phone numbers for mobile top-ups and eSIMs
-- Email addresses for prepaid codes
+* Phone numbers for mobile top-ups and eSIMs
+* Email addresses for prepaid codes
 
 Each product type has specific reference requirements and validation rules.
 
-## Creating a Reference
+### Creating a Reference
 
-### Endpoint
+#### Endpoint
 
 ```http
 POST /references
 ```
 
-### Request Format by Product Type
+#### Request Format by Product Type
 
-#### 1. Mobile Top-ups and eSIMs
+**1. Mobile Top-ups and eSIMs**
 
 ```json
 {
@@ -45,12 +50,12 @@ POST /references
 
 Reference requirements:
 
-- Must match phone regex: `^(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{3}\\)?[-.\\s]?)?\\d{3}[-.\\s]?\\d{4}$`
-- Include country code
-- No special characters
-- Some products require extra fields, check the required_fields of the product endpoint
+* Must match phone regex: `^(\\+?\\d{1,3}[-.\\s]?)?(\\(?\\d{3}\\)?[-.\\s]?)?\\d{3}[-.\\s]?\\d{4}$`
+* Include country code
+* No special characters
+* Some products require extra fields, check the required\_fields of the product endpoint
 
-#### 2. Prepaid Codes
+**2. Prepaid Codes**
 
 ```json
 {
@@ -76,11 +81,11 @@ Reference requirements:
 
 Reference requirements:
 
-- Must match email regex: `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$`
-- Required fields vary by brand
-- Some brands require sender information
+* Must match email regex: `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$`
+* Required fields vary by brand
+* Some brands require sender information
 
-### Response Format
+#### Response Format
 
 ```json
 {
@@ -100,25 +105,19 @@ Reference requirements:
 }
 ```
 
-## Best Practices
+### Best Practices
 
 1. **Reference Format**
-
-   - Validate format client-side before submission
-   - Follow the specific format required by each service
-   - Include country codes for phone numbers
-
+   * Validate format client-side before submission
+   * Follow the specific format required by each service
+   * Include country codes for phone numbers
 2. **Security**
-
-   - Never store references in plain text
-
+   * Never store references in plain text
 3. **Transaction Intent**
-
-   - Always include complete transaction details
-   - Specify the correct blockchain and token
-   - Check amounts and SKUs
-
+   * Always include complete transaction details
+   * Specify the correct blockchain and token
+   * Check amounts and SKUs
 4. **Reference Privacy**
-   - References are stored securely off-chain
-   - Only reference IDs are stored on-chain
-   - Use validation IDs for status checks
+   * References are stored securely off-chain
+   * Only reference IDs are stored on-chain
+   * Use validation IDs for status checks
