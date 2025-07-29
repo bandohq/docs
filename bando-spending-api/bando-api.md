@@ -10,9 +10,15 @@ description: >-
 
 ## Start Integrating
 
+{% content-ref url="complete-flow.md" %}
+[complete-flow.md](complete-flow.md)
+{% endcontent-ref %}
+
+### Learn More
+
 * [API Documentation](api-reference.md): Access our comprehensive API suite
 * [Authentication](authentication.md): Secure your integration
 * [Integration Guides](guides/):
   * [Product Catalog](guides/get-available-products.md): Browse available products
   * [Quote Generation](guides/get-a-quote.md): Get real-time pricing
-  * [Spend Transaction](guides/create-spend-transaction.md): Create a Spend transaction to register a token transfers
+  * [Spend Transaction](../fulfiller-api/guides/create-spend-transaction.md): Create a Spend transaction to register a token transfers

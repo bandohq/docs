@@ -5,20 +5,6 @@ description: >-
   chains.
 cover: ../.gitbook/assets/Thumbnail.png
 coverY: 0
-layout:
-  cover:
-    visible: true
-    size: full
-  title:
-    visible: true
-  description:
-    visible: false
-  tableOfContents:
-    visible: true
-  outline:
-    visible: true
-  pagination:
-    visible: true
 ---
 
 # Quickstart
@@ -35,4 +21,4 @@ Whitelisted entities that can fulfill your user’s requests across one or many 
 
 ### Get Started
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Bando Spend Widget</strong></td><td>Enable spending in minutes</td><td><a href="../.gitbook/assets/blue-splat-with-mint-accents.svg">blue-splat-with-mint-accents.svg</a></td><td></td><td><a href="../widget/">widget</a></td></tr><tr><td><strong>Bando Fulfiller API</strong></td><td>The power of thousands of products to supercharge yours</td><td><a href="../.gitbook/assets/asymmetric-mint-blue-gradient-splat.svg">asymmetric-mint-blue-gradient-splat.svg</a></td><td></td><td><a href="../fulfiller-api/bando-api.md">bando-api.md</a></td></tr><tr><td><strong>Architecture</strong></td><td>Get familiar with our protocol</td><td><a href="../.gitbook/assets/mint-splat-thumbnail-3.svg">mint-splat-thumbnail-3.svg</a></td><td></td><td><a href="architecture/">architecture</a></td></tr></tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="files"></th><th data-hidden></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>Bando Spend Widget</strong></td><td>Enable spending in minutes</td><td><a href="../.gitbook/assets/blue-splat-with-mint-accents.svg">blue-splat-with-mint-accents.svg</a></td><td></td><td><a href="../widget/">widget</a></td></tr><tr><td><strong>Bando Fulfiller API</strong></td><td>The power of thousands of products to supercharge yours</td><td><a href="../.gitbook/assets/asymmetric-mint-blue-gradient-splat.svg">asymmetric-mint-blue-gradient-splat.svg</a></td><td></td><td><a href="../bando-spending-api/bando-api.md">bando-api.md</a></td></tr><tr><td><strong>Architecture</strong></td><td>Get familiar with our protocol</td><td><a href="../.gitbook/assets/mint-splat-thumbnail-3.svg">mint-splat-thumbnail-3.svg</a></td><td></td><td><a href="architecture/">architecture</a></td></tr></tbody></table>

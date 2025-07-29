@@ -14,7 +14,7 @@
 
 ## Spending Widget <a href="#widget" id="widget"></a>
 
-* [Widget Quick Start](widget/quick-start.md)
+* [Widget Quickstart](widget/quick-start.md)
 * [Configuration](widget/configure.md)
 * [Customization](widget/customization.md)
 * [Localization](widget/localization.md)
@@ -23,18 +23,18 @@
   * [Next.js](widget/framework-integration/nextjs.md)
   * [Svelte](widget/framework-integration/svelte.md)
 
-## Fulfiller API
+## Bando Spending API
 
-* [Get Started with the API](fulfiller-api/bando-api.md)
-* [Authentication](fulfiller-api/authentication.md)
-* [Guides](fulfiller-api/guides/README.md)
-  * [🧾 API Quickstart](fulfiller-api/guides/complete-flow.md)
-  * [Get Available Products](fulfiller-api/guides/get-available-products.md)
-  * [Get a Payment Reference](fulfiller-api/guides/get-a-payment-reference.md)
-  * [Validate a payment reference](fulfiller-api/guides/validate-a-payment-reference.md)
-  * [Get a Quote](fulfiller-api/guides/get-a-quote.md)
-  * [Get Available Tokens for a Chain](fulfiller-api/guides/get-available-tokens-for-a-chain.md)
-* [API Reference](fulfiller-api/api-reference.md)
+* [Get Started with the API](bando-spending-api/bando-api.md)
+* [🧾 API Quickstart](bando-spending-api/complete-flow.md)
+* [Authentication](bando-spending-api/authentication.md)
+* [Guides](bando-spending-api/guides/README.md)
+  * [Get Available Products](bando-spending-api/guides/get-available-products.md)
+  * [Get a Payment Reference](bando-spending-api/guides/get-a-payment-reference.md)
+  * [Validate a payment reference](bando-spending-api/guides/validate-a-payment-reference.md)
+  * [Get a Quote](bando-spending-api/guides/get-a-quote.md)
+  * [Get Available Tokens for a Chain](bando-spending-api/guides/get-available-tokens-for-a-chain.md)
+* [API Reference](bando-spending-api/api-reference.md)
 
 ## EVM Smart Contracts
 
