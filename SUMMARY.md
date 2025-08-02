@@ -2,7 +2,7 @@
 
 ## Bando for Developers <a href="#welcome" id="welcome"></a>
 
-* [The On-chain Spending Protocol](README.md)
+* [The Blockchain Spending Protocol](README.md)
 * [Quickstart](welcome/overview-1.md)
 * [Glossary](welcome/terminology.md)
 * [Use Cases](welcome/use-cases.md)
@@ -12,6 +12,7 @@
   * [Old Order request with escrow](welcome/architecture/order-request-1.md)
   * [Order Fulfillment](welcome/architecture/order-fulfillment.md)
   * [Refunds](welcome/architecture/refunds.md)
+  * [Submitting a Fulfillment Result](welcome/architecture/refunds-1.md)
 
 ## Spending Widget <a href="#widget" id="widget"></a>
 
