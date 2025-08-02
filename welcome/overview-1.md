@@ -11,9 +11,9 @@ coverY: 0
 
 The Bando Fulfillment Protocol is a Web3 protocol that enables spending via prepaid codes, airtime topups, bill payments, in-game articles, digital items and any other sort of “fulfillable” product or service. It does it with the following moving parts:
 
-## On-chain Contracts
+## On-chain Transactions
 
-Our set of smart contracts that register and route user’s spend requests to the corresponding fulfiller to make the request whole.
+We use defi liquidity, and stablecoins to accept all major chains and thousands of digital assets for payments.
 
 ## Off-chain Fulfillers
 

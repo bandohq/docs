@@ -8,7 +8,8 @@
 * [Use Cases](welcome/use-cases.md)
 * [Protocol Architecture](welcome/architecture/README.md)
   * [Payment Reference Validation](welcome/architecture/payment-reference-validation.md)
-  * [Order Request](welcome/architecture/order-request.md)
+  * [Transaction Flow](welcome/architecture/order-request.md)
+  * [Old Order request with escrow](welcome/architecture/order-request-1.md)
   * [Order Fulfillment](welcome/architecture/order-fulfillment.md)
   * [Refunds](welcome/architecture/refunds.md)
 

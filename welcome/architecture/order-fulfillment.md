@@ -1,11 +1,11 @@
 ---
-description: >-
-  How the Bando Fulfillment Protocol routes and makes payments for a user.
+description: How the Bando Fulfillment Protocol routes and makes payments for a user.
+hidden: true
 ---
 
-# Fulfilling a request
+# Order Fulfillment
 
-Right after the funds have been transferred to the Bando Escrow contract, the request SHOULD now be considered as fulfillable. This means that a fulfiller can detect this pending service request and perform the necessary payment or order. 
+Right after the funds have been transferred to the Bando Escrow contract, the request SHOULD now be considered as fulfillable. This means that a fulfiller can detect this pending service request and perform the necessary payment or order.
 
 1. To do this, the fulfiller can listen to the ServiceRequested event emitted by the Router after transfer and then process the request.
 2. Once detected, the fulfiller reads the metadata, and processes the payment off chain to the relevant FuP
