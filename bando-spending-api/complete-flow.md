@@ -1,7 +1,5 @@
 ---
-description: >-
-  This guide walks technical users (integrators) through the process of spending
-  via the **Bando Spending Protocol (BSP)**.
+description: Integrate with our API in minutes.
 ---
 
 # 🧾 API Quickstart
@@ -12,9 +10,9 @@ description: >-
 
 ***
 
-## General diagram
+## Full Flow Summary
 
-![alt text](../fulfiller-api/guides/complete-flow.svg)
+<table><thead><tr><th>Step</th><th>Action</th><th>Method</th><th width="248.4609375">Endpoint</th></tr></thead><tbody><tr><td>1</td><td><a href="complete-flow.md#id-1.-discover-available-products">Get products</a></td><td><code>GET</code></td><td><code>/products/grouped/</code></td></tr><tr><td>2</td><td><a href="complete-flow.md#id-2.-fetch-available-chains-and-supported-assets">Get supported assets</a></td><td><code>GET</code></td><td><code>/tokens/{networkKey}/</code></td></tr><tr><td>3</td><td><a href="complete-flow.md#id-3.-create-a-quote">Create quote</a></td><td><code>POST</code></td><td><code>/quotes/</code></td></tr><tr><td>4</td><td><a href="complete-flow.md#id-4.-perform-wallet-payment">Wallet payment (external)</a></td><td>Performed in the client</td><td>N/A</td></tr><tr><td>5</td><td><a href="complete-flow.md#id-5.-register-spending-transaction">Register transaction</a></td><td><code>POST</code></td><td><code>/wallets/{address}/transactions/</code></td></tr><tr><td>6</td><td><a href="complete-flow.md#id-6.-track-transaction-status">Track transaction status</a></td><td><code>GET</code></td><td><code>/wallets/{address}/transactions/{transactionId}/</code></td></tr></tbody></table>
 
 ## 1. 🔎 Discover Available Products
 
@@ -28,7 +26,24 @@ This endpoint returns all spendable products grouped by category.
 
 ***
 
-## 2. 💬 Create a Quote
+## 2. Fetch available chains and supported assets
+
+**Endpoints:**
+
+* `GET /networks/`
+* &#x20;`GET /tokens/{networkKey}`&#x20;
+
+{% openapi-operation spec="bando-api" path="/networks/" method="get" %}
+[OpenAPI bando-api](https://api.bando.cool/api/v1/openapi.json)
+{% endopenapi-operation %}
+
+{% openapi-operation spec="bando-api" path="/tokens/{networkKey}/" method="get" %}
+[OpenAPI bando-api](https://api.bando.cool/api/v1/openapi.json)
+{% endopenapi-operation %}
+
+***
+
+## 3. 💬 Create a Quote
 
 **Endpoint:** `POST /quotes/`
 
@@ -38,20 +53,19 @@ This endpoint returns all spendable products grouped by category.
 
 ***
 
-## 3. 💸 Perform Wallet Payment
+## 4. 💸 Perform Wallet Payment
 
-This step occurs **outside BSP** and involves using the quote response (e.g. `walletAddress`, `amount`) to send crypto via wallet (MetaMask, WalletConnect, CLI, etc.).
+When you're outside the BSP, you can use the quote response `transactionRequest` property to send crypto using a wallet (such as MetaMask, WalletConnect, CLI, etc.).&#x20;
 
-You must:
+Here's what you do:&#x20;
 
-* Initiate the transfer
-* Capture the **payment transaction hash**
-
-💡 Use base units (e.g. wei) and ensure the amount and destination address match the quote.
+* Wait for the transaction to get a receipt. We recommend to wait for at last one confirmation on the blockchain.
+* Start the transfer and make sure to grab the **payment transaction hash**.
+* &#x20;Th transaction returned by the API is compatible with most JS clients. But make sure to format it according to your implementation.
 
 ***
 
-## 4. 📝 Register Spending Transaction
+## 5. 📝 Register Spending Transaction
 
 **Endpoint:** `POST /wallets/{address}/transactions/`
 
@@ -63,7 +77,7 @@ Use the sender’s wallet address in the path. Submit both `quoteId` and the `pa
 
 ***
 
-## 5. 🔍 Track Transaction Status
+## 6. 🔍 Track Transaction Status
 
 **Endpoint:** `GET /wallets/{address}/transactions/{transactionId}/`
 
@@ -74,13 +88,3 @@ Use this to check the current status (`PENDING`, `SUCCESS`, or `FAILED`) of the 
 {% endopenapi-operation %}
 
 ***
-
-## ✅ Full Flow Summary
-
-| Step | Action                    | Method | Endpoint                                           |
-| ---- | ------------------------- | ------ | -------------------------------------------------- |
-| 1    | Get products              | `GET`  | `/products/grouped/`                               |
-| 2    | Create quote              | `POST` | `/quotes/`                                         |
-| 3    | Wallet payment (external) | –      | –                                                  |
-| 4    | Register transaction      | `POST` | `/wallets/{address}/transactions/`                 |
-| 5    | Track transaction status  | `GET`  | `/wallets/{address}/transactions/{transactionId}/` |
