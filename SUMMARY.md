@@ -27,8 +27,7 @@
 
 ## Bando Spending API
 
-* [Get Started with the API](bando-spending-api/bando-api.md)
-* [🧾 API Quickstart](bando-spending-api/complete-flow.md)
+* [Getting started](bando-spending-api/getting-started.md)
 * [Authentication](bando-spending-api/authentication.md)
 * [Guides](bando-spending-api/guides/README.md)
   * [Get Available Products](bando-spending-api/guides/get-available-products.md)

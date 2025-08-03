@@ -2,7 +2,7 @@
 description: Integrate with our API in minutes.
 ---
 
-# 🧾 API Quickstart
+# Getting started
 
 > This guide walks technical users (integrators) through the process of spending via the **Bando Spending Protocol (BSP)**. The flow involves retrieving products, creating a quote, paying with a wallet, registering the transaction, and tracking its status.
 
@@ -12,7 +12,7 @@ description: Integrate with our API in minutes.
 
 ## Full Flow Summary
 
-<table><thead><tr><th>Step</th><th>Action</th><th>Method</th><th width="248.4609375">Endpoint</th></tr></thead><tbody><tr><td>1</td><td><a href="complete-flow.md#id-1.-discover-available-products">Get products</a></td><td><code>GET</code></td><td><code>/products/grouped/</code></td></tr><tr><td>2</td><td><a href="complete-flow.md#id-2.-fetch-available-chains-and-supported-assets">Get supported assets</a></td><td><code>GET</code></td><td><code>/tokens/{networkKey}/</code></td></tr><tr><td>3</td><td><a href="complete-flow.md#id-3.-create-a-quote">Create quote</a></td><td><code>POST</code></td><td><code>/quotes/</code></td></tr><tr><td>4</td><td><a href="complete-flow.md#id-4.-perform-wallet-payment">Wallet payment (external)</a></td><td>Performed in the client</td><td>N/A</td></tr><tr><td>5</td><td><a href="complete-flow.md#id-5.-register-spending-transaction">Register transaction</a></td><td><code>POST</code></td><td><code>/wallets/{address}/transactions/</code></td></tr><tr><td>6</td><td><a href="complete-flow.md#id-6.-track-transaction-status">Track transaction status</a></td><td><code>GET</code></td><td><code>/wallets/{address}/transactions/{transactionId}/</code></td></tr></tbody></table>
+<table><thead><tr><th>Step</th><th>Action</th><th>Method</th><th width="248.4609375">Endpoint</th></tr></thead><tbody><tr><td>1</td><td><a href="getting-started.md#id-1.-discover-available-products">Get products</a></td><td><code>GET</code></td><td><code>/products/grouped/</code></td></tr><tr><td>2</td><td><a href="getting-started.md#id-2.-fetch-available-chains-and-supported-assets">Get supported assets</a></td><td><code>GET</code></td><td><code>/tokens/{networkKey}/</code></td></tr><tr><td>3</td><td><a href="getting-started.md#id-3.-create-a-quote">Create quote</a></td><td><code>POST</code></td><td><code>/quotes/</code></td></tr><tr><td>4</td><td><a href="getting-started.md#id-4.-perform-wallet-payment">Wallet payment (external)</a></td><td>Performed in the client</td><td>N/A</td></tr><tr><td>5</td><td><a href="getting-started.md#id-5.-register-spending-transaction">Register transaction</a></td><td><code>POST</code></td><td><code>/wallets/{address}/transactions/</code></td></tr><tr><td>6</td><td><a href="getting-started.md#id-6.-track-transaction-status">Track transaction status</a></td><td><code>GET</code></td><td><code>/wallets/{address}/transactions/{transactionId}/</code></td></tr></tbody></table>
 
 ## 1. 🔎 Discover Available Products
 
