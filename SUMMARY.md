@@ -6,6 +6,7 @@
 * [Quickstart](welcome/overview-1.md)
 * [Glossary](welcome/terminology.md)
 * [Use Cases](welcome/use-cases.md)
+* [Product Explorer](https://catalog.bando.cool/)
 * [Protocol Architecture](welcome/architecture/README.md)
   * [Payment Reference Validation](welcome/architecture/payment-reference-validation.md)
   * [Transaction Flow](welcome/architecture/order-request.md)
