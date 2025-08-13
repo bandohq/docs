@@ -22,6 +22,4 @@ Our protocol enables a seamless way for Web3 users to access real-world value th
 * [Authentication](bando-spending-api/authentication.md): Secure your integration
 * [Integration Guides](bando-spending-api/guides/):
   * [Product Catalog](bando-spending-api/guides/get-available-products.md): Browse available products
-  * [Payment References](bando-spending-api/guides/get-a-payment-reference.md): Generate payment references
-  * [Reference Validation](bando-spending-api/guides/validate-a-payment-reference.md): Validate payment references
   * [Quote Generation](bando-spending-api/guides/get-a-quote.md): Get real-time pricing
