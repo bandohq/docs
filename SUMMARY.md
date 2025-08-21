@@ -30,6 +30,7 @@
 
 * [Getting started](bando-spending-api/getting-started.md)
 * [Authentication](bando-spending-api/authentication.md)
+* [Development Environment](bando-spending-api/development-environment.md)
 * [Guides](bando-spending-api/guides/README.md)
   * [Explore our Product Catalog](bando-spending-api/guides/get-available-products.md)
   * [Get Available Tokens for a Chain](bando-spending-api/guides/get-available-tokens-for-a-chain.md)
