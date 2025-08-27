@@ -23,6 +23,7 @@
 * [Localization](widget/localization.md)
 * [Wallet Management](widget/wallet-management.md)
 * [Framework Integration](widget/framework-integration/README.md)
+* [Third Party Wallets Integration](widget/wallets-integration.md)
   * [Next.js](widget/framework-integration/nextjs.md)
   * [Svelte](widget/framework-integration/svelte.md)
 
